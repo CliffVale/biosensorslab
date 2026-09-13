@@ -1,7 +1,7 @@
 # Project Memory
 ## Biosensors & Devices Lab — Website
 
-> Last updated: 2026-08-27
+> Last updated: 2026-09-08
 > This file tracks what has been completed, what's in progress, and current state.
 
 ---
@@ -10,27 +10,29 @@
 
 | Item | Status |
 |------|--------|
-| **Build** | ✅ Passing (`npm run build` succeeds) |
-| **Version** | v2.2 — Premium motion system |
-| **Deploy** | ✅ GitHub Pages (auto-deploy on push) |
+| **Build** | ✅ Passing (`npm run build` succeeds, 43 pages) |
+| **Version** | v2.3 — Equipment photos + cleanup |
+| **Deploy** | ✅ GitHub Pages (auto-deploy on push to `main`) |
+| **Repo** | `https://github.com/CliffVale/biosensorslab-website.git` |
 | **Current URL** | https://cliffvale.github.io/biosensorslab/ |
 | **Target URL** | biosensorslab.iitd.ac.in (pending) |
-| **Pages** | 15 pages + 404 = 16 total |
+| **Pages** | 16 pages (43 built with partials) |
 | **Publications** | 19 papers (from BibTeX) |
-| **Team Members** | 10+ (check src/content/team/) |
-| **Equipment** | 21 instruments |
+| **Team Members** | 15 md files (PI + 14 members) |
+| **Equipment** | 31 instruments (31 images, all real photos) |
 | **Patents** | 8 filings |
+| **Funding** | 6 agencies (all logos verified on live site) |
 
 ---
 
 ## What's Been Completed
 
 ### Core Infrastructure
-- [x] Astro project initialized from Scholar-Lite template
-- [x] Tailwind CSS v4 configured via Vite plugin
+- [x] Astro 5.16.2 (DO NOT upgrade)
+- [x] Tailwind CSS v4 via Vite plugin
 - [x] React integration for interactive components
 - [x] Content collection schemas defined
-- [x] Base path set to `/biosensorslab`
+- [x] Base path `/biosensorslab`
 - [x] GitHub Actions auto-deploy workflow
 - [x] BibTeX import pipeline (`scripts/import-bibtex.js`)
 - [x] Pagefind search integration
@@ -42,8 +44,8 @@
 - [x] PI page (Dr. Naveen Kumar Singh)
 - [x] Publications page (19 papers)
 - [x] Patents page (8 filings)
-- [x] Equipment page (21 instruments)
-- [x] Team page + detail pages
+- [x] Equipment page (31 instruments, real photos)
+- [x] Team page + detail pages (15 members)
 - [x] Funding page (6 agencies)
 - [x] Courses page
 - [x] Gallery page
@@ -53,6 +55,17 @@
 - [x] Join Us page
 - [x] Search page
 - [x] 404 error page
+
+### v2.3 — Equipment Photos + Cleanup + Deploy Fix (2026-09-08)
+- [x] Removed leftover "Photos of each instrument are being added" placeholder text from equipment.astro
+- [x] Replaced 10 placeholder equipment images (synthetic gradients 15-18KB) with real lab photos (90-244KB, resized 1400×1050)
+  - analytical-balance.jpg, gel-doc-system.jpg, laminar-airflow-cabinet.jpg, orbital-shaker.jpg
+  - palmsens-8mux.jpg, palmsens-emstat.jpg, protein-electrophoresis-setup.jpg
+  - research-workstations.jpg, soldering-station.jpg, vacuum-oven.jpg
+- [x] All 31 equipment images now show real lab photos (no synthetic placeholders remain)
+- [x] Build verified: 43 pages, no errors
+- [x] Fixed `biosensorslab` deploy: added root-level `.github/workflows/deploy.yml` with `working-directory: website-v2`
+- [x] Live site verified: https://cliffvale.github.io/biosensorslab/ — equipment page shows real photos
 
 ### v2.2 Enhancements (2026-08-27)
 - [x] Hero: Animated gradient mesh background
@@ -76,7 +89,7 @@
 - [x] Added reveal-up/left/scale animation variants
 
 ### v2.1 Enhancements (2026-08-27)
-- [x] Custom CSS easing curves (--ease-out, --ease-in-out, --ease-drawer, --ease-page)
+- [x] Custom CSS easing curves
 - [x] Button press: scale(0.97) with 160ms ease-out
 - [x] Scroll-reveal: enhanced easing + staggered grid children
 - [x] Focus-visible styles for keyboard navigation
@@ -85,10 +98,6 @@
 - [x] Night-photo hover transitions
 - [x] Signal trace SVG animation
 - [x] Comprehensive reduced-motion overrides
-- [x] Anti-slop rules merged into rules.md
-- [x] Accessibility rules merged into rules.md
-- [x] Animation quality rules merged into rules.md
-- [x] AI_SKILLS_ANALYSIS.md created
 
 ### Visual Polish
 - [x] Scroll-reveal animations (`[data-reveal]`)
@@ -113,51 +122,45 @@
 - [x] OG images for all pages
 - [x] Self-hosted Inter font (no Google Fonts)
 
-### AI Workflow Tools
-- [x] Agentation installed (visual feedback)
-- [x] CodeRabbit configured (AI code review)
-- [x] Freebuff session (current)
-- [x] SETUP_GUIDE.md created
-- [x] PRD.md created
-- [x] architecture.md created
-- [x] rules.md created
-- [x] phases.md created
-- [x] design.md created
-- [x] memory.md created (this file)
+### Tools Installed
+- [x] Taste Skill (anti-slop frontend)
+- [x] Vercel web-design-guidelines (100+ audit rules)
+- [x] Playwright CLI
+- [x] CodeRabbit configured (`.coderabbit.yaml`)
+
+### Documentation
+- [x] PRD.md, design.md, architecture.md, rules.md, phases.md
+- [x] memory.md (this file), CONTEXT.md, AGENTS.md
+- [x] SETUP_GUIDE.md
 
 ---
 
 ## What's In Progress
 
 ### Currently Working On
-- **This session:** Setting up AI workflow tools + documentation
-- **Next:** Verify Agentation works in dev mode
-- **Next:** Install CodeRabbit GitHub App
+- Nothing active — last commit `0356624` pushed to GitHub
 
 ### Blocked / Waiting
 - [ ] IITD domain provisioning (waiting for faculty request)
-- [ ] Bhrigu Ranjan photo (unreadable image file)
-- [ ] ANRF high-res logo (only low-res available)
+- [ ] Bhrigu Ranjan photo (no source available)
+- [ ] ANRF high-res logo (only low-res 71×36 available)
 
 ---
 
 ## What's Next (Priority Order)
 
 ### High Priority
-1. **Verify build passes** — Run `npm run build` and confirm
-2. **Install CodeRabbit GitHub App** — Go to coderabbit.ai
-3. **Test Agentation** — Run `npm run dev`, click elements, paste to Freebuff
-4. **Performance audit** — Run Lighthouse, fix any issues
+1. **Performance audit** — Run Lighthouse, fix any issues
+2. **Accessibility audit** — Run axe-core, fix issues
 
 ### Medium Priority
-5. **Image optimization** — Convert to WebP, add lazy loading
-6. **Accessibility audit** — Run axe-core, fix issues
-7. **Add analytics** — Google Analytics or Plausible
+3. **Image optimization** — Convert to WebP, add lazy loading where missing
+4. **Add analytics** — Google Analytics or Plausible
 
 ### Low Priority
-8. **Dark mode toggle** (if PI requests)
-9. **Publications filter** (by year/topic)
-10. **Google Scholar integration**
+5. **Dark mode toggle** (if PI requests)
+6. **Publications filter** (by year/topic)
+7. **Google Scholar integration**
 
 ---
 
@@ -179,7 +182,6 @@
 | `src/components/Header.astro` | Sticky header + mobile menu |
 | `src/components/PublicationItem.astro` | Publication card |
 | `src/components/TeamCard.astro` | Team member card |
-| `src/components/AgentationWrapper.tsx` | React wrapper (dev only) |
 
 ### Styles
 | File | Purpose |
@@ -191,19 +193,19 @@
 |-----------|---------|
 | `src/content/publications/` | Auto-generated from BibTeX |
 | `src/content/research/` | 4 research areas |
-| `src/content/team/` | Team member profiles |
+| `src/content/team/` | 15 team member profiles |
 | `src/content/news/` | Lab news items |
 | `src/content/patents/` | Patent filings |
-| `src/content/equipment/` | Lab instruments |
+| `src/content/equipment/` | 31 lab instruments |
 
 ### Assets
 | Directory | Content |
 |-----------|---------|
 | `src/assets/fonts/` | Self-hosted Inter (woff2) |
-| `src/assets/branding/` | IITD seal, lab banner |
-| `src/assets/equipment/` | Equipment photos (21) |
+| `src/assets/branding/` | IITD seal, lab banner, lab logo |
+| `src/assets/equipment/` | 31 equipment photos (all real lab images) |
 | `src/assets/team/` | Team member photos |
-| `src/assets/funding/` | Funding agency logos |
+| `src/assets/funding/` | 6 funding agency logos |
 | `public/funding-logos/` | Funding logos (string paths) |
 
 ---
@@ -226,21 +228,19 @@
 **Cause:** Missing `basePath` prefix.
 **Fix:** Use `basePath + '/route'` for all internal links.
 
-### Mobile menu not closing
-**Cause:** Resize threshold mismatch.
-**Fix:** Ensure resize handler checks `window.innerWidth >= 1024` (matches `lg:` breakpoint).
-
 ---
 
 ## Git History (Recent)
 
 | Commit | Description |
 |--------|-------------|
-| `2c865a0` | Polish & content refresh: view-transitions, scroll-reveal, hero entrance, Patents page |
-| `617ac49` | Base-path fix: funding logos, research/news/team breadcrumbs |
-| `c1b7722` | Add GitHub Pages Actions deploy; base-path fixes |
-| `e68b11f` | Add PI/Funding/Courses/Gallery/Links/Contact pages; wire nav |
-| `9ce0bf5` | Baseline: Astro template + verified content |
+| `3257c12` | fix: add root-level deploy workflow for biosensorslab monorepo |
+| `b3bff03` | chore: trigger deploy |
+| `0356624` | fix: replace 10 placeholder equipment photos with real lab images, remove leftover placeholder text |
+| `f4c9030` | Fix visual issues: header logo, hero SVG, equipment covers, ANRF logo |
+| `7f7ac73` | Add SEO assets: favicon.ico, favicon.png, manifest.json, sitemap integration |
+| `bc9b8a7` | Add master README + cleanup repo structure |
+| `15f8f6e` | Initial commit: Biosensors Lab Website v1 + v2.2 |
 
 ---
 
@@ -253,3 +253,4 @@
 5. **No dark mode** — This is light-only by design
 6. **Self-hosted fonts** — Never add Google Fonts CDN
 7. **basePath required** — All internal links need `/biosensorslab/` prefix
+8. **No placeholders** — All equipment images must be real photos, not synthetic gradients
