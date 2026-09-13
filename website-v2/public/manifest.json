@@ -1,0 +1,22 @@
+{
+  "name": "Biosensors & Devices Lab — IIT Delhi",
+  "short_name": "Biosensors Lab",
+  "description": "Point-of-care diagnostics, wearable biosensors, and programmable biomaterials — Centre for Biomedical Engineering, IIT Delhi.",
+  "start_url": "/biosensorslab/",
+  "scope": "/biosensorslab/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0284c7",
+  "icons": [
+    {
+      "src": "/biosensorslab/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/biosensorslab/favicon.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    }
+  ]
+}

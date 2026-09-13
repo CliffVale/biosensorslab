@@ -30,6 +30,9 @@ const ogImage = new URL(`${basePath}/og/${finalOgSlug}.png`, Astro.url);
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href={basePath + '/favicon.svg'} />
+    <link rel="icon" type="image/png" sizes="32x32" href={basePath + '/favicon.png'} />
+    <link rel="icon" type="image/x-icon" href={basePath + '/favicon.ico'} />
+    <link rel="manifest" href={basePath + '/manifest.json'} />
     <meta name="generator" content={Astro.generator} />
 
     <title>{pageTitle}</title>

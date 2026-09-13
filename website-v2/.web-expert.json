@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "project": {
+    "name": "Biosensors & Devices Lab Website",
+    "type": "academic",
+    "root": "/home/cliff/Documents/Biosensors_and_devices_lab_website/website-v2",
+    "framework": "astro",
+    "deployTarget": "github-pages"
+  },
+  "phase": "test",
+  "completedPhases": ["plan", "design", "develop"],
+  "design": {
+    "direction": "trust-first",
+    "variance": 5,
+    "motion": 3,
+    "density": 3,
+    "referenceSites": ["getdesign.md/Apple", "getdesign.md/Linear"],
+    "colorPalette": {
+      "primary": "#0284c7",
+      "secondary": "#06b6d4",
+      "accent": "#0ea5e9",
+      "background": "#ffffff",
+      "surface": "#f8fafc",
+      "text": "#0f172a",
+      "muted": "#64748b"
+    },
+    "typography": {
+      "heading": "Inter or system sans-serif",
+      "body": "Inter or system sans-serif",
+      "mono": "JetBrains Mono or system mono"
+    }
+  },
+  "verification": {
+    "lighthouse": { "performance": 100, "accessibility": 100, "bestPractices": 96, "seo": 100 },
+    "axe": { "violations": null, "passes": null, "note": "chromedriver not installed; Lighthouse accessibility=100 used as proxy" },
+    "playwright": { "pagesTested": 7, "pagesFailed": 0, "screenshots": ["/tmp/playwright-homepage.png", "/tmp/playwright-mobile.png", "/tmp/playwright-desktop.png"] },
+    "buildPasses": true,
+    "issues": [
+      "Missing favicon.ico (favicon.svg exists)",
+      "Missing manifest.json",
+      "Missing sitemap.xml",
+      "3 console 404 errors for missing resources",
+      "Images without explicit width/height (CLS risk)"
+    ]
+  },
+  "decisions": [
+    { "phase": "plan", "decision": "Astro 5.16.2 + Tailwind v4 for static site generation", "date": "2026-08-01" },
+    { "phase": "plan", "decision": "BibTeX → JSON import pipeline for publications", "date": "2026-08-01" },
+    { "phase": "design", "decision": "Trust-first academic aesthetic, blue/cyan palette", "date": "2026-08-01" },
+    { "phase": "develop", "decision": "15 pages built, 15 team members, 19 publications, 31 equipment files, 8 patents, 5 news, 7 research", "date": "2026-08-27" }
+  ],
+  "filesModified": [],
+  "lastUpdated": "2026-09-13"
+}
