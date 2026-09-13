@@ -1,5 +1,3 @@
-import heroImage from './assets/hero-lab.svg';
-
 export const SITE = {
   // NOTE: Update this to the final deployed URL when the site goes live.
   website: 'https://cliffvale.github.io/biosensorslab/', // TEMP live URL — switch to biosensorslab.iitd.ac.in when lab domain is ready
@@ -15,8 +13,8 @@ export const SITE = {
   // Lab Info
   labName: 'Biosensors & Devices Lab',
   university: 'IIT Delhi',
-  logo: '/assets/iitd-seal.png', // Logo path (IIT Delhi seal)
-  avatar: '/assets/iitd-seal.png', // Avatar for SEO/Schema
+  logo: '/assets/logo-lab.jpg', // Logo path (Lab logo)
+  avatar: '/assets/logo-lab.jpg', // Avatar for SEO/Schema
   email: 'nks@iitd.ac.in', // Contact email (PI) for Join Us page
 
   // Hero Section (Home Page)
@@ -25,7 +23,7 @@ export const SITE = {
     subtitle:
       'Point-of-care diagnostics, wearable biosensors, and programmable biomaterials — Centre for Biomedical Engineering, Indian Institute of Technology Delhi.',
     action: 'View Publications', // Optional call to action text
-    image: heroImage, // Hero image path
+    image: '', // Hero image removed — gradient background only
   },
 
   // Navigation

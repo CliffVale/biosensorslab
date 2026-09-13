@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
 import { ArrowRight, Calendar, Landmark } from 'lucide-react';
-import { SITE } from '../config';
+import { SITE } from '../config.ts';
 // V2 equipment strip images
 import tecanImg from '../assets/equipment/tecan-infinite-m-plex.jpg';
 import zeissImg from '../assets/equipment/zeiss-stereo-microscope.jpg';
@@ -60,8 +60,8 @@ const fundingLogos = [
     <!-- Dot pattern -->
     <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(#1d4ed8 1px, transparent 1px); background-size: 32px 32px;"></div>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-32">
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
-        <div class="max-w-2xl">
+      <div class="max-w-3xl mx-auto">
+        <div>
           <p class="hero-enter inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-600/10 text-blue-700 text-sm font-medium mb-6 badge-float">
             {SITE.university} · Centre for Biomedical Engineering
           </p>
@@ -93,17 +93,6 @@ const fundingLogos = [
           </div>
         </div>
 
-        <!-- Illustration -->
-        <div class="hidden lg:block">
-          <Image
-            src={SITE.hero.image}
-            alt="Biosensors & Devices Lab"
-            class="w-full max-w-xl mx-auto drop-shadow-xl"
-            loading="eager"
-            fetchpriority="high"
-            decoding="sync"
-          />
-        </div>
       </div>
     </div>
   </section>
