@@ -56,6 +56,11 @@
 - [x] Search page
 - [x] 404 error page
 
+### v2.7 — PI Page Merged into Team (2026-09-19)
+- [x] `/pi` merged into `/team`: nav renamed PI→Team (14 items now), PI section (photo, bio, timeline, honors) renders first, "Our Team" members section below with 2026 group photo at top; no duplicated headings (PI heading demoted to h2, member groups to h3)
+- [x] Old `/pi` URL → meta-refresh redirect to `/team` (base-path aware); astro check 0 errors; device-tested (no errors, no h-scroll, photo + 16 member cards present)
+- [x] Merged dependabot PR #7 (@astrojs/react 4.4.2→6.0.5) before pushing
+
 ### v2.6 — Real Equipment Photos From PI + Team Photo + AptaLoop Removed (2026-09-19)
 - [x] PI supplied real lab photos for 11 instruments (Affinité SPR, analytical balance, gel doc, laminar cabinet, orbital shaker, PalmSens 8MUX + EmStat, protein electrophoresis, research workstations, soldering station, vacuum oven) — processed with EXIF-rotate + 1400×1050 cover-crop pipeline (no upscaling of small sources)
 - [x] 2026 team group photo added to gallery (first position), processed to 1280×960

@@ -30,11 +30,10 @@ export const SITE = {
   nav: [
     { text: 'Home', link: '/', key: 'home' },
     { text: 'Research', link: '/research', key: 'research' },
-    { text: 'PI', link: '/pi', key: 'pi' },
+    { text: 'Team', link: '/team', key: 'team' },
     { text: 'Publications', link: '/publications', key: 'publications' },
     { text: 'Patents', link: '/patents', key: 'patents' },
     { text: 'Equipment', link: '/equipment', key: 'equipment' },
-    { text: 'Team', link: '/team', key: 'team' },
     { text: 'Funding', link: '/funding', key: 'funding' },
     { text: 'Courses', link: '/courses', key: 'courses' },
     { text: 'Gallery', link: '/gallery', key: 'gallery' },
