@@ -1,6 +1,6 @@
 ---
 import { SITE, LOGO_IMAGE } from '../config';
-import labLogo from '../assets/branding/logo-lab.jpg';
+import labLogo from '../assets/branding/logo-lab-72.webp';
 import {
   Menu, X, ChevronRight,
   Home, BookOpen, FileText, FlaskConical, Users, Newspaper, UserPlus, Search,
@@ -44,7 +44,7 @@ const isActive = (link: string) => {
       <!-- Logo & Name -->
       <div class="flex items-center gap-3">
         <a href={baseUrl + "/"} class="flex items-center gap-2 group">
-          {LOGO_IMAGE.enable && <img src={labLogo.src} alt="Biosensors & Devices Lab" class="h-9 w-9 object-contain" />}
+          {LOGO_IMAGE.enable && <img src={labLogo.src} alt="Biosensors & Devices Lab" width="36" height="36" class="h-9 w-9 object-contain" />}
           <div class="flex flex-col sm:flex-row sm:items-end sm:gap-2 leading-tight">
             <span class="font-bold text-gray-900 text-lg leading-tight group-hover:text-blue-600 transition-colors">
               {SITE.labName}
@@ -131,7 +131,7 @@ const isActive = (link: string) => {
   >
     <div class="flex items-center justify-between px-6 h-20 border-b border-gray-100 shrink-0 bg-white">
       <div class="flex items-center gap-3">
-        {LOGO_IMAGE.enable && <img src={labLogo.src} alt="Biosensors & Devices Lab" class="h-10 w-10 object-contain" />}
+        {LOGO_IMAGE.enable && <img src={labLogo.src} alt="Biosensors & Devices Lab" width="40" height="40" class="h-10 w-10 object-contain" />}
         <span class="font-bold text-gray-900 text-xl">{SITE.labName}</span>
       </div>
       <button

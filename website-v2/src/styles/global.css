@@ -1,5 +1,23 @@
 @import "tailwindcss";
 
+/* Self-hosted Inter (public/fonts/, font-display: swap = text renders immediately in fallback, swaps when loaded).
+   ⚠ These two URLs are hardcoded to the GitHub Pages base path. When deploying to the IITD
+   domain (base '/'), change them to url('/fonts/…') — see DEPLOYMENT.md checklist. */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/biosensorslab/fonts/Inter-Regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/biosensorslab/fonts/Inter-Bold.woff') format('woff');
+}
+
 @theme {
   --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
