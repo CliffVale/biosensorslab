@@ -1,7 +1,7 @@
 # Project Memory
 ## Biosensors & Devices Lab — Website
 
-> Last updated: 2026-09-08
+> Last updated: 2026-09-19
 > This file tracks what has been completed, what's in progress, and current state.
 
 ---
@@ -11,7 +11,7 @@
 | Item | Status |
 |------|--------|
 | **Build** | ✅ Passing (`npm run build` succeeds, 43 pages) |
-| **Version** | v2.3 — Equipment photos + cleanup |
+| **Version** | v2.4 — photo rotation fixes + auto-derived stats + beginner GUIDE.md |
 | **Deploy** | ✅ GitHub Pages (auto-deploy on push to `main`) |
 | **Repo** | `https://github.com/CliffVale/biosensorslab-website.git` |
 | **Current URL** | https://cliffvale.github.io/biosensorslab/ |
@@ -55,6 +55,18 @@
 - [x] Join Us page
 - [x] Search page
 - [x] 404 error page
+
+### v2.4 — Photo Rotation Fixes + Stats Overhaul + Beginner Docs (2026-09-19)
+- [x] **Fixed 21 sideways equipment photos** — the 2026-09-08 resize stripped phone EXIF rotation from 21 EXIF-rotated originals; all regenerated from `source-assets/equipment-photos-original/` with `.rotate()` + 1400×1050 cover-crop (verified 0 remaining sideways via perceptual-hash comparison)
+- [x] **Wired Bhrigu Ranjan avatar** — file existed at `src/assets/team/bhrigu-ranjan.jpg` (also at `updates/`), added `avatar:` line to team md
+- [x] **Homepage stats now derived from content collections** (19 pubs / 8 patents / 31 instruments / 12 researchers) — previously hardcoded 21/12 and contradicted the equipment page
+- [x] **Fixed count-up bug** — `data-count` markup existed but no script ever animated it; stats now show real numbers in HTML (no-JS safe) and animate 0→N only when motion allowed
+- [x] **Root README rewritten** — beginner-first, points to GUIDE.md, accurate stats
+- [x] **GUIDE.md created** — full beginner guide (edit team/news/pubs/patents/equipment/gallery without coding; GitHub.com edit method + local method; templates for every content type; troubleshooting)
+- [x] **`.github/dependabot.yml` fixed** — was watching `pip` (no Python in repo) causing failing weekly runs; now `npm` scoped to `website-v2/` + github-actions
+- [x] **GitHub Actions bumped** — checkout v4→v7, setup-node v4→v7, configure-pages v5→v6, upload-pages-artifact v3→v5, deploy-pages v4→v5 (closes the 5 open Dependabot PRs' content)
+- [x] **Merged GitHub-UI commits** (LICENSE, CODEOWNERS, SECURITY.md, templates, dependabot.yml) into local main
+- [x] Build verified: 43 pages, astro check 0 errors/0 warnings
 
 ### v2.3 — Equipment Photos + Cleanup + Deploy Fix (2026-09-08)
 - [x] Removed leftover "Photos of each instrument are being added" placeholder text from equipment.astro
@@ -142,8 +154,8 @@
 
 ### Blocked / Waiting
 - [ ] IITD domain provisioning (waiting for faculty request)
-- [ ] Bhrigu Ranjan photo (no source available)
-- [ ] ANRF high-res logo (only low-res 71×36 available)
+- [x] ~~Bhrigu Ranjan photo~~ — resolved 2026-09-19 (was in `updates/` all along, now wired)
+- [x] ~~ANRF high-res logo~~ — resolved (public/funding-logos/anrf-logo.png is 800×386)
 
 ---
 

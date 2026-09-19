@@ -1,6 +1,7 @@
 ---
 name: "Bhrigu Ranjan"
 role: "Master Student"
+avatar: "../../assets/team/bhrigu-ranjan.jpg"
 bio: "M.Tech student at the Biosensors & Devices Lab, CBME, IIT Delhi."
 weight: 21
 ---

@@ -1,181 +1,101 @@
-# Biosensors & Devices Lab — Website Repository
+# Biosensors & Devices Lab — Website
 
-> **For AI Assistants:** Start here. This file tells you everything about this project.
-> Read `website-v2/memory.md` next to understand current state.
+Official website of the **Biosensors & Devices Lab**, Centre for Biomedical Engineering, IIT Delhi (PI: Dr. Naveen Kumar Singh).
 
----
-
-## Quick Start (For AI Assistants)
-
-```bash
-# 1. Clone and setup
-git clone https://github.com/CliffVale/biosensorslab-website.git
-cd biosensorslab-website/website-v2
-npm install
-
-# 2. Run dev server
-npm run dev
-# Opens at http://localhost:4321/biosensorslab
-
-# 3. Build for production
-npm run build
-
-# 4. Check for errors
-npm run lint  # (astro check)
-```
+- **Live site:** https://cliffvale.github.io/biosensorslab/
+- **New here? Start with [`GUIDE.md`](GUIDE.md)** — a complete beginner's guide: update team, news, publications, patents, equipment, gallery photos… no coding knowledge needed.
 
 ---
 
-## Project Structure
+## Repository Map
 
 ```
-biosensorslab-website/
-├── website-v2/              # ⭐ ACTIVE — v2.2 Premium (work here)
+biosensorslab/
+├── website-v2/              # ⭐ THE WEBSITE — all content & pages live here
 │   ├── src/
-│   │   ├── pages/           # All 15 pages
-│   │   ├── components/      # Header, TeamCard, PublicationItem
-│   │   ├── content/         # Markdown collections (pubs, team, news, etc.)
-│   │   ├── assets/          # Images (equipment, team, gallery, branding)
-│   │   ├── styles/          # global.css (Tailwind + animations)
-│   │   ├── layouts/         # Layout.astro (main layout)
-│   │   └── config.ts        # Site configuration
-│   ├── public/              # Static assets (logos, fonts, favicon)
-│   ├── scripts/             # BibTeX import script
-│   ├── PRD.md               # What to build
-│   ├── architecture.md      # How it's built
-│   ├── rules.md             # AI assistant rules
-│   ├── design.md            # Colors, fonts, typography
-│   ├── phases.md            # Development phases
-│   ├── memory.md            # Current state & progress
+│   │   ├── pages/           # 15 pages (home, team, publications, …)
+│   │   ├── components/      # Reusable pieces (header, cards)
+│   │   ├── content/         # ✏️ EDIT HERE — team, news, equipment, patents, publications (one text file per item)
+│   │   ├── assets/          # 📷 All photos (team, equipment, gallery, branding)
+│   │   ├── styles/          # Design system
+│   │   ├── layouts/         # Page skeleton (head, header, footer)
+│   │   └── config.ts        # Lab-wide settings: name, email, hero text, menu
+│   ├── public/              # Static files (logos, favicon, robots.txt)
+│   ├── scripts/             # BibTeX import (publications pipeline)
+│   ├── citations.bib        # ✏️ Paste new paper citations here
 │   └── package.json
-├── website/                 # v1 — Original Astro (reference only)
-├── google-sites-kit/        # Google Sites assembly kit
-├── source-assets/           # Original equipment photos
-├── preview-screenshots/     # Desktop/mobile screenshots
-├── PROJECT_LOG.md           # Historical work log
+├── source-assets/           # Original raw photos (archive — website does not use these)
+├── preview-screenshots/     # Historical screenshots (archive)
+├── website/                 # v1 — old project, reference only
+├── google-sites-kit/        # Old Google-Sites experiment (archive)
+├── .github/workflows/       # Auto-deploy: pushes to main → live site in ~2 min
+├── GUIDE.md                 # 📘 How to edit anything (start here!)
 └── README.md                # ← You are here
 ```
 
----
-
-## Documentation Files (Read in Order)
-
-| File | Purpose | When to Read |
-|------|---------|--------------|
-| `website-v2/memory.md` | Current state, what's done, what's next | **FIRST** — Always |
-| `website-v2/PRD.md` | What to build, target users, features | When adding new features |
-| `website-v2/architecture.md` | Tech stack, folder structure, data flow | When understanding structure |
-| `website-v2/rules.md` | What to use/avoid, code style, errors | **BEFORE** making any changes |
-| `website-v2/design.md` | Colors, typography, animations, components | When modifying visual design |
-| `website-v2/phases.md` | Development phases, execution plan | When planning work |
-| `website-v2/AI_SKILLS_ANALYSIS.md` | AI tools comparison | When evaluating new tools |
-| `website-v2/SETUP_GUIDE.md` | Tool setup instructions | When adding new tools |
+> The `website/`, `google-sites-kit/`, `source-assets/` and `preview-screenshots/` folders are archives. All editing happens in `website-v2/`.
 
 ---
+
+## Quick Start (developers)
+
+```bash
+git clone https://github.com/CliffVale/biosensorslab.git
+cd biosensorslab/website-v2
+npm install
+npm run dev      # local preview at http://localhost:4321/biosensorslab
+npm run build    # production build (must pass before pushing)
+```
 
 ## Tech Stack
 
 | Layer | Technology | Version |
 |-------|-----------|---------|
-| Framework | Astro | 5.16.x |
+| Framework | Astro | 5.16.x (do not upgrade) |
 | Styling | Tailwind CSS | 4.x |
-| UI | React | 19.x (Agentation only) |
-| Icons | Lucide React | 0.555.x |
+| UI | React | 19.x (interactive components only) |
 | Search | Pagefind | 1.4.x |
 | Language | TypeScript | 5.9.x |
 | Node.js | ≥ 22.12.0 | — |
 
----
+## Key Rules
 
-## Key Rules (Summary)
+**DO**
+- Run `npm run build` after changes (or edit directly on GitHub — it checks for you)
+- Use `basePath + '/route'` for internal links
+- Use `<Image>` from `astro:assets` for images
+- Add `rel="noopener noreferrer"` to external links
+- Respect `prefers-reduced-motion`
 
-### DO
-- ✅ Run `npm run build` after changes
-- ✅ Use `<Image>` from `astro:assets` for images
-- ✅ Use `basePath + '/route'` for internal links
-- ✅ Add `rel="noopener noreferrer"` to external links
-- ✅ Respect `prefers-reduced-motion`
-- ✅ Use custom easing curves (`--ease-out`, `--ease-page`)
+**DON'T**
+- Add dark mode (light-only by design)
+- Use Google Fonts CDN (fonts are self-hosted)
+- Place `import` after variable declarations in `.astro` frontmatter
+- Use `transition: all` or animate from `scale(0)`
 
-### DON'T
-- ❌ Add dark mode (light-only by design)
-- ❌ Use Google Fonts CDN (self-hosted)
-- ❌ Place `import` after variable declarations
-- ❌ Use `ease-in` for UI animations
-- ❌ Animate from `scale(0)` (use 0.95 minimum)
-- ❌ Use `transition: all` (specify properties)
+## Content Stats (auto-derived on the site)
 
----
-
-## Common Commands
-
-```bash
-# Development
-npm run dev              # Start dev server
-npm run build            # Build for production
-npm run preview          # Preview production build
-npm run lint             # Check for errors (astro check)
-npm run import-bibtex    # Import publications from citations.bib
-
-# Content Updates
-# Edit markdown files in src/content/[collection]/
-# Then run: npm run build
-
-# Add New Publication
-echo "@article{...}" >> citations.bib
-npm run build  # Auto-imports to Markdown
-
-# Add New Team Member
-# Create: src/content/team/[name].md
-# Add photo: src/assets/team/[name].jpg
-```
-
----
+The homepage numbers are computed from the content files at build time, so they
+can never drift: 19 publications · 8 patents · 31 instruments · 12 researchers.
 
 ## Deployment
 
-### Current: GitHub Pages
-- Auto-deploys on push to `main`
-- URL: `https://cliffvale.github.io/biosensorslab/`
-
-### Future: IITD Domain
-1. Update `base: '/'` in `astro.config.mjs`
-2. Update `SITE.website` in `src/config.ts`
-3. Update `public/robots.txt` sitemap URL
-4. Deploy via `rsync dist/` to IITD server
-
----
-
-## AI Workflow Tools
-
-| Tool | Purpose | Status |
-|------|---------|--------|
-| Freebuff | AI coding agent | ✅ Active |
-| Agentation | Visual feedback | ✅ Installed |
-| CodeRabbit | AI code review | ✅ Configured |
-| GitHub Actions | Auto-deploy | ✅ Active |
-
----
+- **Current:** GitHub Pages — auto-deploys on every push to `main`
+  (workflow: `.github/workflows/deploy.yml`)
+- **Future (IITD domain):** set `base: '/'` in `astro.config.mjs`, update
+  `SITE.website` in `src/config.ts`, update `public/robots.txt`, then rsync `dist/`
+  to the CSC server (see `PROJECT_LOG.md` for the full checklist).
 
 ## Version History
 
 | Version | Date | Changes |
 |---------|------|---------|
-| v2.2 | 2026-08-27 | Premium motion system, gradient mesh, particles, card effects |
-| v2.1 | 2026-08-27 | Enhanced easing curves, accessibility, animation rules |
-| v2.0 | 2026-08-26 | Complete rewrite with Astro, Tailwind, 15 pages |
-| v1.0 | 2026-08-19 | Original Astro template |
+| v2.4 | 2026-09-19 | Fixed 21 sideways equipment photos, wired Bhrigu photo, auto-derived homepage stats + count-up fix, dependabot/workflow updates, beginner GUIDE.md |
+| v2.3 | 2026-09-08 | Real equipment photos, root deploy workflow |
+| v2.2 | 2026-08-27 | Premium motion system |
+| v2.0 | 2026-08-26 | Astro + Tailwind rewrite, 15 pages |
+| v1.0 | 2026-08-19 | Original template |
 
 ---
 
-## Getting Help
-
-1. Read `website-v2/memory.md` for current state
-2. Read `website-v2/rules.md` for guidelines
-3. Read `website-v2/architecture.md` for structure
-4. Check `website-v2/src/styles/global.css` for animation classes
-
----
-
-**Last updated:** 2026-08-27
-**Maintained by:** CliffVale (GitHub) + AI assistants
+**Maintained by:** CliffVale + AI assistants · **Questions?** Read [`GUIDE.md`](GUIDE.md) first.

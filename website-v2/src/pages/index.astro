@@ -24,6 +24,18 @@ const researchAreas = (await getCollection('research'))
   .sort((a, b) => a.data.order - b.data.order)
   .slice(0, 4);
 
+// Hero stats derived from content collections — never go stale
+const paperCount = (await getCollection('publications')).filter(p => p.data.type === 'paper').length;
+const patentCount = (await getCollection('patents')).length;
+const instrumentCount = (await getCollection('equipment')).length;
+const researcherCount = (await getCollection('team')).filter(m => m.data.role !== 'Alumni').length;
+const stats = [
+  { n: paperCount, suffix: '+', label: 'Publications' },
+  { n: patentCount, suffix: '', label: 'Patents' },
+  { n: instrumentCount, suffix: '', label: 'Instruments' },
+  { n: researcherCount, suffix: '', label: 'Researchers' },
+];
+
 // V2 equipment strip content
 const nightShots = [
   { img: tecanImg, name: 'Tecan Infinite M-Plex - plate reader' },
@@ -73,10 +85,10 @@ const fundingLogos = [
           </p>
           <!-- V2: animated stat counters -->
           <div class="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-8 max-w-xl">
-            {[{ n: 19, suffix: '+', label: 'Publications' }, { n: 8, suffix: '', label: 'Patents' }, { n: 21, suffix: '', label: 'Instruments' }, { n: 12, suffix: '', label: 'Researchers' }].map(s => (
+            {stats.map(s => (
               <div class="text-center sm:text-left">
                 <p class="text-3xl font-extrabold text-blue-700 tabular-nums">
-                  <span data-count={s.n} data-suffix={s.suffix}>0</span>{s.suffix}
+                  <span data-count={s.n} data-suffix={s.suffix}>{s.n}</span>{s.suffix}
                 </p>
                 <p class="text-sm text-gray-500 font-medium">{s.label}</p>
               </div>
@@ -212,7 +224,7 @@ const fundingLogos = [
           <h2 class="text-3xl font-bold text-white"><span class="animated-underline" style="--underline-color: #06b6d4">Instruments that power our research</span></h2>
         </div>
         <a href={basePath + "/equipment"} class="hidden sm:inline-flex text-cyan-300 hover:text-cyan-200 font-medium items-center gap-1 group">
-          <span>All 21 instruments</span> <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          <span>All {instrumentCount} instruments</span> <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
         </a>
       </div>
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-5">
@@ -238,7 +250,7 @@ const fundingLogos = [
           </a>
         ))}
       </div>
-      <a href={basePath + "/equipment"} class="sm:hidden inline-flex mt-6 text-cyan-300 font-medium">All 21 instruments &rarr;</a>
+      <a href={basePath + "/equipment"} class="sm:hidden inline-flex mt-6 text-cyan-300 font-medium">All {instrumentCount} instruments &rarr;</a>
     </div>
   </section>
 
@@ -270,3 +282,27 @@ const fundingLogos = [
     </div>
   </section>
 </Layout>
+
+<script is:inline>
+  // Count-up animation for hero stats. HTML ships the real numbers (no-JS safe);
+  // JS resets to 0 and animates only when motion is allowed.
+  (function () {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var els = document.querySelectorAll('[data-count]');
+    if (!els.length) return;
+    var DURATION = 1200;
+    els.forEach(function (el) {
+      var target = parseInt(el.getAttribute('data-count'), 10) || 0;
+      var start = null;
+      el.textContent = '0';
+      function step(ts) {
+        if (start === null) start = ts;
+        var p = Math.min((ts - start) / DURATION, 1);
+        var eased = 1 - Math.pow(1 - p, 3); // ease-out cubic
+        el.textContent = Math.round(target * eased).toLocaleString('en-US');
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  })();
+</script>
