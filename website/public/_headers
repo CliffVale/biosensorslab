@@ -1,8 +1,0 @@
-/*
-  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-  X-Frame-Options: DENY
-  X-Content-Type-Options: nosniff
-  Referrer-Policy: strict-origin-when-cross-origin
-# CSP kept in sync with the <meta http-equiv="Content-Security-Policy"> in src/layouts/Layout.astro.
-# Fonts are self-hosted, so no Google Fonts origins.
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self'; frame-ancestors 'none';

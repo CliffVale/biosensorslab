@@ -24,16 +24,13 @@ biosensorslab/
 │   ├── scripts/             # BibTeX import (publications pipeline)
 │   ├── citations.bib        # ✏️ Paste new paper citations here
 │   └── package.json
-├── source-assets/           # Original raw photos (archive — website does not use these)
-├── preview-screenshots/     # Historical screenshots (archive)
-├── website/                 # v1 — old project, reference only
-├── google-sites-kit/        # Old Google-Sites experiment (archive)
 ├── .github/workflows/       # Auto-deploy: pushes to main → live site in ~2 min
+├── DEPLOYMENT.md            # 🚀 Domain & server deployment plan (IITD)
 ├── GUIDE.md                 # 📘 How to edit anything (start here!)
 └── README.md                # ← You are here
 ```
 
-> The `website/`, `google-sites-kit/`, `source-assets/` and `preview-screenshots/` folders are archives. All editing happens in `website-v2/`.
+> **One rule:** all editing happens in `website-v2/`. Raw photo archives and old experiments are no longer tracked in git — keep them on your own machine or cloud drive.
 
 ---
 

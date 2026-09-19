@@ -41,3 +41,13 @@ coverage/
 .agents/
 .claude/
 skills-lock.json
+
+# Archived / working junk (kept out of repo; history retains old copies)
+references/
+.firecrawl/
+google-sites-kit/
+preview-screenshots/
+website/
+updates/
+*.zip
+source-assets/
