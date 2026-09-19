@@ -56,6 +56,12 @@
 - [x] Search page
 - [x] 404 error page
 
+### v2.6 — Real Equipment Photos From PI + Team Photo + AptaLoop Removed (2026-09-19)
+- [x] PI supplied real lab photos for 11 instruments (Affinité SPR, analytical balance, gel doc, laminar cabinet, orbital shaker, PalmSens 8MUX + EmStat, protein electrophoresis, research workstations, soldering station, vacuum oven) — processed with EXIF-rotate + 1400×1050 cover-crop pipeline (no upscaling of small sources)
+- [x] 2026 team group photo added to gallery (first position), processed to 1280×960
+- [x] Removed dead 'Aptamer Database (AptaLoop)' placeholder link from Important Links page
+- [ ] Unknown file `18.jpg` (600×600) from the drop — purpose unidentified, awaiting user input
+
 ### v2.5 — SEO Restoration + Repo Slim-Down + Deployment Plan (2026-09-19)
 - [x] Restored v1 SEO features lost in v2 rewrite: canonical tags, viewport initial-scale=1, theme-color, apple-touch-icon, og:image width/height/alt, font preloads
 - [x] @font-face for Inter restored (files shipped since v1 but never declared in v2)
