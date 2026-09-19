@@ -56,6 +56,18 @@
 - [x] Search page
 - [x] 404 error page
 
+### v2.5 — SEO Restoration + Repo Slim-Down + Deployment Plan (2026-09-19)
+- [x] Restored v1 SEO features lost in v2 rewrite: canonical tags, viewport initial-scale=1, theme-color, apple-touch-icon, og:image width/height/alt, font preloads
+- [x] @font-face for Inter restored (files shipped since v1 but never declared in v2)
+- [x] Fixed ld+json home-page condition (base-path aware — structured data was missing site-wide)
+- [x] Header logo → 72×72 WebP (2.5KB); explicit width/height on funding logos + logo (CLS)
+- [x] Lighthouse 99/100/100/100 locally; device test clean on iPhone SE / Pixel 7 / iPad Mini / Desktop (no console errors, no h-scroll, menu + search OK)
+- [x] Verified all 8 post-PalmSens equipment photos match unique lab originals (collision-aware matching vs 100 raw photos) — earlier "wrong photo" suspicion disproven; live site had been stale
+- [x] 8 license-verified stock replacements (Wikimedia CC0/CC-BY/CC-BY-SA) saved OUTSIDE repo at ~/biosensorslab-stock-alternatives/ (with credits json) in case PI confirms any photo shows the wrong device
+- [x] Repo slimmed: removed 411 archive files (references/ 74MB zips, website/ v1 tree, google-sites-kit/, preview-screenshots/, .firecrawl/, updates/, placeholder.svg); source-assets/ (350MB) untracked-but-kept locally; gitignore blocks them permanently
+- [x] DEPLOYMENT.md written: full IITD CSC virtual-hosting runbook (DNS biosensorlab.iitd.ac.in → 10.10.211.213, base-path rebuild checklist, rsync + chgrp, .htaccess, day-zero GSC/analytics, rollback)
+- [x] ⚠ Naming discrepancy flagged: email says biosensorlab, repo says biosensorslab — must confirm with CSC before DNS/SSL wiring
+
 ### v2.4 — Photo Rotation Fixes + Stats Overhaul + Beginner Docs (2026-09-19)
 - [x] **Fixed 21 sideways equipment photos** — the 2026-09-08 resize stripped phone EXIF rotation from 21 EXIF-rotated originals; all regenerated from `source-assets/equipment-photos-original/` with `.rotate()` + 1400×1050 cover-crop (verified 0 remaining sideways via perceptual-hash comparison)
 - [x] **Wired Bhrigu Ranjan avatar** — file existed at `src/assets/team/bhrigu-ranjan.jpg` (also at `updates/`), added `avatar:` line to team md
