@@ -113,3 +113,11 @@ Chronological log of work. Append new entries; never rewrite history.
 - **Peer-lab deep analysis:** Healthcare Engineering Lab (Arnab Chanda, CBME IITD, Next.js, 7 pages, filterable People, image-led research w/ tags, live job board, press-style news) and Kelley Laboratory (Northwestern, research areas each ending in Featured Publications with linked citations). Full notes in .firecrawl/ (not committed).
 - Improvements identified but NOT yet implemented: Featured-Publications block on research detail pages, People-style role filter tabs, press-coverage news items. Needs PI-approved sources before adding anything.
 - **Pages CMS adopted (all-free setup):** Sitepins Hobby is free for 1 member only; Pages CMS (MIT) is fully free incl. email invites. Added .pages.yml mapping all 6 collections + photo folders (field options validated against real content). Round-trip test passed: edit -> deploy -> live -> revert -> clean. GUIDE.md/README.md Method A switched to Pages CMS (app.pagescms.org).
+
+## 2026-09-28 (4) — Long-scroll landing + scroll wayfinding + color system
+- Landing page is now a continuous narrative: hero -> research -> publications -> news -> dark equipment strip -> funding -> Join CTA band (#join). Section eyebrows (teal/blue/IITD-red by section type), alternating backgrounds, 7 eyebrow labels.
+- Scroll wayfinding, zero dependencies: scrollspy dot-nav (IntersectionObserver, desktop, motion-safe), CSS scroll-driven progress bar (animation-timeline: scroll(root) + @supports fallback), back-to-top after 800px. Deep links preserved (/#research...).
+- @theme color tokens: --color-brand #1d4ed8, --color-accent #0d9488, --color-institute rgb(212,0,0), --color-paper, --color-ink. Research tags switched to teal accent.
+- Rejected: scroll-jacking/fullpage (breaks deep links, SEO, CMS flow), carousel, parallax, cursor followers (AI-slop).
+- Incident: interrupted session corrupted index.astro with NUL bytes; detected via astro parse error, repaired, re-verified (check 0/0).
+- Verified live: all 6 section IDs, dots/progress/to-top present, deploy green.
