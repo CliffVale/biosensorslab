@@ -89,3 +89,10 @@ Chronological log of work. Append new entries; never rewrite history.
 - **Team members:** Manisha, Susmita (Research Scientists), Bhrigu Ranjan (Master Student). ⚠️ Bhrigu's photo NOT added (attached image unreadable by model; drop file at src/assets/team/bhrigu-ranjan.jpg and I'll wire the avatar).
 - **Equipment (+10):** PalmSens EmStat, PalmSens 8MUX, Gel Documentation System, Protein Electrophoresis Setup, Analytical Weighing Balance, Soldering Station, Laminar Airflow Cabinet, Vacuum Oven, Orbital Shaker, Research Workstations (pH meter already present: Thermo Orion LabStar PH111).
 - Verified: astro check 0 errors; build 42 pages; dist scan BAD:0 unprefixed links; Playwright — all 16 routes 200 & error-free, scroll-reveal 0→2→4, reduced-motion instant reveal, active nav correct on /patents, 8 patent cards, team groupings right. GitHub Actions deploy SUCCESS. Live at https://cliffvale.github.io/biosensorslab/
+
+## 2026-09-28 — Redesign deployed + repo cleanup + CMS decision
+- **Archived old repo** `CliffVale/biosensorslab-website` (labeled "⚠️ OLD / ARCHIVED" in description). `main` was byte-identical to live repo (same SHAs); only stale dependabot branches lost. Nothing of value.
+- **shots.mjs**: never committed; added to `.gitignore` (machine-specific Playwright path).
+- **"Lab Precision" redesign committed (`6fa44dc`) and deployed live** to https://cliffvale.github.io/biosensorslab/ — de-gradiented system, PageHead on 13 subpages, dark footer, Inter Variable font, research-page template boilerplate ("artificial intelligence…") replaced with correct lab lede, full Bhrigu Ranjan profile, footer address fixed to GPL-9. Verified: build ✅ astro check 0 errors ✅ live research page 200 with new text ✅.
+- **Footer address contradiction resolved:** GPL-9 is current (per user); MS-817 draft reverted.
+- **Non-technical editing: recommendation = Sitepins Cloud** (user's own pick, validated by research). Content already lives in `website-v2/src/content/*.md` — Sitepins auto-detects collections, every save = commit to main → auto-deploy. Editors invited by email, no GitHub account needed. Setup is user-side (OAuth in browser).
