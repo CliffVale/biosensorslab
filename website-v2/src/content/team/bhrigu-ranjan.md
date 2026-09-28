@@ -3,6 +3,7 @@ name: "Bhrigu Ranjan"
 role: "Master Student"
 avatar: "../../assets/team/bhrigu-ranjan.jpg"
 bio: "M.Tech Biomedical Engineering student specializing in flexible, skin-conformal wearable sensors and electrochemistry."
+linkedin: "https://www.linkedin.com/in/bhrigu-ranjan/"
 weight: 21
 ---
 
