@@ -2,24 +2,10 @@
 name: "Bhrigu Ranjan"
 role: "Master Student"
 avatar: "../../assets/team/bhrigu-ranjan.jpg"
-bio: "M.Tech candidate working at the intersection of microfluidics, computational modeling, and wearable diagnostic hardware."
+bio: "M.Tech Biomedical Engineering student specializing in flexible, skin-conformal wearable sensors and electrochemistry."
 weight: 21
 ---
 
-Bhrigu Ranjan is an M.Tech candidate at the Centre for Biomedical Engineering, IIT Delhi, with a foundational degree in Pharmacy. His research sits at the intersection of microfluidics, computational modeling, and diagnostic hardware.
+Bhrigu Ranjan is an M.Tech Biomedical Engineering student at IIT Delhi specializing in flexible, skin-conformal wearable sensors and electrochemistry. His current work focuses on developing microfluidic-integrated electrochemical biosensor patches for continuous, non-invasive sweat biomarker detection.
 
-He is currently developing a wearable electrochemical biosensor patch for the continuous, real-time detection of critical biomarkers.
-
-## Research Focus
-
-- Wearable electrochemical biosensors for continuous biomarker monitoring
-- Microfluidic device design and simulation
-- Computational modeling for diagnostic hardware optimization
-
-## Tools & Methods
-
-To optimize these diagnostic tools, Bhrigu uses **COMSOL Multiphysics** for electric field and microfluidic simulations, alongside **GROMACS** for molecular dynamics and aptamer structural analysis.
-
-## Currently
-
-He is expanding his research as a Visiting Intern at the MANST Lab, National Sun Yat-sen University (NSYSU), Taiwan.
+He is trained in cleanroom semiconductor fabrication, nanomaterial surface modification, and scalable electrode design. He is working to apply this experience in advanced biosensing toward next-generation multimodal wearables for real-time healthcare monitoring.
