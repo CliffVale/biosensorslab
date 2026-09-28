@@ -43,6 +43,32 @@ You edit a file  →  You "commit & push" (save to GitHub)  →  Website updates
 New editors (e.g. the PI or lab admin) don't need a GitHub account — invite
 them by email from Sitepins → Team settings.
 
+#### Editor rulebook (share this with every new editor)
+
+1. **Save = publish.** Everything you save in Sitepins goes live in ~2 minutes.
+   Use the preview before saving.
+2. **Stay in your lane.** Only edit entries in team, news, publications,
+   patents, equipment, research. Never touch code files, config, or workflows.
+3. **Don't merge dependency/dependabot PRs** (if you ever see them). They are
+   maintainer-only — a wrong merge can take the whole site offline.
+4. **Broke something? Don't panic.** Open the entry's version history in
+   Sitepins → **Restore** the previous version. Nothing is ever lost.
+
+#### If the site stops updating ("Run failed")
+
+- The site only publishes when its automatic build succeeds. A failed build
+  (red ❌ at github.com/CliffVale/biosensorslab/actions) means the last change
+  did **not** go live — the site keeps showing the last good version, so
+  nothing is "half-broken" for visitors.
+- While the build is red, Sitepins edits can behave oddly (edits may pile up
+  uncommitted or fail). Fix the build first, then continue editing.
+- **For editors:** restore your last edit (rule 4) and ask the maintainer.
+- **For the maintainer:** open the failed run, read the error (it's usually
+  one line), fix locally, push. `git revert <commit>` of the offending change
+  is the fastest path back to green.
+- Tip: enable email notifications for failed runs (GitHub → Settings →
+  Notifications → Actions) so you hear about failures the day they happen.
+
 ### Method B — Edit directly on GitHub.com
 
 1. Go to https://github.com/CliffVale/biosensorslab
