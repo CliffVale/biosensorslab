@@ -104,3 +104,4 @@ Chronological log of work. Append new entries; never rewrite history.
 - Removed public/assets/old-site-images (raw old-Google-Sites CDN scrapes were publicly served; originals already archived in source-assets/)
 - Fixed research empty-state developer message -> visitor-appropriate text; GUIDE.md pi.astro ref fixed
 - Verified: astro check 0/0, build clean, /pi absent from sitemap, no agentation in output
+- Removed "Built with Scholar-Lite" template credit from footer; GUIDE.md updated (Sitepins as Method A, corrected research-area count, renamed stale file refs); README.md map + version history (v2.5) refreshed after repo cleanup.

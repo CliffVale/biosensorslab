@@ -27,10 +27,14 @@ biosensorslab/
 ├── .github/workflows/       # Auto-deploy: pushes to main → live site in ~2 min
 ├── DEPLOYMENT.md            # 🚀 Domain & server deployment plan (IITD)
 ├── GUIDE.md                 # 📘 How to edit anything (start here!)
+├── CONTEXT.md               # Project state & decisions (handoff reference)
+├── PROJECT_LOG.md           # Chronological work log
 └── README.md                # ← You are here
 ```
 
 > **One rule:** all editing happens in `website-v2/`. Raw photo archives and old experiments are no longer tracked in git — keep them on your own machine or cloud drive.
+
+> **Non-technical?** Skip all of it — edit the site visually at [app.sitepins.com](https://app.sitepins.com) (see [`GUIDE.md`](GUIDE.md), Method A).
 
 ---
 
@@ -87,6 +91,7 @@ can never drift: 19 publications · 8 patents · 31 instruments · 12 researcher
 
 | Version | Date | Changes |
 |---------|------|---------|
+| v2.5 | 2026-09-28 | "Lab Precision" redesign (shared PageHead, dark footer, Inter Variable font), fixed template-boilerplate text, team bios & photos (Manisha, Susmita, Bhrigu, Nawaal), removed template/AI-workflow docs & dead code, Sitepins CMS for non-technical editing |
 | v2.4 | 2026-09-19 | Fixed 21 sideways equipment photos, wired Bhrigu photo, auto-derived homepage stats + count-up fix, dependabot/workflow updates, beginner GUIDE.md |
 | v2.3 | 2026-09-08 | Real equipment photos, root deploy workflow |
 | v2.2 | 2026-08-27 | Premium motion system |

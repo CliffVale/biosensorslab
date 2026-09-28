@@ -21,16 +21,29 @@ You edit a file  →  You "commit & push" (save to GitHub)  →  Website updates
 
 ---
 
-## 2. Two Ways to Make Changes
+## 2. Three Ways to Make Changes
 
 | Method | Best for | Skills needed |
 |--------|----------|---------------|
-| **A. Edit on GitHub.com** (in your browser) | Quick fixes: a name, a date, a news item | None — just a browser |
-| **B. Edit on your computer** | Adding photos, big changes, batch edits | Install 2 free programs once |
+| **A. Sitepins** (visual CMS — app.sitepins.com) | Everyday edits: team, news, publications, patents, equipment | None — no GitHub, no code |
+| **B. Edit on GitHub.com** (in your browser) | Quick fixes to files Sitepins doesn't cover (e.g. page text) | None — just a browser |
+| **C. Edit on your computer** | Adding photos, big changes, batch edits | Install 2 free programs once |
 
 ---
 
-### Method A — Edit directly on GitHub.com (easiest)
+### Method A — Sitepins (visual editor, recommended)
+
+1. Go to https://app.sitepins.com and sign in with GitHub.
+2. Open the **biosensorslab** repo. Sitepins shows every content collection
+   (team, news, publications, patents, equipment, research) as editable forms.
+3. Click an entry, edit the fields, upload photos by drag-and-drop, **Save**.
+4. Every save becomes a commit — the live site updates in ~2 minutes, same as
+   pushing by hand. Full history and undo are built in.
+
+New editors (e.g. the PI or lab admin) don't need a GitHub account — invite
+them by email from Sitepins → Team settings.
+
+### Method B — Edit directly on GitHub.com
 
 1. Go to https://github.com/CliffVale/biosensorslab
 2. Navigate to the file you want to change (use the map in section 6 below).
@@ -40,7 +53,7 @@ You edit a file  →  You "commit & push" (save to GitHub)  →  Website updates
 6. Done! The site rebuilds automatically in ~2 minutes. Check the green tick ✅ at
    https://github.com/CliffVale/biosensorslab/actions
 
-### Method B — Edit on your computer (one-time setup)
+### Method C — Edit on your computer (one-time setup)
 
 1. **Install Node.js** (the "printing engine"): download the **LTS** version from
    https://nodejs.org and click Next-Next-Next.
@@ -73,7 +86,7 @@ All content lives in **`website-v2/src/content/`** — one text file per item:
 | Add **equipment / instrument** | `src/content/equipment/` | One file per instrument + photo in `src/assets/equipment/` |
 | Add a **publication** | `src/content/publications/` | Usually via BibTeX (section 5.5) |
 | Add a **patent** | `src/content/patents/` | One file per patent |
-| Edit a **research area** | `src/content/research/` | 4 areas = 4 files |
+| Edit a **research area** | `src/content/research/` | 7 areas = 7 files |
 | Change **phone / email / address** | `src/pages/contact.astro` | Plain text inside |
 | Change **hero text, lab name, menu** | `website-v2/src/config.ts` | Clearly labelled sections |
 | Add **gallery photos** | `src/assets/gallery/` + `src/pages/gallery.astro` | 2-line change (section 5.6) |
@@ -89,7 +102,7 @@ All content lives in **`website-v2/src/content/`** — one text file per item:
 1. **Frontmatter** = the small block between `---` lines at the top of each file. It's a form: fill the fields, keep the quotes.
 2. **Don't rename files that are linked elsewhere.** Team/equipment pages are linked by filename.
 3. **Photo sizes:** team avatars ~400×500 px (portrait), equipment 1400×1050 px, gallery any size. JPG format. (The build resizes automatically, but smaller files load faster.)
-4. **After ANY change:** `npm run build` must finish without errors before you push (Method A on GitHub.com checks this automatically — if the green tick turns red ❌, undo your last change, see section 8).
+4. **After ANY change:** `npm run build` must finish without errors before you push (Method B on GitHub.com checks this automatically — if the green tick turns red ❌, undo your last change, see section 8).
 5. Dates in news files use format `date: 2026-09-19` (no quotes).
 
 ---
@@ -119,7 +132,7 @@ Optional longer bio shown on their own page.
 
 **`weight`** controls listing order — smaller numbers appear first (PI has 1, students 20+).
 **Optional fields:** `linkedin: "https://…"` · `github:` · `twitter:` · `googleScholar: "https://scholar.google.com/citations?user=…"` · `website:`.
-**No photo?** Just skip the `avatar:` line — a coloured tile with their initials shows instead.
+**No photo?** Just skip the `avatar:` line — a plain placeholder with their initials shows instead.
 **To edit someone:** open their file, change the text, save, push.
 **To mark someone as alum:** change `role:` to `Alumni` (they move to the Alumni section; homepage "Researchers" count updates automatically).
 
@@ -241,7 +254,7 @@ Order in the list = order on the page. Each photo shows as a square-ish card wit
 ### 5.7 Change text on any page
 
 The 15 main pages are single files in `website-v2/src/pages/`:
-`index.astro` (home) · `research.astro` · `publications.astro` ·
+`index.astro` (home) · `research/index.astro` (research overview) · `publications.astro` ·
 `patents.astro` · `equipment.astro` · `team.astro` · `funding.astro` ·
 `courses.astro` · `gallery.astro` · `news.astro` · `important-links.astro` ·
 `contact.astro` · `join.astro` · `search.astro`.
@@ -267,7 +280,7 @@ lab name, email, hero title/subtitle, and the top navigation menu list.
 
 ---
 
-## 6. Publishing Checklist (Method B)
+## 6. Publishing Checklist (Method C)
 
 ```bash
 cd website-v2
@@ -326,4 +339,4 @@ GUIDE.md to [your task]"* — this file is written for them too.
 
 ---
 
-*Last updated: 2026-09-19 · Maintained by the Biosensors & Devices Lab*
+*Last updated: 2026-09-28 · Maintained by the Biosensors & Devices Lab*
