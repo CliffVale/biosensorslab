@@ -96,3 +96,11 @@ Chronological log of work. Append new entries; never rewrite history.
 - **"Lab Precision" redesign committed (`6fa44dc`) and deployed live** to https://cliffvale.github.io/biosensorslab/ — de-gradiented system, PageHead on 13 subpages, dark footer, Inter Variable font, research-page template boilerplate ("artificial intelligence…") replaced with correct lab lede, full Bhrigu Ranjan profile, footer address fixed to GPL-9. Verified: build ✅ astro check 0 errors ✅ live research page 200 with new text ✅.
 - **Footer address contradiction resolved:** GPL-9 is current (per user); MS-817 draft reverted.
 - **Non-technical editing: recommendation = Sitepins Cloud** (user's own pick, validated by research). Content already lives in `website-v2/src/content/*.md` — Sitepins auto-detects collections, every save = commit to main → auto-deploy. Editors invited by email, no GitHub account needed. Setup is user-side (OAuth in browser).
+
+## 2026-09-28 (2) — De-AI audit / repo de-slop pass
+- Deleted AI-workflow docs from website-v2/: PRD.md, phases.md, design.md, memory.md, rules.md, architecture.md, AI_SKILLS_ANALYSIS.md, REFERENCE_TEMPLATES_ANALYSIS.md, SETUP_GUIDE.md, AGENTS.md, CLAUDE.md, .coderabbit.yaml, .web-expert.json, .gitlab-ci.yml, .vscode/, nested .github/, template README.md + README.zh-CN.md + LICENSE
+- Removed dead template code: src/pages/pi.astro (orphan route, merged into /team in c22fb12), src/i18n/ (unused), AgentationWrapper (AI-review browser tooling), agentation dep
+- Trimmed config.ts template flags: ogImage/lightAndDarkMode/postPerPage/scheduledPostMargin/LOCALE/LOGO_IMAGE/SOCIALS/hero.action+image; Header customPages blocks removed (flag was always [])
+- Removed public/assets/old-site-images (raw old-Google-Sites CDN scrapes were publicly served; originals already archived in source-assets/)
+- Fixed research empty-state developer message -> visitor-appropriate text; GUIDE.md pi.astro ref fixed
+- Verified: astro check 0/0, build clean, /pi absent from sitemap, no agentation in output

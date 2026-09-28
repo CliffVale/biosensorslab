@@ -55,7 +55,6 @@
   },
   "devDependencies": {
     "@types/node": "^26.2.0",
-    "agentation": "^3.0.2",
     "pagefind": "^1.4.0"
   },
   "allowScripts": {

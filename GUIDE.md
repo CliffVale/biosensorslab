@@ -241,7 +241,7 @@ Order in the list = order on the page. Each photo shows as a square-ish card wit
 ### 5.7 Change text on any page
 
 The 15 main pages are single files in `website-v2/src/pages/`:
-`index.astro` (home) · `research.astro` · `pi.astro` · `publications.astro` ·
+`index.astro` (home) · `research.astro` · `publications.astro` ·
 `patents.astro` · `equipment.astro` · `team.astro` · `funding.astro` ·
 `courses.astro` · `gallery.astro` · `news.astro` · `important-links.astro` ·
 `contact.astro` · `join.astro` · `search.astro`.

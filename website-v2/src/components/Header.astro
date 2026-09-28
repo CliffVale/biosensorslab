@@ -1,5 +1,5 @@
 ---
-import { SITE, LOGO_IMAGE } from '../config';
+import { SITE } from '../config';
 import labLogo from '../assets/branding/logo-lab-72.webp';
 import {
   Menu, X, ChevronRight,
@@ -7,7 +7,7 @@ import {
   User, Landmark, GraduationCap, Camera, ExternalLink, Phone, BadgeCheck
 } from 'lucide-react';
 
-const { nav, customPages } = SITE;
+const { nav } = SITE;
 
 const iconMap: Record<string, any> = {
   home: Home,
@@ -44,7 +44,7 @@ const isActive = (link: string) => {
       <!-- Logo & Name -->
       <div class="flex items-center gap-3">
         <a href={baseUrl + "/"} class="flex items-center gap-2 group">
-          {LOGO_IMAGE.enable && <img src={labLogo.src} alt="Biosensors & Devices Lab" width="36" height="36" class="h-9 w-9 object-contain" />}
+          <img src={labLogo.src} alt="Biosensors & Devices Lab" width="36" height="36" class="h-9 w-9 object-contain" />
           <div class="flex flex-col sm:flex-row sm:items-end sm:gap-2 leading-tight">
             <span class="font-bold text-gray-900 text-lg leading-tight group-hover:text-blue-600 transition-colors">
               {SITE.labName}
@@ -86,21 +86,6 @@ const isActive = (link: string) => {
             </a>
           );
         })}
-
-        {customPages && customPages.map(item => (
-          <a
-            href={baseUrl + item.link}
-            class:list={[
-              'nav-link text-sm font-medium transition-colors',
-              isActive(item.link)
-                ? 'text-blue-600 font-semibold'
-                : 'text-gray-600 hover:text-blue-600'
-            ]}
-            aria-current={isActive(item.link) ? 'page' : undefined}
-          >
-            {item.text}
-          </a>
-        ))}
       </nav>
 
       <!-- Mobile Menu Button -->
@@ -131,7 +116,7 @@ const isActive = (link: string) => {
   >
     <div class="flex items-center justify-between px-6 h-20 border-b border-gray-100 shrink-0 bg-white">
       <div class="flex items-center gap-3">
-        {LOGO_IMAGE.enable && <img src={labLogo.src} alt="Biosensors & Devices Lab" width="40" height="40" class="h-10 w-10 object-contain" />}
+        <img src={labLogo.src} alt="Biosensors & Devices Lab" width="40" height="40" class="h-10 w-10 object-contain" />
         <span class="font-bold text-gray-900 text-xl">{SITE.labName}</span>
       </div>
       <button
@@ -145,22 +130,6 @@ const isActive = (link: string) => {
 
     <nav class="flex-1 overflow-y-auto px-6 py-8 flex flex-col gap-2 bg-white">
       {nav.map((item) => (
-        <a
-          href={baseUrl + item.link}
-          class:list={[
-            'flex items-center justify-between w-full py-4 px-4 text-lg font-medium rounded-xl transition-all border-b border-gray-100 last:border-0',
-            isActive(item.link)
-              ? 'text-blue-700 bg-blue-50'
-              : 'text-gray-800 hover:text-blue-600 hover:bg-gray-50'
-          ]}
-          onclick="window.closeMobileMenu()"
-        >
-          <span>{item.text}</span>
-          <ChevronRight className="w-5 h-5 text-gray-400" />
-        </a>
-      ))}
-
-      {customPages && customPages.map((item) => (
         <a
           href={baseUrl + item.link}
           class:list={[

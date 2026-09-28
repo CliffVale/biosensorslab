@@ -1,7 +1,6 @@
 ---
 import '../styles/global.css';
 import Header from '../components/Header.astro';
-import AgentationWrapper from '../components/AgentationWrapper.astro';
 import { SITE } from '../config';
 
 interface Props {
@@ -193,6 +192,5 @@ const isHome = pathNoBase === '/';
         els.forEach(function (el) { io.observe(el); });
       })();
     </script>
-    {import.meta.env.DEV && <AgentationWrapper />}
   </body>
 </html>
