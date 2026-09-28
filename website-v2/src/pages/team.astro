@@ -1,8 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageHead from '../components/PageHead.astro';
 import TeamCard from '../components/TeamCard.astro';
 import { Image } from 'astro:assets';
-import { Mail, GraduationCap, Award, Microscope, Users, Camera } from 'lucide-react';
+import { Mail, Camera } from 'lucide-react';
 import { getCollection } from 'astro:content';
 import avatar from '../assets/avatar-nks.png';
 import team2026 from '../assets/gallery/gallery-team2026.jpg';
@@ -75,17 +76,23 @@ const groupedMembers = groups.reduce((acc, group) => {
   title="Team"
   description="Dr. Naveen Kumar Singh and the researchers of the Biosensors & Devices Lab, IIT Delhi."
 >
+  <PageHead
+    title="Team"
+    lede="Led by Dr. Naveen Kumar Singh, our researchers span chemistry, biology, electronics, and bioengineering."
+    width="max-w-5xl"
+  />
+
   <!-- ===== Principal Investigator (former /pi page) ===== -->
-  <section class="py-14 sm:py-20">
+  <section class="pt-12 pb-4 sm:pt-16">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8" data-reveal>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
         <!-- Photo -->
         <div class="md:col-span-1">
           <div class="md:sticky md:top-24">
-            <div class="aspect-[3/4] rounded-2xl overflow-hidden border border-gray-100 shadow-lg">
+            <div class="aspect-[3/4] rounded-xl overflow-hidden border border-gray-200">
               <Image src={avatar} alt="Dr. Naveen Kumar Singh" class="w-full h-full object-cover" />
             </div>
-            <div class="mt-4 bg-white rounded-2xl border border-gray-100 shadow-sm p-4">
+            <div class="mt-4 bg-white rounded-xl border border-gray-200 p-4">
               <h2 class="font-bold text-gray-900">Dr. Naveen Kumar Singh</h2>
               <p class="text-sm text-gray-600 mt-1">Assistant Professor</p>
               <p class="text-sm text-gray-500">Centre for Biomedical Engineering</p>
@@ -98,10 +105,7 @@ const groupedMembers = groups.reduce((acc, group) => {
 
         <!-- Bio -->
         <div class="md:col-span-2">
-          <div class="mb-3 flex items-center gap-3">
-            <Microscope className="w-8 h-8 text-blue-700" />
-            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900">Principal Investigator</h2>
-          </div>
+          <h2 class="section-title">Principal Investigator</h2>
           <p class="text-lg text-gray-700 leading-relaxed">
             Dr. Naveen Kumar Singh is an Assistant Professor at the Centre for Biomedical
             Engineering (CBME), Indian Institute of Technology Delhi, where he leads the
@@ -119,9 +123,7 @@ const groupedMembers = groups.reduce((acc, group) => {
           </p>
 
           <div class="mt-8">
-            <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-              <GraduationCap className="w-6 h-6 text-blue-700" /> Education &amp; Career
-            </h3>
+            <h3 class="text-lg font-semibold text-gray-900 mb-4">Education &amp; Career</h3>
             <ol class="relative border-l-2 border-blue-100 ml-3 space-y-4">
               {milestones.map(m => (
                 <li class="pl-6 relative">
@@ -134,12 +136,10 @@ const groupedMembers = groups.reduce((acc, group) => {
           </div>
 
           <div class="mt-8">
-            <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-              <Award className="w-6 h-6 text-blue-700" /> Honors &amp; Recognition
-            </h3>
+            <h3 class="text-lg font-semibold text-gray-900 mb-4">Honors &amp; Recognition</h3>
             <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {honors.map(h => (
-                <li class="bg-white rounded-xl border border-gray-100 shadow-sm px-4 py-3 text-sm text-gray-700">{h}</li>
+                <li class="bg-white rounded-xl border border-gray-200 px-4 py-3 text-sm text-gray-700">{h}</li>
               ))}
             </ul>
             <p class="mt-4 text-sm text-gray-500">
@@ -155,18 +155,12 @@ const groupedMembers = groups.reduce((acc, group) => {
   <!-- ===== Lab Members (former team page) ===== -->
   <section class="pb-12 sm:pb-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-reveal>
-      <div class="max-w-3xl mx-auto text-center mb-12 pt-8 border-t border-gray-100">
-        <div class="flex items-center justify-center gap-3 mb-4">
-          <Users className="w-8 h-8 text-blue-700" />
-          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900">Our Team</h2>
-        </div>
-        <p class="text-lg text-gray-600">
-          Meet the researchers and students behind our innovations.
-        </p>
+      <div class="pt-12 border-t border-gray-100">
+        <h2 class="section-title">Lab Members</h2>
       </div>
 
       <!-- 2026 group photo -->
-      <figure class="mb-16 rounded-3xl overflow-hidden border border-gray-100 shadow-lg max-w-4xl mx-auto">
+      <figure class="mb-16 rounded-xl overflow-hidden border border-gray-200 max-w-4xl mx-auto">
         <div class="aspect-[4/3] sm:aspect-[16/9]">
           <Image
             src={team2026}
@@ -185,9 +179,7 @@ const groupedMembers = groups.reduce((acc, group) => {
       <div class="space-y-20">
         {groupedMembers.map(group => (
           <div>
-            <h3 class="text-2xl font-bold text-gray-900 mb-8 pl-4 border-l-4 border-blue-600">
-              {group.title}
-            </h3>
+            <h3 class="text-xl font-bold text-gray-900 mb-8">{group.title}</h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
               {group.members.map(member => (
                 <TeamCard member={member} />

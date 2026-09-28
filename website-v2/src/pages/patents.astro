@@ -1,7 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageHead from '../components/PageHead.astro';
 import { getCollection } from 'astro:content';
-import { BadgeCheck, FileText, MapPin, CalendarDays } from 'lucide-react';
+import { FileText, MapPin, CalendarDays } from 'lucide-react';
 
 const allPatents = (await getCollection('patents'))
   .sort((a, b) => b.data.year - a.data.year || a.data.order - b.data.order);
@@ -18,23 +19,17 @@ const statusStyles: Record<string, string> = {
   title="Patents"
   description="Patent applications and intellectual property developed at the Biosensors & Devices Lab, IIT Delhi."
 >
-  <section class="py-14 sm:py-20">
+  <PageHead
+    title="Patents"
+    lede="Patent applications and intellectual property filed by the lab for point-of-care diagnostics, aptamer technology, and biosensing devices."
+    width="max-w-4xl"
+  />
+  <section class="pt-12 pb-4 sm:pt-16">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="mb-10 sm:mb-14" data-reveal>
-        <div class="flex items-center gap-3 mb-3">
-          <BadgeCheck className="w-8 h-8 text-blue-700" />
-          <h1 class="text-3xl sm:text-4xl font-bold text-gray-900">Patents</h1>
-        </div>
-        <p class="mt-2 text-gray-600 text-base sm:text-lg">
-          Patent applications and intellectual property filed by the lab for point-of-care diagnostics,
-          aptamer technology, and biosensing devices.
-        </p>
-      </div>
-
       <div class="space-y-4">
         {allPatents.map((p, i) => (
           <div
-            class="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 p-5 sm:p-6 flex flex-col gap-3"
+            class="card card-hover p-5 sm:p-6 flex flex-col gap-3"
             data-reveal
             style={`transition-delay: ${Math.min(i, 5) * 40}ms`}
           >
@@ -77,7 +72,7 @@ const statusStyles: Record<string, string> = {
         )}
       </div>
 
-      <div class="mt-10 bg-gray-50 rounded-2xl p-6 flex items-start gap-3">
+      <div class="mt-10 bg-gray-50 rounded-xl p-6 flex items-start gap-3">
         <FileText className="w-5 h-5 text-gray-500 mt-0.5 shrink-0" />
         <p class="text-sm text-gray-600">
           For licensing inquiries or collaboration on any of these technologies, please contact

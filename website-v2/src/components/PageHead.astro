@@ -1,0 +1,18 @@
+---
+// Shared page header: every subpage opens with the same composition.
+// One left-aligned title, one optional lede. No icons, no eyebrows.
+// `width` must match the page's content container so the title aligns.
+interface Props {
+  title: string;
+  lede?: string;
+  width?: string;
+}
+const { title, lede, width = 'max-w-7xl' } = Astro.props;
+---
+
+<div class="page-head">
+  <div class:list={[width, 'mx-auto px-4 sm:px-6 lg:px-8']}>
+    <h1 class="page-title">{title}</h1>
+    {lede && <p class="page-lede mt-4">{lede}</p>}
+  </div>
+</div>

@@ -39,8 +39,7 @@ const isHome = pathNoBase === '/';
     <link rel="apple-touch-icon" href={basePath + '/favicon.png'} />
     <link rel="icon" type="image/x-icon" href={basePath + '/favicon.ico'} />
     <link rel="manifest" href={basePath + '/manifest.json'} />
-    <link rel="preload" href={basePath + '/fonts/Inter-Regular.woff'} as="font" type="font/woff" crossorigin />
-    <link rel="preload" href={basePath + '/fonts/Inter-Bold.woff'} as="font" type="font/woff" crossorigin />
+    <link rel="preload" href={basePath + '/fonts/Inter-Variable.woff2'} as="font" type="font/woff2" crossorigin />
     <meta name="generator" content={Astro.generator} />
 
     <title>{pageTitle}</title>
@@ -116,28 +115,53 @@ const isHome = pathNoBase === '/';
       <slot />
     </main>
 
-    <footer class="border-t border-gray-100 py-10 mt-12 bg-gray-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-          <div class="text-center md:text-left">
-            <p class="font-semibold text-gray-800 text-sm">
-              {SITE.labName} · {SITE.university}
+    <footer class="mt-16 bg-strip-dark text-gray-300">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+        <div class="grid gap-10 md:grid-cols-12">
+          <!-- Brand + address -->
+          <div class="md:col-span-5">
+            <p class="text-white font-semibold">{SITE.labName}</p>
+            <p class="text-sm mt-1 text-blue-200/90">{SITE.university} · Centre for Biomedical Engineering</p>
+            <p class="text-sm mt-4 leading-relaxed text-gray-400">
+              Room GPL-9 (lab relocating), Indian Institute of Technology Delhi,<br />
+              Hauz Khas, New Delhi 110016, India
             </p>
-            <p class="text-gray-500 text-sm mt-1">
-              Centre for Biomedical Engineering, Indian Institute of Technology Delhi, Hauz Khas, New Delhi 110016, India · GPL-9 (lab relocating)
-            </p>
-            <p class="text-gray-500 text-sm mt-1">
-              Principal Investigator: Dr. Naveen Kumar Singh · <a href={`mailto:${SITE.email}`} class="hover:text-blue-600 transition-colors">{SITE.email}</a>
-            </p>
+            <a href={`mailto:${SITE.email}`} class="inline-flex items-center gap-2 mt-3 text-sm text-blue-300 hover:text-blue-200 transition-colors">
+              {SITE.email}
+            </a>
           </div>
-          <div class="text-center md:text-right text-sm text-gray-500 shrink-0">
-            <p>© {new Date().getFullYear()} {SITE.labName}. All rights reserved.</p>
-            <p class="mt-1">
-              <a href="https://github.com/fjd2004711/scholar-lite" target="_blank" rel="noopener noreferrer" class="hover:text-gray-700 transition-colors">
-                Built with Scholar-Lite
-              </a>
-            </p>
+          <!-- Explore -->
+          <div class="md:col-span-4">
+            <p class="text-sm font-semibold text-white mb-3">Explore</p>
+            <div class="grid grid-cols-2 gap-x-6 gap-y-2 text-sm">
+              <a href={basePath + "/research"} class="text-gray-400 hover:text-white transition-colors">Research</a>
+              <a href={basePath + "/publications"} class="text-gray-400 hover:text-white transition-colors">Publications</a>
+              <a href={basePath + "/team"} class="text-gray-400 hover:text-white transition-colors">Team</a>
+              <a href={basePath + "/patents"} class="text-gray-400 hover:text-white transition-colors">Patents</a>
+              <a href={basePath + "/equipment"} class="text-gray-400 hover:text-white transition-colors">Equipment</a>
+              <a href={basePath + "/gallery"} class="text-gray-400 hover:text-white transition-colors">Gallery</a>
+              <a href={basePath + "/news"} class="text-gray-400 hover:text-white transition-colors">News</a>
+              <a href={basePath + "/funding"} class="text-gray-400 hover:text-white transition-colors">Funding</a>
+            </div>
           </div>
+          <!-- Prospectives -->
+          <div class="md:col-span-3">
+            <p class="text-sm font-semibold text-white mb-3">Prospective members</p>
+            <div class="flex flex-col gap-2 text-sm">
+              <a href={basePath + "/join"} class="text-gray-400 hover:text-white transition-colors">Join the lab</a>
+              <a href={basePath + "/courses"} class="text-gray-400 hover:text-white transition-colors">Courses</a>
+              <a href={basePath + "/contact"} class="text-gray-400 hover:text-white transition-colors">Contact</a>
+              <a href={basePath + "/search"} class="text-gray-400 hover:text-white transition-colors">Search</a>
+            </div>
+          </div>
+        </div>
+        <div class="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-gray-500">
+          <p>© {new Date().getFullYear()} {SITE.labName}. All rights reserved.</p>
+          <p>
+            <a href="https://github.com/fjd2004711/scholar-lite" target="_blank" rel="noopener noreferrer" class="hover:text-gray-300 transition-colors">
+              Built with Scholar-Lite
+            </a>
+          </p>
         </div>
       </div>
     </footer>

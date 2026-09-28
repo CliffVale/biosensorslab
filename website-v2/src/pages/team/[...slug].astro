@@ -17,15 +17,6 @@ const { Content } = await render(member);
 const { name, role, title, avatar, email, website, linkedin, github, twitter, googleScholar } = member.data;
 
 const initials = name.split(/\s+/).filter(Boolean).slice(0, 2).map(w => w[0].toUpperCase()).join('');
-const tileColors = [
-  "from-blue-500 to-indigo-600",
-  "from-emerald-500 to-teal-600",
-  "from-violet-500 to-purple-600",
-  "from-amber-500 to-orange-600",
-  "from-rose-500 to-pink-600",
-  "from-cyan-500 to-sky-600"
-];
-const tileColor = tileColors[(name.charCodeAt(0) + (name.charCodeAt(1) || 0)) % tileColors.length];
 
 const roleToKey = {
   'Principal Investigator': 'team.pi',
@@ -48,21 +39,21 @@ const roleToKey = {
       <ArrowLeft className="w-4 h-4 mr-1" /> Back to Team
     </a>
 
-    <div class="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm mb-12">
+    <div class="card p-8 mb-12">
       <div class="flex flex-col md:flex-row gap-8 items-start">
-        <div class="w-32 h-32 md:w-48 md:h-48 rounded-2xl overflow-hidden bg-gray-100 shrink-0 mx-auto md:mx-0">
+        <div class="w-32 h-32 md:w-48 md:h-48 rounded-xl overflow-hidden bg-gray-100 shrink-0 mx-auto md:mx-0">
           {avatar ? (
             <img src={avatar.src} alt={name} class="w-full h-full object-cover" />
           ) : (
-            <div class={`w-full h-full flex items-center justify-center bg-gradient-to-br ${tileColor}`}>
-              <span class="text-5xl font-bold text-white">{initials}</span>
+            <div class="w-full h-full flex items-center justify-center bg-gray-100">
+              <span class="text-5xl font-bold text-gray-300">{initials}</span>
             </div>
           )}
         </div>
         
         <div class="flex-grow text-center md:text-left">
-          <h1 class="text-3xl font-bold text-gray-900 mb-2">{name}</h1>
-          <p class="text-xl text-blue-600 font-medium mb-6">{role}</p>
+          <h1 class="page-title mb-1">{name}</h1>
+          <p class="text-lg text-blue-800 font-medium mb-6">{role}</p>
           
           <div class="flex flex-wrap justify-center md:justify-start gap-3">
             {email && (
@@ -116,7 +107,7 @@ const roleToKey = {
       </div>
     </div>
 
-    <div class="prose prose-lg prose-blue max-w-none text-gray-700">
+    <div class="md-content max-w-none">
       <Content />
     </div>
   </div>

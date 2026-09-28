@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Landmark, ExternalLink, Award } from 'lucide-react';
+import PageHead from '../components/PageHead.astro';
+import { ExternalLink } from 'lucide-react';
 const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
 const logos = {
   icmr: basePath + '/funding-logos/icmr-logo.svg',
@@ -55,25 +56,20 @@ const agencies = [
   title="Funding"
   description="Funding agencies supporting research at the Biosensors & Devices Lab, IIT Delhi."
 >
-  <section class="py-14 sm:py-20">
+  <PageHead
+    title="Funding"
+    lede="Our research is supported by national and international funding agencies."
+    width="max-w-5xl"
+  />
+  <section class="pt-12 pb-4 sm:pt-16">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8" data-reveal>
-      <div class="mb-10 sm:mb-14">
-        <div class="flex items-center gap-3 mb-3">
-          <Landmark className="w-8 h-8 text-blue-700" />
-          <h1 class="text-3xl sm:text-4xl font-bold text-gray-900">Funding</h1>
-        </div>
-        <p class="mt-2 text-gray-600 text-base sm:text-lg max-w-3xl">
-          Our research is supported by national and international funding agencies.
-        </p>
-      </div>
-
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {agencies.map(a => (
           <a
             href={a.url}
             target="_blank"
             rel="noopener noreferrer"
-            class="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 p-6 flex flex-col items-center text-center"
+            class="group card card-hover p-6 flex flex-col items-center text-center"
           >
             <div class="h-20 w-full flex items-center justify-center mb-4">
               <img src={a.logo} alt={`${a.name} logo`} width="160" height="80" class="max-h-20 max-w-full object-contain" />
@@ -87,11 +83,8 @@ const agencies = [
         ))}
       </div>
 
-      <div class="mt-12 bg-blue-50 border border-blue-100 rounded-2xl p-6">
-        <div class="flex items-center gap-2 mb-2">
-          <Award className="w-5 h-5 text-blue-700" />
-          <h2 class="font-semibold text-gray-900">Grant Acknowledgements</h2>
-        </div>
+      <div class="mt-12 bg-blue-50 border border-blue-100 rounded-xl p-6">
+        <h2 class="font-semibold text-gray-900 mb-2">Grant Acknowledgements</h2>
         <p class="text-sm text-gray-600 leading-relaxed">
           Specific grant numbers and project titles will be listed here as provided by the
           lab. Please contact <a href="mailto:nks@iitd.ac.in" class="text-blue-700 underline">nks@iitd.ac.in</a>

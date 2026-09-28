@@ -42,6 +42,9 @@ coverage/
 .claude/
 skills-lock.json
 
+# Local screenshot/verification harness (machine-specific paths)
+shots.mjs
+
 # Archived / working junk (kept out of repo; history retains old copies)
 references/
 .firecrawl/

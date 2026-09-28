@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageHead from '../components/PageHead.astro';
 import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
 import { FlaskConical, Microscope, Thermometer, Droplets, Zap, Printer, Dna, TestTube, Syringe, Ruler, Wind } from 'lucide-react';
@@ -33,24 +34,19 @@ function fallbackGradient(i: number) {
   title="Equipment"
   description="Instrumentation available at the Biosensors & Devices Lab, IIT Delhi."
 >
-  <section class="py-14 sm:py-20">
+  <PageHead
+    title="Lab Equipment"
+    lede="Instrumentation for biosensor development, surface characterization, biofabrication, and molecular biology — spanning electrochemistry, SPR, spectroscopy, 3D printing, and microfluidic assembly."
+    width="max-w-7xl"
+  />
+  <section class="pt-12 pb-4 sm:pt-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="mb-10 sm:mb-14" data-reveal>
-        <h1 class="text-3xl sm:text-4xl font-bold text-gray-900">Lab Equipment</h1>
-        <p class="mt-4 text-gray-600 text-base sm:text-lg max-w-3xl">
-          The lab is equipped with state-of-the-art instrumentation for biosensor
-          development, surface characterization, biofabrication, and molecular
-          biology — spanning electrochemistry, SPR, spectroscopy, 3D printing, and
-          microfluidic assembly.
-        </p>
-      </div>
-
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6" data-reveal>
         {items.map((item, i) => {
           const Icon = fallbackIcon(i);
           return (
             <div
-              class="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col"
+              class="group card card-hover overflow-hidden flex flex-col"
             >
               <!-- Media area -->
               <div class={`relative aspect-[4/3] w-full bg-gradient-to-br ${fallbackGradient(i)} flex items-center justify-center overflow-hidden media-zoom`}>

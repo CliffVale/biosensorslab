@@ -1,21 +1,15 @@
 @import "tailwindcss";
 
-/* Self-hosted Inter (public/fonts/, font-display: swap = text renders immediately in fallback, swaps when loaded).
-   ⚠ These two URLs are hardcoded to the GitHub Pages base path. When deploying to the IITD
-   domain (base '/'), change them to url('/fonts/…') — see DEPLOYMENT.md checklist. */
+/* Self-hosted Inter Variable (weight 100–900 in one 48KB woff2, latin subset).
+   One file serves every weight the UI uses — no faux-bold synthesis.
+   ⚠ This URL is hardcoded to the GitHub Pages base path. When deploying to the
+   IITD domain (base '/'), change it to url('/fonts/…') — see DEPLOYMENT.md checklist. */
 @font-face {
   font-family: 'Inter';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 100 900;
   font-display: swap;
-  src: url('/biosensorslab/fonts/Inter-Regular.woff') format('woff');
-}
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url('/biosensorslab/fonts/Inter-Bold.woff') format('woff');
+  src: url('/biosensorslab/fonts/Inter-Variable.woff2') format('woff2-variations');
 }
 
 @theme {
@@ -24,10 +18,100 @@
 
 body {
   font-family: var(--font-sans);
-  @apply text-gray-800 bg-white antialiased;
+  @apply text-gray-700 bg-white antialiased;
 }
 
-/* Custom Scrollbar for a cleaner look */
+/* ================================================================
+   DESIGN SYSTEM "Lab Precision"
+   One accent (brand blue), one neutral ramp, one radius scale (12px,
+   6px for chips, pill only for badges/buttons), one shadow language.
+   ================================================================ */
+:root {
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-page: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ── Typographic scale ──
+   Display (home hero):  clamp(2.5rem, 5.5vw, 4rem)
+   Page H1 (subpages):   clamp(1.875rem, 3.5vw, 2.625rem)
+   Section title:        1.5rem
+   Card title:           1.125rem */
+.display-1 {
+  font-size: clamp(2.5rem, 5.5vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.06;
+  color: var(--color-gray-950, #030712);
+  text-wrap: balance;
+}
+.page-title {
+  font-size: clamp(1.875rem, 3.5vw, 2.625rem);
+  font-weight: 750;
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+  color: #0b1220;
+  text-wrap: balance;
+}
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  color: #0b1220;
+  text-wrap: balance;
+}
+.page-lede {
+  font-size: 1.125rem;
+  line-height: 1.65;
+  color: #4b5563;
+  max-width: 62ch;
+  text-wrap: pretty;
+}
+
+/* ── Page header system: every subpage opens identically ── */
+.page-head {
+  padding-top: 3.5rem;
+  padding-bottom: 2.75rem;
+  border-bottom: 1px solid #f3f4f6;
+}
+@media (min-width: 640px) {
+  .page-head {
+    padding-top: 5rem;
+    padding-bottom: 3.25rem;
+  }
+}
+
+/* ── Section rhythm: one vertical scale ── */
+.section {
+  padding-top: 4.5rem;
+  padding-bottom: 4.5rem;
+}
+@media (min-width: 640px) {
+  .section {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+/* ── Shape lock: cards & media 12px, chips 6px, pills only for badges/buttons ── */
+
+/* ── One card language ── */
+.card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  transition:
+    transform 0.25s var(--ease-out),
+    box-shadow 0.25s var(--ease-out),
+    border-color 0.25s var(--ease-out);
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  border-color: #d1d5db;
+  box-shadow: 0 8px 24px -8px rgba(15, 23, 42, 0.1);
+}
+
+/* ── Custom Scrollbar ── */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -40,8 +124,6 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-gray-400;
 }
-
-/* Mobile Menu specific scrollbar */
 .custom-scrollbar::-webkit-scrollbar {
   width: 4px;
 }
@@ -53,23 +135,10 @@ body {
 }
 
 /* ================================================================
-   v2.2 PREMIUM Motion System — Unconventionally Awesome
-   Dramatic reveals, premium interactions, cinematic polish.
+   MOTION (restrained, MOTION 3): entrance reveals, nav underline,
+   button press, media zoom. Nothing loops. Nothing glows.
    ================================================================ */
 
-/* ── Custom Easing Curves (Impeccable best practices) ── */
-:root {
-  /* Strong ease-out for UI interactions (entering elements) */
-  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
-  /* Strong ease-in-out for on-screen movement */
-  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
-  /* iOS-like drawer curve */
-  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
-  /* Subtle page transition */
-  --ease-page: cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-/* ── 1. Smooth in-page anchor scrolling ── */
 html {
   scroll-behavior: smooth;
 }
@@ -79,18 +148,16 @@ html {
   }
 }
 
-/* ── 2. Native View Transitions (Chrome 111+) ── */
+/* Native View Transitions (Chrome 111+) */
 @view-transition {
   navigation: auto;
 }
-
 ::view-transition-old(root) {
   animation: vt-fade-out 0.18s var(--ease-out) both;
 }
 ::view-transition-new(root) {
   animation: vt-fade-in 0.26s var(--ease-page) both;
 }
-
 @keyframes vt-fade-out {
   to {
     opacity: 0;
@@ -103,11 +170,9 @@ html {
     transform: translateY(6px);
   }
 }
-
 header {
   view-transition-name: site-header;
 }
-
 @media (prefers-reduced-motion: reduce) {
   @view-transition {
     navigation: none;
@@ -119,48 +184,40 @@ header {
   }
 }
 
-/* ── 3. Scroll-reveal (enhanced easing) ── */
+/* Scroll-reveal (JS adds .is-visible; no-JS and reduced-motion see everything) */
 html.js [data-reveal] {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(16px);
   transition:
-    opacity 0.6s var(--ease-out),
-    transform 0.6s var(--ease-page);
+    opacity 0.55s var(--ease-out),
+    transform 0.55s var(--ease-page);
 }
 html.js [data-reveal].is-visible {
   opacity: 1;
   transform: translateY(0);
 }
-
-/* Staggered reveal for grid children */
 html.js [data-reveal] > *:nth-child(1) { transition-delay: 0ms; }
-html.js [data-reveal] > *:nth-child(2) { transition-delay: 60ms; }
-html.js [data-reveal] > *:nth-child(3) { transition-delay: 120ms; }
-html.js [data-reveal] > *:nth-child(4) { transition-delay: 180ms; }
-html.js [data-reveal] > *:nth-child(5) { transition-delay: 240ms; }
-html.js [data-reveal] > *:nth-child(6) { transition-delay: 300ms; }
+html.js [data-reveal] > *:nth-child(2) { transition-delay: 50ms; }
+html.js [data-reveal] > *:nth-child(3) { transition-delay: 100ms; }
+html.js [data-reveal] > *:nth-child(4) { transition-delay: 150ms; }
+html.js [data-reveal] > *:nth-child(5) { transition-delay: 200ms; }
+html.js [data-reveal] > *:nth-child(6) { transition-delay: 250ms; }
 
-/* ── 4. Hero entrance (staggered, proper easing) ── */
+/* Hero entrance (runs once) */
 .hero-enter {
-  animation: hero-up 0.6s var(--ease-page) backwards;
+  animation: hero-up 0.55s var(--ease-page) backwards;
 }
-.hero-enter-d1 {
-  animation-delay: 0.08s;
-}
-.hero-enter-d2 {
-  animation-delay: 0.16s;
-}
-.hero-enter-d3 {
-  animation-delay: 0.28s;
-}
+.hero-enter-d1 { animation-delay: 0.07s; }
+.hero-enter-d2 { animation-delay: 0.14s; }
+.hero-enter-d3 { animation-delay: 0.21s; }
 @keyframes hero-up {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(16px);
   }
 }
 
-/* ── 5. Nav link underline + active state ── */
+/* Nav link underline + active state */
 .nav-link {
   position: relative;
   transition: color 0.2s ease;
@@ -173,7 +230,7 @@ html.js [data-reveal] > *:nth-child(6) { transition-delay: 300ms; }
   bottom: -6px;
   height: 2px;
   border-radius: 999px;
-  background: #2563eb;
+  background: #1d4ed8;
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.25s var(--ease-out);
@@ -183,40 +240,25 @@ html.js [data-reveal] > *:nth-child(6) { transition-delay: 300ms; }
   transform: scaleX(1);
 }
 
-/* ── 6. Button press (Impeccable: scale(0.97) + fast ease-out) ── */
+/* Button press feedback */
 .btn-press {
   transition: transform 160ms var(--ease-out);
-  will-change: transform;
 }
 .btn-press:active {
   transform: scale(0.97);
 }
 
-/* ── 7. Card hover lift (enhanced) ── */
-.glow-card {
-  transition:
-    transform 0.3s var(--ease-out),
-    box-shadow 0.3s var(--ease-out),
-    border-color 0.3s ease;
-}
-.glow-card:hover {
-  transform: translateY(-4px);
-  box-shadow:
-    0 10px 25px -5px rgba(0, 0, 0, 0.08),
-    0 8px 10px -6px rgba(0, 0, 0, 0.04);
-}
-
-/* ── 8. Image zoom on hover ── */
+/* Image zoom on card hover */
 .media-zoom img {
-  transition: transform 0.5s var(--ease-page);
+  transition: transform 0.45s var(--ease-page);
 }
 .group:hover .media-zoom img {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
-/* ── 9. Focus-visible (keyboard navigation) ── */
+/* Focus-visible (keyboard navigation) */
 :focus-visible {
-  outline: 2px solid #2563eb;
+  outline: 2px solid #1d4ed8;
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -231,42 +273,14 @@ html.js [data-reveal] > *:nth-child(6) { transition-delay: 300ms; }
   left: 8px;
   z-index: 9999;
   padding: 8px 16px;
-  background: #2563eb;
+  background: #1d4ed8;
   color: white;
   border-radius: 8px;
   font-weight: 600;
   text-decoration: none;
 }
 
-/* ── 10. Glow-card cursor tracking ── */
-.glow-card {
-  --mx: 50%;
-  --my: 50%;
-  background-image:
-    radial-gradient(
-      600px circle at var(--mx) var(--my),
-      rgba(37, 99, 235, 0.04),
-      transparent 40%
-    );
-}
-
-/* ── 11. Night photo hover (equipment strip) ── */
-.night-photo {
-  transition:
-    opacity 0.5s var(--ease-out),
-    transform 0.5s var(--ease-page);
-}
-.group:hover .night-photo {
-  opacity: 1;
-  transform: scale(1.03);
-}
-
-/* ── 12. Funding logo hover ── */
-.funding-logo {
-  transition: filter 0.3s ease, opacity 0.3s ease;
-}
-
-/* ── 13. Signal trace animation (hero SVG) ── */
+/* Signal trace animation (hero SVG, runs once) */
 .signal-trace .trace-path {
   stroke-dasharray: 2400;
   stroke-dashoffset: 2400;
@@ -281,7 +295,7 @@ html.js [data-reveal] > *:nth-child(6) { transition-delay: 300ms; }
   }
 }
 
-/* ── 14. Reduced motion overrides ── */
+/* Reduced motion: everything collapses to static */
 @media (prefers-reduced-motion: reduce) {
   .hero-enter,
   .hero-enter-d1,
@@ -293,314 +307,112 @@ html.js [data-reveal] > *:nth-child(6) { transition-delay: 300ms; }
     animation: none !important;
     transition: none !important;
   }
-
   html.js [data-reveal] {
     opacity: 1;
     transform: none;
     transition: none;
   }
-
   .btn-press:active {
     transform: none;
   }
-
-  .glow-card:hover {
+  .card-hover:hover {
     transform: none;
   }
-
-  .night-photo {
-    opacity: 1;
+  .group:hover .media-zoom img {
     transform: none;
   }
 }
 
-/* ================================================================
-   v2.2 PREMIUM EFFECTS — Unconventionally Awesome
-   ================================================================ */
-
-/* ── Hero Floating Particles ── */
-.hero-particles {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-.hero-particle {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  background: rgba(37, 99, 235, 0.15);
-  border-radius: 50%;
-  animation: particle-float 20s infinite linear;
-}
-.hero-particle:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 18s; }
-.hero-particle:nth-child(2) { left: 25%; animation-delay: -3s; animation-duration: 22s; }
-.hero-particle:nth-child(3) { left: 40%; animation-delay: -6s; animation-duration: 20s; }
-.hero-particle:nth-child(4) { left: 55%; animation-delay: -9s; animation-duration: 24s; }
-.hero-particle:nth-child(5) { left: 70%; animation-delay: -12s; animation-duration: 19s; }
-.hero-particle:nth-child(6) { left: 85%; animation-delay: -15s; animation-duration: 21s; }
-
-@keyframes particle-float {
-  0% {
-    transform: translateY(100vh) rotate(0deg);
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-100px) rotate(720deg);
-    opacity: 0;
-  }
-}
-
-/* ── Hero Gradient Mesh ── */
-.hero-mesh {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 80% 50% at 20% 40%, rgba(37, 99, 235, 0.08) 0%, transparent 50%),
-    radial-gradient(ellipse 60% 40% at 80% 60%, rgba(6, 182, 212, 0.06) 0%, transparent 50%),
-    radial-gradient(ellipse 50% 30% at 50% 20%, rgba(37, 99, 235, 0.04) 0%, transparent 50%);
-  animation: mesh-shift 15s ease-in-out infinite alternate;
-}
-
-@keyframes mesh-shift {
-  0% {
-    background-position: 0% 0%, 100% 100%, 50% 0%;
-  }
-  100% {
-    background-position: 100% 100%, 0% 0%, 50% 100%;
-  }
-}
-
-/* ── Section Divider Wave ── */
-.section-wave {
-  position: relative;
-  margin-top: -1px;
-}
-.section-wave::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 80px;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80'%3E%3Cpath fill='%23f9fafb' d='M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,0 L0,0 Z'/%3E%3C/svg%3E") no-repeat center;
-  background-size: cover;
-  pointer-events: none;
-}
-
-/* ── Premium Card Effects ── */
-.card-premium {
-  position: relative;
-  background: white;
-  border-radius: 16px;
-  overflow: hidden;
-  transition: all 0.4s var(--ease-out);
-}
-.card-premium::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 16px;
-  padding: 1px;
-  background: linear-gradient(135deg, transparent 40%, rgba(37, 99, 235, 0.1) 50%, transparent 60%);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.4s var(--ease-out);
-}
-.card-premium:hover::before {
-  opacity: 1;
-}
-.card-premium:hover {
-  transform: translateY(-8px);
-  box-shadow:
-    0 20px 40px -12px rgba(0, 0, 0, 0.08),
-    0 8px 16px -8px rgba(0, 0, 0, 0.04);
-}
-
-/* ── Animated Underline ── */
-.animated-underline {
-  position: relative;
-  display: inline-block;
-}
-.animated-underline::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: linear-gradient(90deg, #2563eb, #06b6d4);
-  border-radius: 999px;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s var(--ease-out);
-}
-.animated-underline:hover::after {
-  transform: scaleX(1);
-}
-
-/* ── Stat Counter Glow ── */
-.stat-glow {
-  position: relative;
-}
-.stat-glow::before {
-  content: '';
-  position: absolute;
-  inset: -20px;
-  background: radial-gradient(circle, rgba(37, 99, 235, 0.06) 0%, transparent 70%);
-  border-radius: 50%;
-  opacity: 0;
-  transition: opacity 0.5s var(--ease-out);
-}
-.stat-glow:hover::before {
-  opacity: 1;
-}
-
-/* ── Gradient Text ── */
-.gradient-text {
-  background: linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #06b6d4 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* ── Premium Button ── */
-.btn-premium {
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s var(--ease-out);
-}
-.btn-premium::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%);
-  opacity: 0;
-  transition: opacity 0.3s var(--ease-out);
-}
-.btn-premium:hover::before {
-  opacity: 1;
-}
-.btn-premium:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px -8px rgba(37, 99, 235, 0.4);
-}
-.btn-premium:active {
-  transform: scale(0.97);
-}
-
-/* ── Smooth Section Reveal ── */
-.reveal-up {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s var(--ease-page);
-}
-.reveal-up.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.reveal-left {
-  opacity: 0;
-  transform: translateX(-40px);
-  transition: all 0.8s var(--ease-page);
-}
-.reveal-left.visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.reveal-scale {
-  opacity: 0;
-  transform: scale(0.95);
-  transition: all 0.8s var(--ease-page);
-}
-.reveal-scale.visible {
-  opacity: 1;
-  transform: scale(1);
-}
-
-/* ── Stagger Delay Utilities ── */
-.stagger-1 { transition-delay: 0.1s; }
-.stagger-2 { transition-delay: 0.2s; }
-.stagger-3 { transition-delay: 0.3s; }
-.stagger-4 { transition-delay: 0.4s; }
-.stagger-5 { transition-delay: 0.5s; }
-
-/* ── Premium Section Backgrounds ── */
-.bg-premium-gradient {
-  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
-}
-
+/* ── Hero background: static, subtle blue tint on paper ── */
 .bg-hero-gradient {
   background:
-    radial-gradient(ellipse 100% 80% at 50% 0%, rgba(37, 99, 235, 0.03) 0%, transparent 50%),
+    radial-gradient(ellipse 90% 70% at 70% -10%, rgba(37, 99, 235, 0.05) 0%, transparent 55%),
     linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
 }
 
-/* ── Floating Badge ── */
-.badge-float {
-  animation: badge-float 3s ease-in-out infinite;
-}
-@keyframes badge-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-}
-
-/* ── Image Shine Effect ── */
-.image-shine {
-  position: relative;
-  overflow: hidden;
-}
-.image-shine::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    to right,
-    transparent 0%,
-    rgba(255, 255, 255, 0.1) 50%,
-    transparent 100%
-  );
-  transform: rotate(30deg);
-  transition: transform 0.6s var(--ease-out);
-  pointer-events: none;
-}
-.image-shine:hover::after {
-  transform: rotate(30deg) translateY(100%);
+/* ── Stat block (hero): tabular numbers, hairline dividers ── */
+.stat-num {
+  font-weight: 750;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  color: #0b1220;
 }
 
-/* ── Smooth Scroll Indicator ── */
-.scroll-indicator {
-  animation: scroll-bounce 2s ease-in-out infinite;
-}
-@keyframes scroll-bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(8px); }
+/* ── Dark equipment strip on home ── */
+.bg-strip-dark {
+  background:
+    radial-gradient(ellipse 80% 100% at 20% 0%, rgba(37, 99, 235, 0.14) 0%, transparent 60%),
+    linear-gradient(180deg, #0b1220 0%, #0f172a 100%);
 }
 
-/* ── Mobile Performance ── */
-@media (max-width: 768px) {
-  .hero-particle {
-    display: none; /* Hide particles on mobile for performance */
-  }
-  .hero-mesh {
-    animation: none; /* Static mesh on mobile */
-  }
-  .reveal-up,
-  .reveal-left,
-  .reveal-scale {
-    transition-duration: 0.5s; /* Faster on mobile */
-  }
+/* ── Markdown body styling (no typography plugin; scoped to .md-content) ──
+   Used by detail pages that render content-collection markdown. */
+.md-content {
+  color: #374151;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+}
+.md-content > * + * {
+  margin-top: 1em;
+}
+.md-content h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #0b1220;
+  margin-top: 2em;
+}
+.md-content h3 {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: #0b1220;
+  margin-top: 1.75em;
+}
+.md-content strong {
+  color: #0b1220;
+  font-weight: 650;
+}
+.md-content a {
+  color: #1d4ed8;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.md-content ul,
+.md-content ol {
+  padding-left: 1.25rem;
+}
+.md-content ul {
+  list-style: disc;
+}
+.md-content ol {
+  list-style: decimal;
+}
+.md-content li + li {
+  margin-top: 0.375em;
+}
+.md-content blockquote {
+  border-left: 3px solid #bfdbfe;
+  padding-left: 1rem;
+  color: #4b5563;
+}
+.md-content code {
+  font-size: 0.875em;
+  background: #f3f4f6;
+  border-radius: 4px;
+  padding: 0.125em 0.375em;
+}
+.md-content pre {
+  background: #0b1220;
+  color: #e5e7eb;
+  border-radius: 12px;
+  padding: 1rem;
+  overflow-x: auto;
+}
+.md-content pre code {
+  background: transparent;
+  padding: 0;
+  color: inherit;
+}
+.md-content img {
+  border-radius: 12px;
 }

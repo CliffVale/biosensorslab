@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageHead from '../components/PageHead.astro';
 import PublicationItem from '../components/PublicationItem.astro';
 import { getCollection } from 'astro:content';
 
@@ -8,13 +9,8 @@ const years = [...new Set(allPapers.map(p => p.data.year))];
 ---
 
 <Layout title="Publications">
-  <div class="max-w-4xl mx-auto px-4 py-12 sm:py-20">
-    <div class="mb-12" data-reveal>
-      <h1 class="text-4xl font-bold text-gray-900 mb-4">Publications</h1>
-      <p class="text-lg text-gray-600">
-        A collection of our research papers, conference proceedings, and journal articles.
-      </p>
-    </div>
+  <PageHead title="Publications" lede="A collection of our research papers, conference proceedings, and journal articles." width="max-w-4xl" />
+  <div class="max-w-4xl mx-auto px-4 pt-10 pb-4">
 
     <div class="space-y-12">
       {years.map(year => (

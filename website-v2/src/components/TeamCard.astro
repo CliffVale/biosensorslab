@@ -12,24 +12,6 @@ const { name, role, avatar, bio, email, website, linkedin, github, twitter, goog
 
 // Initials fallback for members without a photo
 const initials = name.split(/\s+/).filter(Boolean).slice(0, 2).map(w => w[0].toUpperCase()).join('');
-const tileColors = [
-  "from-blue-500 to-indigo-600",
-  "from-emerald-500 to-teal-600",
-  "from-violet-500 to-purple-600",
-  "from-amber-500 to-orange-600",
-  "from-rose-500 to-pink-600",
-  "from-cyan-500 to-sky-600"
-];
-const tileColor = tileColors[(name.charCodeAt(0) + (name.charCodeAt(1) || 0)) % tileColors.length];
-
-// Color mapping for title badges
-const badgeColors = [
-  "text-blue-700 bg-blue-50 border-blue-100",
-  "text-purple-700 bg-purple-50 border-purple-100",
-  "text-emerald-700 bg-emerald-50 border-emerald-100",
-  "text-amber-700 bg-amber-50 border-amber-100",
-  "text-rose-700 bg-rose-50 border-rose-100"
-];
 ---
 
 <div class="group flex flex-col items-center text-center">
@@ -44,8 +26,8 @@ const badgeColors = [
           loading="lazy"
         />
       ) : (
-        <div class={`w-full h-full flex items-center justify-center bg-gradient-to-br ${tileColor}`}>
-          <span class="text-4xl font-bold text-white">{initials}</span>
+        <div class="w-full h-full flex items-center justify-center bg-gray-100">
+          <span class="text-4xl font-bold text-gray-300">{initials}</span>
         </div>
       )}
     </a>
@@ -94,8 +76,8 @@ const badgeColors = [
   
   {member.data.title && member.data.title.length > 0 && (
     <div class="flex flex-wrap justify-center gap-2 mb-3 px-2">
-      {member.data.title.map((t, index) => (
-        <span class={`inline-block px-2 py-0.5 text-xs font-medium border rounded-full ${badgeColors[index % badgeColors.length]}`}>
+      {member.data.title.map((t) => (
+        <span class="inline-block px-2 py-0.5 text-xs font-medium border rounded-full text-blue-800 bg-blue-50 border-blue-100">
           {t}
         </span>
       ))}
@@ -104,5 +86,5 @@ const badgeColors = [
   
   {/* Role display removed as per request, relying on section headers and title badges */}
   
-  {bio && <p class="text-sm text-gray-500 line-clamp-2 px-2">{bio}</p>}
+  {bio && <p class="text-sm text-gray-500 line-clamp-3 px-2">{bio}</p>}
 </div>
