@@ -1,0 +1,250 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e4]:
+      - link "Biosensors & Devices Lab Biosensors & Devices Lab" [ref=e6] [cursor=pointer]:
+        - /url: /biosensorslab/
+        - img "Biosensors & Devices Lab" [ref=e7]
+        - generic [ref=e8]: Biosensors & Devices Lab
+      - navigation [ref=e9]:
+        - link "Home" [ref=e10] [cursor=pointer]:
+          - /url: /biosensorslab/
+        - link "Research" [ref=e11] [cursor=pointer]:
+          - /url: /biosensorslab/research
+        - link "Team" [ref=e12] [cursor=pointer]:
+          - /url: /biosensorslab/team
+        - link "Publications" [ref=e13] [cursor=pointer]:
+          - /url: /biosensorslab/publications
+        - link "Patents" [ref=e14] [cursor=pointer]:
+          - /url: /biosensorslab/patents
+        - link "Equipment" [ref=e15] [cursor=pointer]:
+          - /url: /biosensorslab/equipment
+        - link "Funding" [ref=e16] [cursor=pointer]:
+          - /url: /biosensorslab/funding
+        - link "Courses" [ref=e17] [cursor=pointer]:
+          - /url: /biosensorslab/courses
+        - link "Gallery" [ref=e18] [cursor=pointer]:
+          - /url: /biosensorslab/gallery
+        - link "News" [ref=e19] [cursor=pointer]:
+          - /url: /biosensorslab/news
+        - link "Contact" [ref=e20] [cursor=pointer]:
+          - /url: /biosensorslab/contact
+        - link "Search" [ref=e21] [cursor=pointer]:
+          - /url: /biosensorslab/search
+        - link "Apply" [ref=e25] [cursor=pointer]:
+          - /url: /biosensorslab/contact#join
+  - main [ref=e26]:
+    - generic [ref=e29]:
+      - heading "Biosensors for Health & Diagnostics." [level=1] [ref=e30]
+      - paragraph [ref=e31]: Point-of-care diagnostics, wearable biosensors, and programmable biomaterials — Centre for Biomedical Engineering, Indian Institute of Technology Delhi.
+      - generic [ref=e32]:
+        - link "View Publications" [ref=e33] [cursor=pointer]:
+          - /url: /biosensorslab/publications
+        - link "Meet the Team" [ref=e36] [cursor=pointer]:
+          - /url: /biosensorslab/team
+      - generic [ref=e37]:
+        - generic [ref=e38]:
+          - paragraph [ref=e39]: 11+
+          - paragraph [ref=e40]: Publications
+        - generic [ref=e41]:
+          - paragraph [ref=e42]: "4"
+          - paragraph [ref=e43]: Patents
+        - generic [ref=e44]:
+          - paragraph [ref=e45]: "17"
+          - paragraph [ref=e46]: Instruments
+        - generic [ref=e47]:
+          - paragraph [ref=e48]: "7"
+          - paragraph [ref=e49]: Researchers
+    - generic [ref=e51]:
+      - generic [ref=e52]:
+        - generic [ref=e53]:
+          - paragraph [ref=e54]: What we do
+          - heading "Research Areas" [level=2] [ref=e55]
+        - link "View all" [ref=e56] [cursor=pointer]:
+          - /url: /biosensorslab/research
+      - generic [ref=e60]:
+        - link [ref=e61] [cursor=pointer]:
+          - /url: /biosensorslab/research/urosmart
+          - generic [ref=e62]:
+            - heading "UroSmart — Non-Invasive Aptasensor Platform for Pancreatic Cancer Detection" [level=3] [ref=e63]
+            - paragraph [ref=e64]: A fully integrated platform combining aseptic urine collection, automated microfluidic dispensing, and aptamer-based electrochemical sensing for point-of-care detection of CA 19.9 — the only clinically approved biomarker for pancreatic cancer.
+        - link [ref=e65] [cursor=pointer]:
+          - /url: /biosensorslab/research/malaria-instrument-free
+          - generic [ref=e66]:
+            - heading "Instrument-Free Malaria Detection" [level=3] [ref=e67]
+            - paragraph [ref=e68]: Detection of pan-malaria and Plasmodium falciparum using dye-based reactions catalyzed by the biomarker enzymes Plasmodium lactate dehydrogenase (pLDH) and Plasmodium falciparum glutamate dehydrogenase (PfGDH), through both instrument-based and instrument-free approaches.
+        - link [ref=e69] [cursor=pointer]:
+          - /url: /biosensorslab/research/has-chemical-antibody
+          - generic [ref=e70]:
+            - heading "One-Step Selection of 'Chemical Antibody' using HAS" [level=3] [ref=e71]
+            - paragraph [ref=e72]: A totally new concept for aptamer discovery — Hydrogel for Aptamer Selection (HAS) — that selects aptamers ('chemical antibodies') in a single step in just 60 hours.
+        - link [ref=e73] [cursor=pointer]:
+          - /url: /biosensorslab/research/wearable-cortisol-patch
+          - generic [ref=e74]:
+            - heading "A Non-Invasive Wearable Stress Patch for Real-Time Cortisol Monitoring" [level=3] [ref=e75]
+            - paragraph [ref=e76]: A wearable patch based on soft microfluidics and flexible electrodes functionalized with a pseudoknot-assisted conformation-switching aptamer for pH-calibrated, continuous, non-invasive cortisol monitoring in sweat.
+    - generic [ref=e78]:
+      - generic [ref=e79]:
+        - generic [ref=e80]:
+          - paragraph [ref=e81]: Our work
+          - heading "Selected Publications" [level=2] [ref=e82]
+        - link "View all" [ref=e83] [cursor=pointer]:
+          - /url: /biosensorslab/publications
+      - generic [ref=e87]:
+        - 'link "A non-invasive nanoengineered CA 19.9-based aptasensor for early detection of pancreatic cancer using a smart automated urine analysis system Kushagra Jain, Shivam Kumar, Muhammad Khalid Bhat, et al. Biosensors and Bioelectronics: X 2026" [ref=e88] [cursor=pointer]':
+          - /url: /biosensorslab10.1016/j.biosx.2026.100807
+          - generic [ref=e89]:
+            - heading "A non-invasive nanoengineered CA 19.9-based aptasensor for early detection of pancreatic cancer using a smart automated urine analysis system" [level=3] [ref=e90]
+            - paragraph [ref=e91]: Kushagra Jain, Shivam Kumar, Muhammad Khalid Bhat, et al.
+            - generic [ref=e92]:
+              - 'generic "Biosensors and Bioelectronics: X" [ref=e93]'
+              - generic [ref=e94]: "2026"
+        - link "A non-invasive wearable stress patch for real-time cortisol monitoring using a pseudoknot-assisted aptamer Naveen K. Singh, Saeromi Chung, An-Yi Chang, et al. Biosensors and Bioelectronics 2023" [ref=e95] [cursor=pointer]:
+          - /url: /biosensorslab10.1016/j.bios.2023.115097
+          - generic [ref=e96]:
+            - heading "A non-invasive wearable stress patch for real-time cortisol monitoring using a pseudoknot-assisted aptamer" [level=3] [ref=e97]
+            - paragraph [ref=e98]: Naveen K. Singh, Saeromi Chung, An-Yi Chang, et al.
+            - generic [ref=e99]:
+              - generic "Biosensors and Bioelectronics" [ref=e100]
+              - generic [ref=e101]: "2023"
+        - link "High-affinity one-step aptamer selection using a non-fouling porous hydrogel Naveen K. Singh, Yixun Wang, Connie Wen, et al. Nature Biotechnology 2023" [ref=e102] [cursor=pointer]:
+          - /url: /biosensorslab10.1038/s41587-023-01973-8
+          - generic [ref=e103]:
+            - heading "High-affinity one-step aptamer selection using a non-fouling porous hydrogel" [level=3] [ref=e104]
+            - paragraph [ref=e105]: Naveen K. Singh, Yixun Wang, Connie Wen, et al.
+            - generic [ref=e106]:
+              - generic "Nature Biotechnology" [ref=e107]
+              - generic [ref=e108]: "2023"
+    - generic [ref=e110]:
+      - generic [ref=e111]:
+        - generic [ref=e112]:
+          - paragraph [ref=e113]: Recent
+          - heading "Latest News" [level=2] [ref=e114]
+        - link "View all" [ref=e115] [cursor=pointer]:
+          - /url: /biosensorslab/news
+      - generic [ref=e119]:
+        - link [ref=e120] [cursor=pointer]:
+          - /url: /biosensorslab/news/urosmart-pancreatic-cancer
+          - generic [ref=e121]: September 2026
+          - 'heading "UroSmart: Non-Invasive Aptasensor for Early Pancreatic Cancer Detection Published" [level=3] [ref=e124]'
+          - paragraph [ref=e125]: "Our UroSmart platform for point-of-care detection of the pancreatic cancer biomarker CA 19.9 in urine has been published in Biosensors and Bioelectronics: X."
+        - link [ref=e126] [cursor=pointer]:
+          - /url: /biosensorslab/news/nature-biotech-has
+          - generic [ref=e127]: July 2023
+          - heading "One-Step Aptamer Selection in a Hydrogel Published in Nature Biotechnology" [level=3] [ref=e130]
+          - paragraph [ref=e131]: Our new concept for aptamer discovery — Hydrogel for Aptamer Selection (HAS) — selects high-affinity aptamers in a single step in just 60 hours.
+        - link [ref=e132] [cursor=pointer]:
+          - /url: /biosensorslab/news/cortisol-stress-patch
+          - generic [ref=e133]: May 2023
+          - heading "Non-Invasive Wearable Stress Patch for Real-Time Cortisol Monitoring" [level=3] [ref=e136]
+          - paragraph [ref=e137]: Our wearable patch for continuous, non-invasive cortisol monitoring in sweat was published in Biosensors and Bioelectronics, with validation on human subjects under induced stress.
+    - generic [ref=e139]:
+      - generic [ref=e140]:
+        - generic [ref=e141]:
+          - paragraph [ref=e142]: Inside the lab
+          - heading "Instruments that power our research" [level=2] [ref=e143]
+        - link "All 31 instruments" [ref=e144] [cursor=pointer]:
+          - /url: /biosensorslab/equipment
+      - generic [ref=e148]:
+        - link "Tecan Infinite M-Plex - plate reader Tecan Infinite M-Plex - plate reader" [ref=e149] [cursor=pointer]:
+          - /url: /biosensorslab/equipment
+          - img "Tecan Infinite M-Plex - plate reader" [ref=e150]
+          - generic [ref=e151]: Tecan Infinite M-Plex - plate reader
+        - link "Zeiss Stereo Microscope Zeiss Stereo Microscope" [ref=e152] [cursor=pointer]:
+          - /url: /biosensorslab/equipment
+          - img "Zeiss Stereo Microscope" [ref=e153]
+          - generic [ref=e154]: Zeiss Stereo Microscope
+        - link "Eppendorf 5430 Centrifuge Eppendorf 5430 Centrifuge" [ref=e155] [cursor=pointer]:
+          - /url: /biosensorslab/equipment
+          - img "Eppendorf 5430 Centrifuge" [ref=e156]
+          - generic [ref=e157]: Eppendorf 5430 Centrifuge
+        - link "Bio-Rad CFX Opus 96 - qPCR Bio-Rad CFX Opus 96 - qPCR" [ref=e158] [cursor=pointer]:
+          - /url: /biosensorslab/equipment
+          - img "Bio-Rad CFX Opus 96 - qPCR" [ref=e159]
+          - generic [ref=e160]: Bio-Rad CFX Opus 96 - qPCR
+    - generic [ref=e162]:
+      - paragraph [ref=e163]: ■ Research supported by
+      - generic [ref=e164]:
+        - link [ref=e165] [cursor=pointer]:
+          - /url: https://www.icmr.gov.in/
+          - img "ICMR logo" [ref=e166]
+        - link [ref=e167] [cursor=pointer]:
+          - /url: https://dbtindia.gov.in/
+          - img "DBT logo" [ref=e168]
+        - link [ref=e169] [cursor=pointer]:
+          - /url: https://anrfonline.in/
+          - img "ANRF logo" [ref=e170]
+        - link [ref=e171] [cursor=pointer]:
+          - /url: https://dhr.gov.in/
+          - img "ICMR-DHR logo" [ref=e172]
+        - link [ref=e173] [cursor=pointer]:
+          - /url: https://www.britishcouncil.org/
+          - img "British Council logo" [ref=e174]
+        - link [ref=e175] [cursor=pointer]:
+          - /url: https://home.iitd.ac.in/
+          - img "IIT Delhi logo" [ref=e176]
+      - link "Learn more about our funding →" [ref=e178] [cursor=pointer]:
+        - /url: /biosensorslab/funding
+    - generic [ref=e180]:
+      - paragraph [ref=e181]: Open positions
+      - heading "Join the lab" [level=2] [ref=e182]
+      - paragraph [ref=e183]: We are always looking for motivated students and researchers with backgrounds in chemistry, biology, electronics, or bioengineering.
+      - generic [ref=e184]:
+        - link "Apply to Join Us" [ref=e185] [cursor=pointer]:
+          - /url: /biosensorslab/contact#join
+        - link "Contact Us" [ref=e188] [cursor=pointer]:
+          - /url: /biosensorslab/contact
+  - contentinfo [ref=e189]:
+    - generic [ref=e190]:
+      - generic [ref=e191]:
+        - generic [ref=e192]:
+          - paragraph [ref=e193]: Biosensors & Devices Lab
+          - paragraph [ref=e194]: IIT Delhi · Centre for Biomedical Engineering
+          - paragraph [ref=e195]: Room GPL-9 (lab relocating), Indian Institute of Technology Delhi, Hauz Khas, New Delhi 110016, India
+          - link "nks@iitd.ac.in" [ref=e196] [cursor=pointer]:
+            - /url: mailto:nks@iitd.ac.in
+        - generic [ref=e197]:
+          - paragraph [ref=e198]: Explore
+          - generic [ref=e199]:
+            - link "Research" [ref=e200] [cursor=pointer]:
+              - /url: /biosensorslab/research
+            - link "Publications" [ref=e201] [cursor=pointer]:
+              - /url: /biosensorslab/publications
+            - link "Team" [ref=e202] [cursor=pointer]:
+              - /url: /biosensorslab/team
+            - link "Patents" [ref=e203] [cursor=pointer]:
+              - /url: /biosensorslab/patents
+            - link "Equipment" [ref=e204] [cursor=pointer]:
+              - /url: /biosensorslab/equipment
+            - link "Gallery" [ref=e205] [cursor=pointer]:
+              - /url: /biosensorslab/gallery
+            - link "News" [ref=e206] [cursor=pointer]:
+              - /url: /biosensorslab/news
+            - link "Funding" [ref=e207] [cursor=pointer]:
+              - /url: /biosensorslab/funding
+        - generic [ref=e208]:
+          - paragraph [ref=e209]: Prospective members
+          - generic [ref=e210]:
+            - link "Join the lab" [ref=e211] [cursor=pointer]:
+              - /url: /biosensorslab/contact#join
+            - link "Courses" [ref=e212] [cursor=pointer]:
+              - /url: /biosensorslab/courses
+            - link "Contact" [ref=e213] [cursor=pointer]:
+              - /url: /biosensorslab/contact
+            - link "Search" [ref=e214] [cursor=pointer]:
+              - /url: /biosensorslab/search
+      - paragraph [ref=e216]: © 2026 Biosensors & Devices Lab. All rights reserved.
+  - navigation "Section navigation" [ref=e217]:
+    - link "Research areas" [ref=e218] [cursor=pointer]:
+      - /url: "#research"
+    - link "Selected publications" [ref=e219] [cursor=pointer]:
+      - /url: "#publications"
+    - link "Latest news" [ref=e220] [cursor=pointer]:
+      - /url: "#news"
+    - link "Instruments" [ref=e221] [cursor=pointer]:
+      - /url: "#equipment"
+    - link "Funding" [ref=e222] [cursor=pointer]:
+      - /url: "#funding"
+    - link "Join us" [ref=e223] [cursor=pointer]:
+      - /url: "#join"
+  - link "Back to top":
+    - /url: "#"

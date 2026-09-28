@@ -1,17 +1,20 @@
 ---
 // Shared page header: every subpage opens with the same composition.
-// One left-aligned title, one optional lede. No icons, no eyebrows.
+// One optional eyebrow (tone: teal|blue|red), one title, one optional lede.
 // `width` must match the page's content container so the title aligns.
 interface Props {
   title: string;
   lede?: string;
   width?: string;
+  eyebrow?: string;
+  tone?: 'teal' | 'blue' | 'red';
 }
-const { title, lede, width = 'max-w-7xl' } = Astro.props;
+const { title, lede, width = 'max-w-5xl', eyebrow, tone = 'blue' } = Astro.props;
 ---
 
 <div class="page-head">
   <div class:list={[width, 'mx-auto px-4 sm:px-6 lg:px-8']}>
+    {eyebrow && <p class:list={["section-eyebrow", `eyebrow-${tone}`]}>{eyebrow}</p>}
     <h1 class="page-title">{title}</h1>
     {lede && <p class="page-lede mt-4">{lede}</p>}
   </div>
