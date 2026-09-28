@@ -92,10 +92,13 @@ const fundingLogos = [
 
   <!-- Research Areas teaser -->
   {researchAreas.length > 0 && (
-    <section class="section bg-white" data-reveal>
+    <section id="research" class="section bg-white scroll-target" data-reveal>
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-end mb-10">
-          <h2 class="section-title">Research Areas</h2>
+          <div>
+            <p class="section-eyebrow eyebrow-teal">What we do</p>
+            <h2 class="section-title">Research Areas</h2>
+          </div>
           <a href={basePath + "/research"} class="text-blue-700 hover:text-blue-800 font-medium text-sm flex items-center gap-1 group">
             <span>View all</span> <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
           </a>
@@ -128,10 +131,13 @@ const fundingLogos = [
   )}
 
   <!-- Selected Publications -->
-  <section class="section bg-gray-50" data-reveal>
+  <section id="publications" class="section bg-gray-50 scroll-target" data-reveal>
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-end mb-10">
-          <h2 class="section-title">Selected Publications</h2>
+          <div>
+            <p class="section-eyebrow eyebrow-blue">Our work</p>
+            <h2 class="section-title">Selected Publications</h2>
+          </div>
           <a href={basePath + "/publications"} class="text-blue-700 hover:text-blue-800 font-medium text-sm flex items-center gap-1 group">
             <span>View all</span> <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
           </a>
@@ -169,10 +175,13 @@ const fundingLogos = [
   </section>
 
   <!-- Latest News -->
-  <section class="section bg-white" data-reveal>
+  <section id="news" class="section bg-white scroll-target" data-reveal>
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-end mb-10">
-          <h2 class="section-title">Latest News</h2>
+          <div>
+            <p class="section-eyebrow eyebrow-teal">Recent</p>
+            <h2 class="section-title">Latest News</h2>
+          </div>
           <a href={basePath + "/news"} class="text-blue-700 hover:text-blue-800 font-medium text-sm flex items-center gap-1 group">
             <span>View all</span> <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
           </a>
@@ -198,10 +207,13 @@ const fundingLogos = [
   </section>
 
   <!-- V2: dark equipment strip -->
-  <section class="section bg-strip-dark" data-reveal>
+  <section id="equipment" class="section bg-strip-dark scroll-target" data-reveal>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-end mb-10">
-        <h2 class="section-title text-white">Instruments that power our research</h2>
+        <div>
+          <p class="section-eyebrow eyebrow-blue" style="color:#93c5fd;">Inside the lab</p>
+          <h2 class="section-title text-white">Instruments that power our research</h2>
+        </div>
         <a href={basePath + "/equipment"} class="hidden sm:inline-flex text-blue-300 hover:text-blue-200 font-medium text-sm items-center gap-1 group">
           <span>All {instrumentCount} instruments</span> <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
         </a>
@@ -234,9 +246,9 @@ const fundingLogos = [
   </section>
 
   <!-- Funding / affiliations strip -->
-  <section class="py-14 bg-gray-50 border-t border-gray-100" data-reveal>
+  <section id="funding" class="py-14 bg-gray-50 border-t border-gray-100 scroll-target" data-reveal>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="text-sm text-gray-500 font-medium text-center mb-8">Research supported by</p>
+      <p class="text-sm text-gray-500 font-medium text-center mb-8"><span class="text-institute">■</span> Research supported by</p>
       <div class="flex flex-wrap justify-center items-center gap-x-10 gap-y-6">
         {fundingLogos.map(logo => (
           <a
@@ -257,7 +269,41 @@ const fundingLogos = [
       </div>
     </div>
   </section>
+
+  <!-- Join CTA band: closes the scroll narrative -->
+  <section id="join" class="section scroll-target" style="background: linear-gradient(180deg, #f8fafc 0%, #eff6ff 100%);" data-reveal>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="section-eyebrow eyebrow-blue justify-center">Open positions</p>
+      <h2 class="section-title">Join the lab</h2>
+      <p class="mt-4 text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
+        We are always looking for motivated students and researchers with backgrounds in
+        chemistry, biology, electronics, or bioengineering.
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <a href={basePath + "/contact#join"} class="btn-press inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-blue-700 text-white font-semibold hover:bg-blue-800 transition-colors">
+          Apply to Join Us <ArrowRight className="w-4 h-4" />
+        </a>
+        <a href={basePath + "/contact"} class="btn-press inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-gray-300 text-gray-800 font-semibold hover:border-gray-400 hover:bg-white transition-colors">
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </section>
 </Layout>
+
+<!-- Long-scroll wayfinding: dot nav, progress bar, back-to-top -->
+<div class="scroll-progress" aria-hidden="true"></div>
+<nav class="scroll-dots" aria-label="Section navigation">
+  <a href="#research" class="scroll-dot" aria-label="Research areas"></a>
+  <a href="#publications" class="scroll-dot" aria-label="Selected publications"></a>
+  <a href="#news" class="scroll-dot" aria-label="Latest news"></a>
+  <a href="#equipment" class="scroll-dot dot-dark" aria-label="Instruments"></a>
+  <a href="#funding" class="scroll-dot" aria-label="Funding"></a>
+  <a href="#join" class="scroll-dot" aria-label="Join us"></a>
+</nav>
+<a href="#" class="to-top" id="to-top" aria-label="Back to top">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+</a>
 
 <script is:inline>
   // Count-up animation for hero stats. HTML ships the real numbers (no-JS safe);
@@ -280,5 +326,29 @@ const fundingLogos = [
       }
       requestAnimationFrame(step);
     });
+  })();
+
+  // Scrollspy: highlight the dot nav for the section in view + back-to-top.
+  (function () {
+    var dots = document.querySelectorAll('.scroll-dots a');
+    var targets = document.querySelectorAll('.scroll-target');
+    var toTop = document.getElementById('to-top');
+    if (!targets.length || !dots.length || !('IntersectionObserver' in window)) return;
+    function setActive(id) {
+      dots.forEach(function (d) {
+        d.classList.toggle('active', d.getAttribute('href') === '#' + id);
+      });
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) setActive(en.target.id);
+      });
+    }, { rootMargin: '-45% 0px -45% 0px' });
+    targets.forEach(function (t) { io.observe(t); });
+    if (toTop) {
+      window.addEventListener('scroll', function () {
+        toTop.classList.toggle('show', window.scrollY > 800);
+      }, { passive: true });
+    }
   })();
 </script>

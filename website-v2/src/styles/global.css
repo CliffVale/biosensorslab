@@ -14,6 +14,12 @@
 
 @theme {
   --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  /* Lab Precision palette — three accents, three backgrounds, one scale */
+  --color-brand: #1d4ed8;      /* primary blue: links, CTAs, active nav */
+  --color-accent: #0d9488;     /* teal: research, tags, eyebrow labels */
+  --color-institute: rgb(212, 0, 0); /* IITD red: institutional marks only */
+  --color-paper: #f8fafc;      /* section background B */
+  --color-ink: #0b1220;        /* dark band */
 }
 
 body {
@@ -328,6 +334,103 @@ html.js [data-reveal] > *:nth-child(6) { transition-delay: 250ms; }
   background:
     radial-gradient(ellipse 90% 70% at 70% -10%, rgba(37, 99, 235, 0.05) 0%, transparent 55%),
     linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+}
+
+/* ── Long-scroll landing: section identity + rhythm ── */
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+.section-eyebrow::before {
+  content: '';
+  width: 1.5rem;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+}
+.eyebrow-teal { color: var(--color-accent); }
+.eyebrow-blue { color: var(--color-brand); }
+.eyebrow-red { color: var(--color-institute); }
+
+/* Scrollspy: dot nav (desktop, motion-safe only) + progress bar */
+.scroll-dots {
+  position: fixed;
+  right: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: none;
+  flex-direction: column;
+  gap: 0.875rem;
+  z-index: 40;
+}
+@media (min-width: 1024px) {
+  html.js .scroll-dots { display: flex; }
+}
+.scroll-dots a {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #cbd5e1;
+  transition: background 0.2s ease, transform 0.2s var(--ease-out);
+}
+.scroll-dots a:hover { background: #94a3b8; }
+.scroll-dots a.active {
+  background: var(--color-brand);
+  transform: scale(1.35);
+}
+.scroll-dots a.dot-dark.active { background: #93c5fd; }
+@media (prefers-reduced-motion: reduce) {
+  .scroll-dots { display: none !important; }
+}
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  background: var(--color-brand);
+  z-index: 60;
+}
+@keyframes grow-progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+@supports (animation-timeline: scroll()) {
+  html.js .scroll-progress {
+    animation: grow-progress auto linear forwards;
+    animation-timeline: scroll(root);
+  }
+}
+.to-top {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 12px -4px rgba(15, 23, 42, 0.15);
+  color: var(--color-brand);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  z-index: 40;
+}
+.to-top.show { opacity: 1; pointer-events: auto; }
+@media (prefers-reduced-motion: reduce) {
+  .to-top { display: none; }
 }
 
 /* ── Stat block (hero): tabular numbers, hairline dividers ── */
