@@ -1,6 +1,6 @@
-# Biosensors & Devices Lab — Website
+# BiosensorsLab — Website
 
-Official website of the **Biosensors & Devices Lab**, Centre for Biomedical Engineering, IIT Delhi (PI: Dr. Naveen Kumar Singh).
+Official website of the **BiosensorsLab**, Centre for Biomedical Engineering, IIT Delhi (PI: Dr. Naveen Kumar Singh).
 
 - **Live site:** https://cliffvale.github.io/biosensorslab/
 - **New here? Start with [`GUIDE.md`](GUIDE.md)** — a complete beginner's guide: update team, news, publications, patents, equipment, gallery photos… no coding knowledge needed.

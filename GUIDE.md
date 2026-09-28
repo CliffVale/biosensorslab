@@ -1,6 +1,6 @@
 # 📘 Website Guide — For Beginners (No Coding Needed)
 
-Welcome! This guide explains **everything** you need to change, add, or edit anything on the Biosensors & Devices Lab website — even if you have never edited a website before.
+Welcome! This guide explains **everything** you need to change, add, or edit anything on the BiosensorsLab website — even if you have never edited a website before.
 
 > **The short version:** the website is a folder of text files and photos. To change something, you edit a text file. To publish, you click one button (or push). That's it.
 
@@ -369,4 +369,4 @@ GUIDE.md to [your task]"* — this file is written for them too.
 
 ---
 
-*Last updated: 2026-09-28 · Maintained by the Biosensors & Devices Lab*
+*Last updated: 2026-09-28 · Maintained by the BiosensorsLab*

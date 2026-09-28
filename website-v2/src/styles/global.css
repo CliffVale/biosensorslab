@@ -358,6 +358,24 @@ html.js [data-reveal] > *:nth-child(6) { transition-delay: 250ms; }
 .eyebrow-blue { color: var(--color-brand); }
 .eyebrow-red { color: var(--color-institute); }
 
+/* ── Full-site scroll journey (homepage only, motion-safe, JS-gated) ──
+   html.js.scroll-journey turns the page into snap screens: one flick =
+   next screen. Only applies on tall viewports so no content is cut off. */
+@media (min-width: 1024px) and (min-height: 700px) {
+  html.js.scroll-journey body {
+    overflow-y: scroll;
+    scroll-snap-type: y proximity;
+  }
+  html.js.scroll-journey .scroll-target {
+    scroll-snap-align: start;
+    scroll-margin-top: 0;
+  }
+  /* Hero + Join are shorter screens; align their end to snap correctly */
+  html.js.scroll-journey #join {
+    scroll-snap-align: end;
+  }
+}
+
 /* Scrollspy: dot nav (desktop, motion-safe only) + progress bar */
 .scroll-dots {
   position: fixed;

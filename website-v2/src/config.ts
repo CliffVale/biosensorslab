@@ -2,11 +2,11 @@ export const SITE = {
   website: 'https://cliffvale.github.io/biosensorslab/', // switch to https://biosensorlab.iitd.ac.in/ when the IITD domain is live
   author: 'Dr. Naveen Kumar Singh',
   description:
-    'Biosensors & Devices Lab at the Centre for Biomedical Engineering (CBME), Indian Institute of Technology Delhi. We develop point-of-care diagnostics, wearable biosensors, and programmable biomaterials for health monitoring and disease detection.',
-  title: 'Biosensors & Devices Lab',
+    'BiosensorsLab at the Centre for Biomedical Engineering (CBME), Indian Institute of Technology Delhi. We develop point-of-care diagnostics, wearable biosensors, and programmable biomaterials for health monitoring and disease detection.',
+  title: 'BiosensorsLab',
 
   // Lab Info
-  labName: 'Biosensors & Devices Lab',
+  labName: 'BiosensorsLab',
   university: 'IIT Delhi',
   logo: '/assets/logo-lab.jpg',
   email: 'nks@iitd.ac.in',

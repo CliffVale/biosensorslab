@@ -32,7 +32,7 @@ function fallbackGradient(i: number) {
 
 <Layout
   title="Equipment"
-  description="Instrumentation available at the Biosensors & Devices Lab, IIT Delhi."
+  description="Instrumentation available at the BiosensorsLab, IIT Delhi."
 >
   <PageHead
     eyebrow="Inside the lab"
@@ -53,7 +53,7 @@ function fallbackGradient(i: number) {
               <!-- Media area -->
               <div class={`relative aspect-[4/3] w-full bg-gradient-to-br ${fallbackGradient(i)} flex items-center justify-center overflow-hidden media-zoom`}>
                 {item.data.cover ? (
-                  <Image src={item.data.cover} alt={item.data.name} class="w-full h-full object-cover" widths={[320, 480, 640]} sizes="(max-width: 640px) 50vw, 25vw" />
+                  <Image src={item.data.cover} alt={item.data.name} class="w-full h-full object-cover" widths={[320, 480, 640]} sizes="(max-width: 640px) 50vw, 25vw" loading="lazy" />
                 ) : (
                   <Icon className="w-10 h-10 text-white/90" />
                 )}

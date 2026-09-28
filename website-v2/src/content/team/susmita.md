@@ -7,7 +7,7 @@ bio: "National Post-Doctoral Fellow (ANRF) developing portable biosensors for ra
 weight: 12
 ---
 
-Dr. Susmita Baruah is currently pursuing her postdoctoral research as a National Post-Doctoral Fellow (NPDF), awarded by the Anusandhan National Research Foundation (ANRF), in the Biosensors and Devices Lab, Centre for Biomedical Engineering (CBME), IIT Delhi. Her current research focuses on the development of portable biosensing devices for the rapid and on-site detection of carcinogenic food toxins.
+Dr. Susmita Baruah is currently pursuing her postdoctoral research as a National Post-Doctoral Fellow (NPDF), awarded by the Anusandhan National Research Foundation (ANRF), in the BiosensorsLab, Centre for Biomedical Engineering (CBME), IIT Delhi. Her current research focuses on the development of portable biosensing devices for the rapid and on-site detection of carcinogenic food toxins.
 
 She holds a B.Sc. and M.Sc. in Physics from Gauhati University, with a specialization in Condensed Matter Physics, and a Ph.D. in Physics from Tezpur University, Assam, with a research focus in Materials Science and Electrochemistry. Her doctoral research focused on the development of composite conducting polymers with 2D layered and metallic nanosystems for biofunctionalization and electrochemical biosensing applications.
 

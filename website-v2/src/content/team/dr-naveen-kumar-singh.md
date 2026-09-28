@@ -7,7 +7,7 @@ bio: "We develop point-of-care diagnostics, wearable biosensors, and programmabl
 email: "nks@iitd.ac.in"
 weight: 1
 ---
-Dr. Naveen Kumar Singh leads the Biosensors & Devices Lab at the Centre for Biomedical Engineering (CBME), Indian Institute of Technology Delhi. His research sits at the interface of bioengineering, electronics, chemistry, biophysics, and chemical biology, focusing on point-of-care diagnostics, wearable biosensors, and programmable biomaterials such as aptamers and hydrogels.
+Dr. Naveen Kumar Singh leads the BiosensorsLab at the Centre for Biomedical Engineering (CBME), Indian Institute of Technology Delhi. His research sits at the interface of bioengineering, electronics, chemistry, biophysics, and chemical biology, focusing on point-of-care diagnostics, wearable biosensors, and programmable biomaterials such as aptamers and hydrogels.
 
 The lab develops devices capable of detecting electrophysical and electrochemical responses for diagnostics and therapeutics, including signature sensing, pathogen detection, trace detection, and stimuli-responsive drug delivery — using a combination of biomaterials, nanomaterials, and electronics with forward-looking engineering efforts.
 

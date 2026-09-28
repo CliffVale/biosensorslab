@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
-import { ArrowRight, Calendar } from 'lucide-react';
+import { ArrowRight, Calendar, Users } from 'lucide-react';
 import { SITE } from '../config.ts';
 // V2 equipment strip images
 import tecanImg from '../assets/equipment/tecan-infinite-m-plex.jpg';
@@ -29,6 +29,10 @@ const paperCount = (await getCollection('publications')).filter(p => p.data.type
 const patentCount = (await getCollection('patents')).length;
 const instrumentCount = (await getCollection('equipment')).length;
 const researcherCount = (await getCollection('team')).filter(m => m.data.role !== 'Alumni').length;
+const teamPreview = (await getCollection('team'))
+  .filter(m => m.data.role !== 'Alumni' && m.data.role !== 'Principal Investigator')
+  .sort((a, b) => (a.data.weight ?? 99) - (b.data.weight ?? 99))
+  .slice(0, 4);
 const stats = [
   { n: paperCount, suffix: '+', label: 'Publications' },
   { n: patentCount, suffix: '', label: 'Patents' },
@@ -174,6 +178,51 @@ const fundingLogos = [
     </div>
   </section>
 
+  <!-- Team screen -->
+  <section id="team" class="section bg-white scroll-target" data-reveal>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-end mb-10">
+        <div>
+          <p class="section-eyebrow eyebrow-blue">The people</p>
+          <h2 class="section-title">Meet the team</h2>
+        </div>
+        <a href={basePath + "/team"} class="text-blue-700 hover:text-blue-800 font-medium text-sm flex items-center gap-1 group">
+          <span>All {researcherCount} researchers</span> <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+        </a>
+      </div>
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-5">
+        {teamPreview.map(m => (
+          <a
+            href={`${basePath}/team/${m.id.replace(/\.[^/.]+$/, "")}`}
+            class="group card card-hover overflow-hidden"
+          >
+            <div class="media-zoom aspect-[4/5] overflow-hidden bg-gray-100">
+              {m.data.avatar ? (
+                <Image
+                  src={m.data.avatar}
+                  alt={m.data.name}
+                  class="w-full h-full object-cover"
+                  widths={[320, 480]}
+                  sizes="(max-width: 640px) 50vw, 25vw"
+                  loading="lazy"
+                />
+              ) : (
+                <div class="w-full h-full flex items-center justify-center bg-gray-100">
+                  <span class="text-3xl font-bold text-gray-300">{m.data.name.split(/\s+/).slice(0, 2).map(w => w[0].toUpperCase()).join('')}</span>
+                </div>
+              )}
+            </div>
+            <div class="p-4">
+              <p class="font-semibold text-gray-900 text-sm group-hover:text-blue-700 transition-colors">{m.data.name}</p>
+              <p class="text-xs text-gray-500 mt-0.5">{m.data.role}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+      <a href={basePath + "/team"} class="sm:hidden inline-flex mt-6 text-blue-700 font-medium">All {researcherCount} researchers &rarr;</a>
+    </div>
+  </section>
+
   <!-- Latest News -->
   <section id="news" class="section bg-white scroll-target" data-reveal>
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -294,8 +343,10 @@ const fundingLogos = [
 <!-- Long-scroll wayfinding: dot nav, progress bar, back-to-top -->
 <div class="scroll-progress" aria-hidden="true"></div>
 <nav class="scroll-dots" aria-label="Section navigation">
+  <a href="#top" class="scroll-dot" aria-label="Home"></a>
   <a href="#research" class="scroll-dot" aria-label="Research areas"></a>
   <a href="#publications" class="scroll-dot" aria-label="Selected publications"></a>
+  <a href="#team" class="scroll-dot" aria-label="Team"></a>
   <a href="#news" class="scroll-dot" aria-label="Latest news"></a>
   <a href="#equipment" class="scroll-dot dot-dark" aria-label="Instruments"></a>
   <a href="#funding" class="scroll-dot" aria-label="Funding"></a>
@@ -328,6 +379,21 @@ const fundingLogos = [
     });
   })();
 
+  // Scroll journey: enable snap screens only on capable devices.
+  // Gates: JS on, desktop-size viewport, no reduced-motion, enough CPU cores/RAM.
+  (function () {
+    var ok = window.matchMedia('(min-width: 1024px) and (min-height: 700px)').matches
+      && !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      && (navigator.hardwareConcurrency || 4) >= 4
+      && !(navigator.deviceMemory && navigator.deviceMemory <= 2);
+    if (ok) {
+      document.documentElement.classList.add('scroll-journey');
+      // Snap needs real section boundaries: cap each band to viewport height
+      // is NOT enforced on purpose (content must never be clipped); proximity
+      // snapping lets long sections scroll naturally while boundaries guide.
+    }
+  })();
+
   // Scrollspy: highlight the dot nav for the section in view + back-to-top.
   (function () {
     var dots = document.querySelectorAll('.scroll-dots a');
@@ -345,6 +411,12 @@ const fundingLogos = [
       });
     }, { rootMargin: '-45% 0px -45% 0px' });
     targets.forEach(function (t) { io.observe(t); });
+    // Hero has no .scroll-target; treat scrollY near top as Home
+    function homeCheck() {
+      if (window.scrollY < window.innerHeight * 0.4) setActive('top');
+    }
+    window.addEventListener('scroll', homeCheck, { passive: true });
+    homeCheck();
     if (toTop) {
       window.addEventListener('scroll', function () {
         toTop.classList.toggle('show', window.scrollY > 800);
