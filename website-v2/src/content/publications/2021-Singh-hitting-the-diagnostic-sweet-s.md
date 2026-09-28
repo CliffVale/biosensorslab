@@ -4,6 +4,7 @@ authors: ["Naveen K. Singh", "Partha Ray", "Aaron F. Carlin", "Celestine Magalla
 year: 2021
 venue: "Biosensors and Bioelectronics"
 type: "paper"
+cover: "../../assets/publications/2021-singh-hitting-sweet-spot.jpg"
 links:
   pdf: ""
   code: ""

@@ -4,6 +4,7 @@ authors: ["Priyamvada Jain", "Babina Chakma", "Naveen Kumar Singh", "Sanjukta Pa
 year: 2016
 venue: "Molecular Biotechnology"
 type: "paper"
+cover: "../../assets/publications/2016-jain-aromatic-surfactant.gif"
 links:
   pdf: ""
   code: ""

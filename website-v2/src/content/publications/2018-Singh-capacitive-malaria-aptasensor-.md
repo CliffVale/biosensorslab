@@ -4,6 +4,7 @@ authors: ["Naveen K. Singh", "Sunil K. Arya", "Pedro Estrela", "Pranab Goswami"]
 year: 2018
 venue: "Biosensors and Bioelectronics"
 type: "paper"
+cover: "../../assets/publications/2018-singh-capacitive-malaria.jpg"
 links:
   pdf: ""
   code: ""

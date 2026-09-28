@@ -4,6 +4,7 @@ authors: ["Naveen K. Singh", "Saeromi Chung", "An-Yi Chang", "Joseph Wang", "Dre
 year: 2023
 venue: "Biosensors and Bioelectronics"
 type: "paper"
+cover: "../../assets/publications/2023-singh-wearable-stress.jpg"
 links:
   pdf: ""
   code: ""

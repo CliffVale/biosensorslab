@@ -71,7 +71,7 @@ const fundingLogos = [
           {SITE.hero.subtitle}
         </p>
         <div class="hero-enter hero-enter-d2 mt-8 flex flex-wrap gap-4">
-          <a href={basePath + "/publications"} class="btn-press inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-blue-700 text-white font-semibold hover:bg-blue-800 transition-colors">
+          <a href={basePath + "/publications"} class="btn-press inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-emerald-700 text-white font-semibold hover:bg-emerald-800 transition-colors">
             View Publications
             <ArrowRight className="w-4 h-4" />
           </a>
@@ -83,7 +83,7 @@ const fundingLogos = [
         <div class="hero-enter hero-enter-d3 mt-14 sm:mt-16 grid grid-cols-2 sm:grid-cols-4 max-w-2xl">
           {stats.map((s, i) => (
             <div class:list={["px-2 sm:px-6 first:pl-0", i > 1 ? "pt-5 sm:pt-0 border-t-0 border-gray-200" : "", i > 0 ? "sm:border-l sm:border-gray-200" : ""]}>
-              <p class="stat-num text-4xl sm:text-[2.75rem] text-blue-700">
+              <p class="stat-num text-4xl sm:text-[2.75rem] text-emerald-700">
                 <span data-count={s.n} data-suffix={s.suffix}>{s.n}</span>{s.suffix}
               </p>
               <p class="mt-1 text-sm text-gray-500 font-medium">{s.label}</p>
@@ -103,7 +103,7 @@ const fundingLogos = [
             <p class="section-eyebrow eyebrow-teal">What we do</p>
             <h2 class="section-title">Research Areas</h2>
           </div>
-          <a href={basePath + "/research"} class="text-blue-700 hover:text-blue-800 font-medium text-sm flex items-center gap-1 group">
+          <a href={basePath + "/research"} class="text-emerald-700 hover:text-emerald-800 font-medium text-sm flex items-center gap-1 group">
             <span>View all</span> <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
           </a>
         </div>
@@ -120,7 +120,7 @@ const fundingLogos = [
                 </div>
               )}
               <div class="p-6">
-                <h3 class="font-semibold text-gray-900 mb-2 group-hover:text-blue-700 transition-colors line-clamp-1">
+                <h3 class="font-semibold text-gray-900 mb-2 group-hover:text-emerald-700 transition-colors line-clamp-1">
                   {area.data.title}
                 </h3>
                 <p class="text-gray-600 text-sm leading-relaxed line-clamp-3">
@@ -142,7 +142,7 @@ const fundingLogos = [
             <p class="section-eyebrow eyebrow-blue">Our work</p>
             <h2 class="section-title">Selected Publications</h2>
           </div>
-          <a href={basePath + "/publications"} class="text-blue-700 hover:text-blue-800 font-medium text-sm flex items-center gap-1 group">
+          <a href={basePath + "/publications"} class="text-emerald-700 hover:text-emerald-800 font-medium text-sm flex items-center gap-1 group">
             <span>View all</span> <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
           </a>
         </div>
@@ -159,7 +159,7 @@ const fundingLogos = [
             class="card card-hover overflow-hidden flex flex-col h-full group"
           >
              <div class="p-6 flex flex-col flex-grow">
-               <h3 class="text-lg font-semibold text-gray-900 mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors">
+               <h3 class="text-lg font-semibold text-gray-900 mb-2 line-clamp-2 group-hover:text-emerald-600 transition-colors">
                  {paper.data.title}
                </h3>
                <p class="text-gray-600 mb-4 text-sm line-clamp-2 flex-grow" title={paper.data.authors.join(', ')}>
@@ -168,7 +168,7 @@ const fundingLogos = [
                    : paper.data.authors.join(', ')}
                </p>
                <div class="flex items-center justify-between text-sm mt-auto gap-4 pt-2">
-                  <span class="font-medium text-blue-800 bg-blue-50 px-2.5 py-1 rounded-md truncate text-left block max-w-full" title={paper.data.venue}>{paper.data.venue}</span>
+                  <span class="font-medium text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-md truncate text-left block max-w-full" title={paper.data.venue}>{paper.data.venue}</span>
                   <span class="text-gray-500 shrink-0 tabular-nums">{paper.data.year}</span>
                </div>
              </div>
@@ -186,7 +186,7 @@ const fundingLogos = [
           <p class="section-eyebrow eyebrow-blue">The people</p>
           <h2 class="section-title">Meet the team</h2>
         </div>
-        <a href={basePath + "/team"} class="text-blue-700 hover:text-blue-800 font-medium text-sm flex items-center gap-1 group">
+        <a href={basePath + "/team"} class="text-emerald-700 hover:text-emerald-800 font-medium text-sm flex items-center gap-1 group">
           <span>All {researcherCount} researchers</span> <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
         </a>
       </div>
@@ -213,13 +213,13 @@ const fundingLogos = [
               )}
             </div>
             <div class="p-4">
-              <p class="font-semibold text-gray-900 text-sm group-hover:text-blue-700 transition-colors">{m.data.name}</p>
+              <p class="font-semibold text-gray-900 text-sm group-hover:text-emerald-700 transition-colors">{m.data.name}</p>
               <p class="text-xs text-gray-500 mt-0.5">{m.data.role}</p>
             </div>
           </a>
         ))}
       </div>
-      <a href={basePath + "/team"} class="sm:hidden inline-flex mt-6 text-blue-700 font-medium">All {researcherCount} researchers &rarr;</a>
+      <a href={basePath + "/team"} class="sm:hidden inline-flex mt-6 text-emerald-700 font-medium">All {researcherCount} researchers &rarr;</a>
     </div>
   </section>
 
@@ -231,7 +231,7 @@ const fundingLogos = [
             <p class="section-eyebrow eyebrow-teal">Recent</p>
             <h2 class="section-title">Latest News</h2>
           </div>
-          <a href={basePath + "/news"} class="text-blue-700 hover:text-blue-800 font-medium text-sm flex items-center gap-1 group">
+          <a href={basePath + "/news"} class="text-emerald-700 hover:text-emerald-800 font-medium text-sm flex items-center gap-1 group">
             <span>View all</span> <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
           </a>
         </div>
@@ -245,7 +245,7 @@ const fundingLogos = [
                <Calendar className="w-4 h-4" />
                {item.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}
             </div>
-            <h3 class="text-lg font-semibold text-gray-900 group-hover:text-blue-700 transition-colors mb-2 line-clamp-2">
+            <h3 class="text-lg font-semibold text-gray-900 group-hover:text-emerald-700 transition-colors mb-2 line-clamp-2">
               {item.data.title}
             </h3>
             {item.data.summary && <p class="text-gray-600 line-clamp-3 text-sm">{item.data.summary}</p>}
@@ -260,10 +260,10 @@ const fundingLogos = [
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-end mb-10">
         <div>
-          <p class="section-eyebrow eyebrow-blue" style="color:#93c5fd;">Inside the lab</p>
+          <p class="section-eyebrow eyebrow-blue" style="color:#6ee7b7;">Inside the lab</p>
           <h2 class="section-title text-white">Instruments that power our research</h2>
         </div>
-        <a href={basePath + "/equipment"} class="hidden sm:inline-flex text-blue-300 hover:text-blue-200 font-medium text-sm items-center gap-1 group">
+        <a href={basePath + "/equipment"} class="hidden sm:inline-flex text-emerald-300 hover:text-emerald-200 font-medium text-sm items-center gap-1 group">
           <span>All {instrumentCount} instruments</span> <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
         </a>
       </div>
@@ -272,7 +272,7 @@ const fundingLogos = [
           <a
             href={basePath + '/equipment'}
             class:list={[
-              'group relative rounded-xl overflow-hidden ring-1 ring-white/10 hover:ring-blue-300/40 transition-all',
+              'group relative rounded-xl overflow-hidden ring-1 ring-white/10 hover:ring-emerald-300/40 transition-all',
               i === 0 ? 'lg:col-span-2 lg:row-span-1' : ''
             ]}
           >
@@ -290,7 +290,7 @@ const fundingLogos = [
           </a>
         ))}
       </div>
-      <a href={basePath + "/equipment"} class="sm:hidden inline-flex mt-6 text-blue-300 font-medium">All {instrumentCount} instruments &rarr;</a>
+      <a href={basePath + "/equipment"} class="sm:hidden inline-flex mt-6 text-emerald-300 font-medium">All {instrumentCount} instruments &rarr;</a>
     </div>
   </section>
 
@@ -312,7 +312,7 @@ const fundingLogos = [
         ))}
       </div>
       <div class="text-center mt-8">
-        <a href={basePath + "/funding"} class="text-sm text-blue-700 hover:text-blue-800 font-medium">
+        <a href={basePath + "/funding"} class="text-sm text-emerald-700 hover:text-emerald-800 font-medium">
           Learn more about our funding &rarr;
         </a>
       </div>
@@ -320,7 +320,7 @@ const fundingLogos = [
   </section>
 
   <!-- Join CTA band: closes the scroll narrative -->
-  <section id="join" class="section scroll-target" style="background: linear-gradient(180deg, #f8fafc 0%, #eff6ff 100%);" data-reveal>
+  <section id="join" class="section scroll-target" style="background: linear-gradient(180deg, #f8fafc 0%, #ecfdf5 100%);" data-reveal>
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <p class="section-eyebrow eyebrow-blue justify-center">Open positions</p>
       <h2 class="section-title">Join the lab</h2>
@@ -329,7 +329,7 @@ const fundingLogos = [
         chemistry, biology, electronics, or bioengineering.
       </p>
       <div class="mt-8 flex flex-wrap justify-center gap-4">
-        <a href={basePath + "/contact#join"} class="btn-press inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-blue-700 text-white font-semibold hover:bg-blue-800 transition-colors">
+        <a href={basePath + "/contact#join"} class="btn-press inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-emerald-700 text-white font-semibold hover:bg-emerald-800 transition-colors">
           Apply to Join Us <ArrowRight className="w-4 h-4" />
         </a>
         <a href={basePath + "/contact"} class="btn-press inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-gray-300 text-gray-800 font-semibold hover:border-gray-400 hover:bg-white transition-colors">

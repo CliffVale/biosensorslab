@@ -4,6 +4,7 @@ authors: ["Naveen K. Singh", "Partha Ray", "Aaron F. Carlin", "Sydney C. Morgan"
 year: 2021
 venue: "Data in Brief"
 type: "paper"
+cover: "../../assets/publications/2021-singh-dataset.jpg"
 links:
   pdf: ""
   code: ""

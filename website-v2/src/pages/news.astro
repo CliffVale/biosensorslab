@@ -17,9 +17,9 @@ const fmt = new Intl.DateTimeFormat('en-IN', { day: 'numeric', month: 'long', ye
     <div class="border-l-2 border-gray-100 pl-8 space-y-12">
       {allNews.map(item => (
         <div class="relative">
-          <span class="absolute -left-[37px] top-1.5 w-4 h-4 rounded-full bg-white border-2 border-blue-700" aria-hidden="true"></span>
+          <span class="absolute -left-[37px] top-1.5 w-4 h-4 rounded-full bg-white border-2 border-emerald-700" aria-hidden="true"></span>
           <time class="block text-sm text-gray-500 mb-2 tabular-nums" datetime={item.data.date.toISOString().split('T')[0]}>{fmt.format(item.data.date)}</time>
-          <h2 class="text-lg font-semibold text-gray-900 mb-2"><a href={`${basePath}/news/${item.id.replace(/\.[^/.]+$/, "")}`} class="hover:text-blue-700 transition-colors">{item.data.title}</a></h2>
+          <h2 class="text-lg font-semibold text-gray-900 mb-2"><a href={`${basePath}/news/${item.id.replace(/\.[^/.]+$/, "")}`} class="hover:text-emerald-700 transition-colors">{item.data.title}</a></h2>
           {item.data.summary && <p class="text-gray-600">{item.data.summary}</p>}
         </div>
       ))}

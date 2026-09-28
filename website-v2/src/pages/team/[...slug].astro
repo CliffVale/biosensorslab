@@ -22,13 +22,13 @@ const initials = name.split(/\s+/).filter(Boolean).slice(0, 2).map(w => w[0].toU
 
 <Layout title={name}>
   <div class="max-w-5xl mx-auto px-4 py-12 sm:py-20">
-    <a href={basePath + "/team"} class="inline-flex items-center text-sm text-gray-500 hover:text-blue-600 mb-8 transition-colors">
+    <a href={basePath + "/team"} class="inline-flex items-center text-sm text-gray-500 hover:text-emerald-600 mb-8 transition-colors">
       <ArrowLeft className="w-4 h-4 mr-1" /> Back to Team
     </a>
 
     <header class="mb-8">
       <h1 class="page-title">{name}</h1>
-      <p class="mt-2 text-lg text-blue-800 font-medium">{role}</p>
+      <p class="mt-2 text-lg text-emerald-800 font-medium">{role}</p>
     </header>
 
     <div class="card p-8 mb-12">
@@ -46,37 +46,37 @@ const initials = name.split(/\s+/).filter(Boolean).slice(0, 2).map(w => w[0].toU
         <div class="flex-grow text-center md:text-left">
           <div class="flex flex-wrap justify-center md:justify-start gap-3">
             {email && (
-              <a href={`mailto:${email}`} class="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-50 text-gray-600 hover:bg-blue-50 hover:text-blue-600 transition-colors text-sm">
+              <a href={`mailto:${email}`} class="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-50 text-gray-600 hover:bg-emerald-50 hover:text-emerald-600 transition-colors text-sm">
                 <Mail className="w-4 h-4" />
                 <span>Email</span>
               </a>
             )}
             {website && (
-              <a href={website} target="_blank" class="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-50 text-gray-600 hover:bg-blue-50 hover:text-blue-600 transition-colors text-sm">
+              <a href={website} target="_blank" class="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-50 text-gray-600 hover:bg-emerald-50 hover:text-emerald-600 transition-colors text-sm">
                 <Globe className="w-4 h-4" />
                 <span>Website</span>
               </a>
             )}
             {linkedin && (
-              <a href={linkedin} target="_blank" class="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-50 text-gray-600 hover:bg-blue-50 hover:text-blue-600 transition-colors text-sm">
+              <a href={linkedin} target="_blank" class="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-50 text-gray-600 hover:bg-emerald-50 hover:text-emerald-600 transition-colors text-sm">
                 <Linkedin className="w-4 h-4" />
                 <span>LinkedIn</span>
               </a>
             )}
             {github && (
-              <a href={github} target="_blank" class="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-50 text-gray-600 hover:bg-blue-50 hover:text-blue-600 transition-colors text-sm">
+              <a href={github} target="_blank" class="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-50 text-gray-600 hover:bg-emerald-50 hover:text-emerald-600 transition-colors text-sm">
                 <Github className="w-4 h-4" />
                 <span>GitHub</span>
               </a>
             )}
             {twitter && (
-              <a href={twitter} target="_blank" class="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-50 text-gray-600 hover:bg-blue-50 hover:text-blue-600 transition-colors text-sm">
+              <a href={twitter} target="_blank" class="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-50 text-gray-600 hover:bg-emerald-50 hover:text-emerald-600 transition-colors text-sm">
                 <Twitter className="w-4 h-4" />
                 <span>Twitter</span>
               </a>
             )}
             {googleScholar && (
-              <a href={googleScholar} target="_blank" class="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-50 text-gray-600 hover:bg-blue-50 hover:text-blue-600 transition-colors text-sm">
+              <a href={googleScholar} target="_blank" class="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-50 text-gray-600 hover:bg-emerald-50 hover:text-emerald-600 transition-colors text-sm">
                 <GraduationCap className="w-4 h-4" />
                 <span>Scholar</span>
               </a>
@@ -86,7 +86,7 @@ const initials = name.split(/\s+/).filter(Boolean).slice(0, 2).map(w => w[0].toU
           {title && title.length > 0 && (
             <div class="flex flex-wrap justify-center md:justify-start gap-2 mt-4">
               {title.map((t) => (
-                <span class="bg-blue-100 text-blue-800 text-xs px-2.5 py-0.5 rounded border border-blue-200">
+                <span class="bg-emerald-100 text-emerald-800 text-xs px-2.5 py-0.5 rounded border border-emerald-200">
                   {t}
                 </span>
               ))}

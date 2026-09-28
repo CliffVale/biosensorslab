@@ -29,11 +29,11 @@ const courses = [
       <div class="space-y-4">
         {courses.map(c => (
           <div class="card card-hover p-5 sm:p-6 flex items-start gap-4">
-            <div class="shrink-0 w-11 h-11 rounded-lg bg-blue-50 flex items-center justify-center">
-              <BookOpen className="w-5 h-5 text-blue-700" />
+            <div class="shrink-0 w-11 h-11 rounded-lg bg-emerald-50 flex items-center justify-center">
+              <BookOpen className="w-5 h-5 text-emerald-700" />
             </div>
             <div>
-              <p class="text-xs font-mono font-semibold text-blue-700">{c.code}</p>
+              <p class="text-xs font-mono font-semibold text-emerald-700">{c.code}</p>
               <h3 class="font-semibold text-gray-900">{c.title}</h3>
               {c.note && <p class="text-sm text-gray-500 mt-1">{c.note}</p>}
             </div>
@@ -45,7 +45,7 @@ const courses = [
         <CalendarDays className="w-5 h-5 text-gray-500 mt-0.5" />
         <p class="text-sm text-gray-600">
           Course offerings and schedules vary by semester. Please contact
-          <a href="mailto:nks@iitd.ac.in" class="text-blue-700 underline mx-1">nks@iitd.ac.in</a>
+          <a href="mailto:nks@iitd.ac.in" class="text-emerald-700 underline mx-1">nks@iitd.ac.in</a>
           or check the CBME department page for the current semester's course list.
         </p>
       </div>

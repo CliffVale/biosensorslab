@@ -4,6 +4,7 @@ authors: ["Naveen K. Singh", "Gurpreet K. Sidhu", "Kuldeep Gupta"]
 year: 2022
 venue: "Biomedicines"
 type: "paper"
+cover: "../../assets/publications/2022-singh-biomedicines-review.png"
 links:
   pdf: ""
   code: ""

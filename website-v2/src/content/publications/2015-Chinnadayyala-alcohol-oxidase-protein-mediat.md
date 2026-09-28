@@ -4,6 +4,7 @@ authors: ["Somasekhar R. Chinnadayyala", "Mallesh Santhosh", "Naveen K. Singh", 
 year: 2015
 venue: "Biosensors and Bioelectronics"
 type: "paper"
+cover: "../../assets/publications/2015-chinnadayyala-alcohol-oxidase.jpg"
 links:
   pdf: ""
   code: ""

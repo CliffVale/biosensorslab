@@ -4,6 +4,7 @@ authors: ["Naveen K. Singh", "Saeromi Chung", "Michael Sveiven", "Drew A. Hall"]
 year: 2021
 venue: "ACS Omega"
 type: "paper"
+cover: "../../assets/publications/2021-singh-cortisol.jpg"
 links:
   pdf: ""
   code: ""

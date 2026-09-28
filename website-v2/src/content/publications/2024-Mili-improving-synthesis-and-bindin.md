@@ -4,6 +4,7 @@ authors: ["Malaya Mili", "Vinay Bachu", "Pooja Rani Kuri", "Naveen Kumar Singh",
 year: 2024
 venue: "Biophysical Chemistry"
 type: "paper"
+cover: "../../assets/publications/2024-mili-improving-synthesis.jpg"
 links:
   pdf: ""
   code: ""

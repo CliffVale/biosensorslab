@@ -6,6 +6,7 @@ authors: ["Saeromi Chung", "Naveen K. Singh", "Valentin K. Gribkoff", "Drew A. H
 year: 2022
 venue: "ACS Omega"
 type: "paper"
+cover: "../../assets/publications/2022-chung-carbamazepine.png"
 links:
   pdf: ""
   code: ""

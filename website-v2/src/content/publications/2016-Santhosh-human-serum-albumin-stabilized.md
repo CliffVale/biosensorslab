@@ -4,6 +4,7 @@ authors: ["Mallesh Santhosh", "Somasekhar R. Chinnadayyala", "Naveen K. Singh", 
 year: 2016
 venue: "Bioelectrochemistry"
 type: "paper"
+cover: "../../assets/publications/2016-santhosh-human-serum-albumin.jpg"
 links:
   pdf: ""
   code: ""

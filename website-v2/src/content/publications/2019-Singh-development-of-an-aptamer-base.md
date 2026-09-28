@@ -4,6 +4,7 @@ authors: ["Naveen K. Singh", "Phurpa Dema Thungon", "Pedro Estrela", "Pranab Gos
 year: 2019
 venue: "Biosensors and Bioelectronics"
 type: "paper"
+cover: "../../assets/publications/2019-singh-development-aptamer.jpg"
 links:
   pdf: ""
   code: ""

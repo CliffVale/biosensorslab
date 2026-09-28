@@ -4,6 +4,7 @@ authors: ["Kushagra Jain", "Shivam Kumar", "Muhammad Khalid Bhat", "Zeenat Khato
 year: 2026
 venue: "Biosensors and Bioelectronics: X"
 type: "paper"
+cover: "../../assets/publications/2026-jain-nanoengineered.jpg"
 links:
   pdf: ""
   code: ""

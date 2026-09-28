@@ -141,15 +141,28 @@ function importBibtex() {
     if (tags.featured === 'true' || note.toLowerCase().includes('featured') || note.toLowerCase().includes('selected')) {
       isFeatured = true;
     }
-    // Check existing file to preserve manual edits
+    // Check existing file to preserve manual edits (featured flag + cover image)
+    let existingCover = '';
     if (fs.existsSync(filePath)) {
       try {
         const existingContent = fs.readFileSync(filePath, 'utf-8');
         if (/featured:\s*true/.test(existingContent)) {
           isFeatured = true;
         }
+        const coverMatch = existingContent.match(/^cover:\s*"(.+)"\s*$/m);
+        if (coverMatch) existingCover = coverMatch[1];
       } catch (e) {
         console.warn(`Warning: Could not read existing file ${filePath}`);
+      }
+    }
+
+    // Bib cover field wins only if set; otherwise keep the cover from the existing file
+    let finalCover = cover || existingCover;
+    if (finalCover) {
+      const coverAbsPath = path.join(process.cwd(), finalCover.replace('../../', 'src/'));
+      if (!fs.existsSync(coverAbsPath)) {
+        console.warn(`Warning: Cover image not found at ${coverAbsPath}. Omitting cover.`);
+        finalCover = '';
       }
     }
     
@@ -160,7 +173,7 @@ function importBibtex() {
       `year: ${year}`,
       `venue: "${venue.replace(/"/g, '\\"')}"`,
       `type: "${type}"`,
-      cover ? `cover: "${cover}"` : '',
+      finalCover ? `cover: "${finalCover}"` : '',
       'links:',
       `  pdf: "${pdf}"`,
       `  code: "${code}"`,

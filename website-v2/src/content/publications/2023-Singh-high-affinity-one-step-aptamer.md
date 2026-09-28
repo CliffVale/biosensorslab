@@ -4,6 +4,7 @@ authors: ["Naveen K. Singh", "Yixun Wang", "Connie Wen", "Brandon Davis", "Xueli
 year: 2023
 venue: "Nature Biotechnology"
 type: "paper"
+cover: "../../assets/publications/2023-singh-high-affinity.png"
 links:
   pdf: ""
   code: ""
