@@ -34,7 +34,7 @@ biosensorslab/
 
 > **One rule:** all editing happens in `website-v2/`. Raw photo archives and old experiments are no longer tracked in git — keep them on your own machine or cloud drive.
 
-> **Non-technical?** Skip all of it — edit the site visually at [app.sitepins.com](https://app.sitepins.com) (see [`GUIDE.md`](GUIDE.md), Method A).
+> **Non-technical?** Skip all of it — edit the site visually at [app.pagescms.org](https://app.pagescms.org) (see [`GUIDE.md`](GUIDE.md), Method A).
 
 ---
 

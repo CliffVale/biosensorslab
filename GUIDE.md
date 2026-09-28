@@ -25,34 +25,38 @@ You edit a file  →  You "commit & push" (save to GitHub)  →  Website updates
 
 | Method | Best for | Skills needed |
 |--------|----------|---------------|
-| **A. Sitepins** (visual CMS — app.sitepins.com) | Everyday edits: team, news, publications, patents, equipment | None — no GitHub, no code |
-| **B. Edit on GitHub.com** (in your browser) | Quick fixes to files Sitepins doesn't cover (e.g. page text) | None — just a browser |
+| **A. Pages CMS** (visual CMS — app.pagescms.org) | Everyday edits: team, news, publications, patents, equipment | None — no GitHub, no code |
+| **B. Edit on GitHub.com** (in your browser) | Quick fixes to files Pages CMS doesn't cover (e.g. page text) | None — just a browser |
 | **C. Edit on your computer** | Adding photos, big changes, batch edits | Install 2 free programs once |
 
 ---
 
-### Method A — Sitepins (visual editor, recommended)
+### Method A — Pages CMS (visual editor, recommended)
 
-1. Go to https://app.sitepins.com and sign in with GitHub.
-2. Open the **biosensorslab** repo. Sitepins shows every content collection
-   (team, news, publications, patents, equipment, research) as editable forms.
+Pages CMS (https://pagescms.org) is 100% free and open source — no plan limits
+on editors. The site's config lives in `.pages.yml` at the repo root.
+
+1. Go to https://app.pagescms.org and sign in with GitHub.
+2. Open the **biosensorslab** repo. It reads `.pages.yml` and shows every
+   content collection (team, news, publications, patents, equipment, research)
+   as editable forms.
 3. Click an entry, edit the fields, upload photos by drag-and-drop, **Save**.
 4. Every save becomes a commit — the live site updates in ~2 minutes, same as
    pushing by hand. Full history and undo are built in.
 
 New editors (e.g. the PI or lab admin) don't need a GitHub account — invite
-them by email from Sitepins → Team settings.
+them by email from Pages CMS → Collaborators (see repo settings).
 
 #### Editor rulebook (share this with every new editor)
 
-1. **Save = publish.** Everything you save in Sitepins goes live in ~2 minutes.
+1. **Save = publish.** Everything you save in Pages CMS goes live in ~2 minutes.
    Use the preview before saving.
 2. **Stay in your lane.** Only edit entries in team, news, publications,
    patents, equipment, research. Never touch code files, config, or workflows.
 3. **Don't merge dependency/dependabot PRs** (if you ever see them). They are
    maintainer-only — a wrong merge can take the whole site offline.
 4. **Broke something? Don't panic.** Open the entry's version history in
-   Sitepins → **Restore** the previous version. Nothing is ever lost.
+   Pages CMS → **Restore** the previous version. Nothing is ever lost.
 
 #### If the site stops updating ("Run failed")
 
@@ -60,7 +64,7 @@ them by email from Sitepins → Team settings.
   (red ❌ at github.com/CliffVale/biosensorslab/actions) means the last change
   did **not** go live — the site keeps showing the last good version, so
   nothing is "half-broken" for visitors.
-- While the build is red, Sitepins edits can behave oddly (edits may pile up
+- While the build is red, Pages CMS edits can behave oddly (edits may pile up
   uncommitted or fail). Fix the build first, then continue editing.
 - **For editors:** restore your last edit (rule 4) and ask the maintainer.
 - **For the maintainer:** open the failed run, read the error (it's usually
