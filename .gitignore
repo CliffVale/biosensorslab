@@ -54,3 +54,4 @@ website/
 updates/
 *.zip
 source-assets/
+.playwright-cli/
