@@ -23,8 +23,24 @@
 
 CSC will point `biosensorlab.iitd.ac.in` at **10.10.211.213** — an IITD-internal address,
 i.e. the site will be **self-hosted on CSC's virtual web hosting** (Apache server), not on
-GitHub Pages. Per CSC documentation (csc.iitd.ac.in → Services → Web Services → Virtual
-Web Hosting):
+GitHub Pages.
+
+> ✅ **Verified against official CSC docs (2026-09-28):**
+> https://csc.iitd.ac.in/services-web-services-virtual-web-hosting — the procedure below
+> matches CSC's published steps exactly. Key facts from the official page:
+> - Facility hosts all sites of the form `https://xyz.iitd.ac.in` not maintained by CSC
+> - Apache + PHP 8.2 + MySQL (we need neither — static files only), **up to 2 MySQL DBs**
+> - **Enforced HTTPS** (certificate provisioned by CSC)
+> - **Shell access** to the web server; files via SSH/scp (WinSCP/FileZilla ok)
+> - Request **must come from the faculty-in-charge** — CSC will not process requests
+>   from non-faculty, even if cc'd
+> - CSC review is manual: DNS pointers, SSL cert, DB account creation
+> - **Turnaround: typically ≤ 3 working days** after faculty request
+> - Docroot tree: `/var/www/xyz/` → `apache-logs/` (access, error, ssl logs),
+>   `https/html/` (site files), `https/cgi-bin/`, `README`
+> - DB credentials (if any) must be **collected in person** from the Web team, CSC
+
+Per CSC documentation (csc.iitd.ac.in → Services → Web Services → Virtual Web Hosting):
 
 - Apache with PHP 8.2 / MySQL available (we need **neither** — static files only)
 - **Enforced HTTPS** (certificate provisioned by CSC)
@@ -36,10 +52,36 @@ Web Hosting):
 
 ## 1. One-Time: Get Server Access
 
-1. PI (faculty) must have sent the original request to `webgroup@cc.iitd.ac.in` from an
-   IITD email, listing the **LDAP usernames** that get edit access (≤ needed: PI + 1–2
-   students). ⚠️ CSC ignores requests from non-faculty senders.
-2. Once CSC confirms provisioning, test from the campus network (or VPN):
+1. **The exact request Dr. Singh must send** (copy-paste for the PI, per CSC's published
+   checklist — every listed item is included):
+
+   > To: webgroup@cc.iitd.ac.in
+   > Subject: Request for virtual web hosting — biosensorlab.iitd.ac.in
+   >
+   > Dear CSC Web Team,
+   >
+   > I am the faculty-in-charge of the BiosensorsLab (Biosensors & Devices Lab), Centre
+   > for Biomedical Engineering, IIT Delhi. Please provision a virtual web domain per
+   > the Virtual Web Hosting facility:
+   >
+   > 1. **Domain name:** biosensorlab.iitd.ac.in
+   > 2. **Faculty contact:** Dr. Naveen Kumar Singh, nks@iitd.ac.in (Assistant Professor, CBME)
+   > 3. **Purpose:** Official lab website — research, publications, team, and contact
+   >    information for the BiosensorsLab
+   > 4. **Database access:** Not required (static website)
+   > 5. **LDAP usernames with edit-access:**
+   >    - nks (Dr. Naveen Kumar Singh, PI — faculty-in-charge)
+   >    - <ldap-id-2> (lab manager / senior PhD student)
+   >    - <ldap-id-3> (website maintainer)
+   >
+   > Thank you,
+   > Naveen Kumar Singh
+   > Assistant Professor, CBME, IIT Delhi
+
+   ⚠️ Fill in the real LDAP IDs before sending. CSC's site explicitly states requests
+   from non-faculty senders are **not processed**.
+2. CSC confirms provisioning (≤ 3 working days per official docs). Then test from campus
+   network (or VPN):
 
 ```bash
 ssh <your-ldap>@biosensorlab.iitd.ac.in
@@ -188,10 +230,24 @@ not set up now because SSH credentials for the server don't exist in this repo y
 
 ---
 
-## 8. Contact Points
+## 8. Contact Points (verified against csc.iitd.ac.in/contact)
 
 | Need | Contact |
 |------|---------|
-| DNS/SSL/server issues, group permissions | `webgroup@cc.iitd.ac.in` (from faculty email) |
+| Virtual web hosting (this request) | `webgroup@cc.iitd.ac.in` — **must be sent by the faculty-in-charge** |
+| General CSC help | `help@cc.iitd.ac.in` · 011-2659-7220 · Ground Floor, Main Building |
+| VPN setup (for off-campus deploys) | `sysadm@cc.iitd.ac.in` |
 | Domain was requested by | Dr. Naveen Kumar Singh (`nks@iitd.ac.in`) |
-| Email text (keep for records) | "Please create DNS mapping for biosensorlab.iitd.ac.in to 10.10.211.213." |
+| Official procedure reference | https://csc.iitd.ac.in/services-web-services-virtual-web-hosting (verified 2026-09-28) |
+
+## 9. Status Tracker
+
+- [ ] PI sends the §1 request email to webgroup@cc.iitd.ac.in (with real LDAP IDs)
+- [ ] CSC provisioning confirmation received (≤ 3 working days)
+- [ ] SSH test from campus/VPN succeeds
+- [ ] §2 base-path rebuild committed (`base: '/'` branch)
+- [ ] First rsync + permission fix complete
+- [ ] §3 verification checklist all green
+- [ ] Google Search Console verified + sitemap submitted
+- [ ] DNS/email signature/QR updates announced
+- [ ] GitHub Pages kept as archive (Option A) — final decision logged here
