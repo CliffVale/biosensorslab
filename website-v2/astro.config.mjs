@@ -20,5 +20,11 @@ export default defineConfig({
     }
   },
 
-  integrations: [react(), sitemap()]
+  integrations: [react(), sitemap()],
+
+  redirects: {
+    // ⚠ targets include the GitHub Pages base path — update both when moving to the IITD domain (base '/')
+    '/join': '/biosensorslab/contact',
+    '/important-links': '/biosensorslab/contact',
+  }
 });

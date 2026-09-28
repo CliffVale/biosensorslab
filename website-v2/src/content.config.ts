@@ -74,6 +74,7 @@ const research = defineCollection({
     title: z.string(),
     description: z.string(),
     cover: image().optional(),
+    tags: z.array(z.string()).default([]),
     order: z.number().default(100),
   }),
 });

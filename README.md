@@ -13,7 +13,7 @@ Official website of the **Biosensors & Devices Lab**, Centre for Biomedical Engi
 biosensorslab/
 ├── website-v2/              # ⭐ THE WEBSITE — all content & pages live here
 │   ├── src/
-│   │   ├── pages/           # 15 pages (home, team, publications, …)
+│   │   ├── pages/           # 13 pages (home, team, publications, …)
 │   │   ├── components/      # Reusable pieces (header, cards)
 │   │   ├── content/         # ✏️ EDIT HERE — team, news, equipment, patents, publications (one text file per item)
 │   │   ├── assets/          # 📷 All photos (team, equipment, gallery, branding)

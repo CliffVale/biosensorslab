@@ -1,20 +1,28 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import PageHead from '../components/PageHead.astro';
-import { Mail, Phone, MapPin, Clock } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, GraduationCap, BookOpen, FlaskConical, ExternalLink, Database } from 'lucide-react';
+import { SITE } from '../config';
+
+const links = [
+  { name: 'Centre for Biomedical Engineering, IIT Delhi', url: 'https://cbme.iitd.ac.in/', desc: 'Department homepage' },
+  { name: 'IIT Delhi', url: 'https://home.iitd.ac.in/', desc: 'Institute homepage' },
+];
 ---
 
 <Layout
-  title="Contact Us"
-  description="Contact the Biosensors & Devices Lab at IIT Delhi."
+  title="Contact"
+  description="Contact the Biosensors & Devices Lab at IIT Delhi — visit us, collaborate, or apply to join as a PhD, master's, or undergraduate researcher."
 >
   <PageHead
-    title="Contact Us"
+    title="Contact"
     lede="We welcome collaboration enquiries, student applications, and academic visitors."
-    width="max-w-4xl"
+    width="max-w-5xl"
   />
+
+  <!-- Contact details -->
   <section class="pt-12 pb-4 sm:pt-16">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div class="card p-6">
           <div class="w-11 h-11 rounded-lg bg-blue-50 flex items-center justify-center mb-4">
@@ -35,7 +43,7 @@ import { Mail, Phone, MapPin, Clock } from 'lucide-react';
             <MapPin className="w-5 h-5 text-blue-700" />
           </div>
           <h2 class="font-semibold text-gray-900 mb-1">Address</h2>
-          <p class="text-gray-700 leading-relaxed">
+          <p class="text-gray-700">
             Biosensors &amp; Devices Lab<br />
             Centre for Biomedical Engineering<br />
             Indian Institute of Technology Delhi<br />
@@ -48,10 +56,108 @@ import { Mail, Phone, MapPin, Clock } from 'lucide-react';
             <Clock className="w-5 h-5 text-blue-700" />
           </div>
           <h2 class="font-semibold text-gray-900 mb-1">Visiting</h2>
-          <p class="text-gray-700 text-sm">
-            Prospective students and collaborators are encouraged to email before visiting.
-          </p>
+          <p class="text-gray-700">Prospective students and collaborators are encouraged to email before visiting.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Join the lab -->
+  <section id="join" class="pt-16 border-t border-gray-100 mt-12">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="section-title">Join the lab</h2>
+      <p class="page-lede mt-3 mb-10">
+        We are always looking for motivated students and researchers with backgrounds in chemistry,
+        biology, electronics, or bioengineering. If you are interested in biosensors, point-of-care
+        diagnostics, wearable devices, or programmable biomaterials, please get in touch.
+      </p>
+
+      <div class="grid gap-8 md:grid-cols-3 mb-14">
+        <div class="card card-hover p-6">
+          <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4 text-blue-700">
+            <GraduationCap className="w-6 h-6" />
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">PhD Students</h3>
+          <p class="text-gray-600 text-sm mb-4">
+            We are looking for PhD students with a strong background in any of: chemistry, biology, electronics, or bioengineering.
+          </p>
+          <ul class="text-sm text-gray-600 space-y-2 list-disc list-inside">
+            <li>Curiosity-driven research mindset</li>
+            <li>Hands-on experimental skills (wet-lab or instrumentation)</li>
+            <li>Interest in biosensors &amp; point-of-care diagnostics</li>
+          </ul>
+        </div>
+
+        <div class="card card-hover p-6">
+          <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4 text-blue-700">
+            <BookOpen className="w-6 h-6" />
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Master Students</h3>
+          <p class="text-gray-600 text-sm mb-4">
+            Motivated master students who want to dive deep into biosensor research are welcome.
+          </p>
+          <ul class="text-sm text-gray-600 space-y-2 list-disc list-inside">
+            <li>Passion for research</li>
+            <li>Basic wet-lab or electronics skills</li>
+            <li>Commitment to projects</li>
+          </ul>
+        </div>
+
+        <div class="card card-hover p-6">
+          <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4 text-blue-700">
+            <FlaskConical className="w-6 h-6" />
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Undergraduates</h3>
+          <p class="text-gray-600 text-sm mb-4">
+            Talented undergraduates can join us for research training, projects, and internships.
+          </p>
+          <ul class="text-sm text-gray-600 space-y-2 list-disc list-inside">
+            <li>Curiosity driven</li>
+            <li>Fast learner</li>
+            <li>Team player</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-gray-50 rounded-xl p-8 sm:p-12 text-center">
+        <h3 class="section-title mb-4">How to Apply</h3>
+        <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
+          Please send your CV, transcripts, and a brief statement of research interests to Dr. Naveen Kumar Singh.
+          Make sure to include "[Application]" in your email subject.
+        </p>
+
+        <a href={`mailto:${SITE.email}?subject=[Application]%20Biosensors%20%26%20Devices%20Lab`} class="btn-press inline-flex items-center gap-2 bg-blue-700 text-white px-7 py-3 rounded-full font-semibold hover:bg-blue-800 transition-colors">
+          <Mail className="w-5 h-5" />
+          <span>Send Email</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Useful links -->
+  <section class="pt-16 pb-4 mt-12 border-t border-gray-100">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="section-title mb-8">Useful Links</h2>
+      <div class="space-y-3">
+        {links.map(l => (
+          <a
+            href={l.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group card card-hover flex items-center justify-between px-5 py-4"
+          >
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center">
+                <Database className="w-5 h-5 text-blue-700" />
+              </div>
+              <div>
+                <p class="font-medium text-gray-900 group-hover:text-blue-700">{l.name}</p>
+                <p class="text-sm text-gray-500">{l.desc}</p>
+              </div>
+            </div>
+            <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-blue-700" />
+          </a>
+        ))}
       </div>
     </div>
   </section>

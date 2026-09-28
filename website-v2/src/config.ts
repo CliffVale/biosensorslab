@@ -30,9 +30,7 @@ export const SITE = {
     { text: 'Courses', link: '/courses', key: 'courses' },
     { text: 'Gallery', link: '/gallery', key: 'gallery' },
     { text: 'News', link: '/news', key: 'news' },
-    { text: 'Links', link: '/important-links', key: 'links' },
     { text: 'Contact', link: '/contact', key: 'contact' },
-    { text: 'Join Us', link: '/join', key: 'join' },
     { text: 'Search', link: '/search', key: 'search' },
   ],
 

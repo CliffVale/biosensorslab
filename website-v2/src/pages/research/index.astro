@@ -12,7 +12,7 @@ const researchAreas = (await getCollection('research')).sort((a, b) => a.data.or
   <PageHead
     title="Research Areas"
     lede="Point-of-care diagnostics, wearable biosensors, and programmable biomaterials — engineering devices that move from the bench to the clinic."
-    width="max-w-7xl"
+    width="max-w-5xl"
   />
   <div class="max-w-7xl mx-auto px-4 pt-12 pb-4" data-reveal>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -39,6 +39,13 @@ const researchAreas = (await getCollection('research')).sort((a, b) => a.data.or
             <p class="text-gray-600 text-sm mb-4 line-clamp-3">
               {area.data.description}
             </p>
+            {area.data.tags?.length > 0 && (
+              <div class="flex flex-wrap gap-1.5 mb-4">
+                {area.data.tags.map(tag => (
+                  <span class="px-2 py-0.5 rounded-md bg-gray-50 border border-gray-200 text-gray-600 text-xs">{tag}</span>
+                ))}
+              </div>
+            )}
             <span class="mt-auto inline-flex items-center text-sm font-medium text-blue-700">
               Learn more <ArrowRight className="ml-1 w-4 h-4" />
             </span>

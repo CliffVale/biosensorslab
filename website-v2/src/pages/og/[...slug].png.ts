@@ -20,7 +20,6 @@ export async function getStaticPaths() {
     { slug: 'patents', title: 'Patents', subtitle: 'Patents & Intellectual Property' },
     { slug: 'equipment', title: 'Equipment', subtitle: 'Lab Instrumentation' },
     { slug: 'news', title: 'News', subtitle: 'Latest Updates' },
-    { slug: 'join', title: 'Join Us', subtitle: 'Open Positions' },
   ];
 
   // Generate paths for static pages

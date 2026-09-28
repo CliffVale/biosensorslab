@@ -21,9 +21,7 @@ const iconMap: Record<string, any> = {
   courses: GraduationCap,
   gallery: Camera,
   news: Newspaper,
-  links: ExternalLink,
   contact: Phone,
-  join: UserPlus,
   search: Search,
 };
 
@@ -86,6 +84,12 @@ const isActive = (link: string) => {
             </a>
           );
         })}
+        <a
+          href={baseUrl + "/contact#join"}
+          class="btn-press ml-2 inline-flex items-center px-4 py-2 rounded-full bg-blue-700 text-white text-sm font-semibold hover:bg-blue-800 transition-colors"
+        >
+          Apply
+        </a>
       </nav>
 
       <!-- Mobile Menu Button -->
@@ -147,6 +151,12 @@ const isActive = (link: string) => {
     </nav>
 
     <div class="p-8 bg-gray-50 shrink-0 border-t border-gray-200">
+      <a
+        href={baseUrl + "/contact#join"}
+        class="btn-press block w-full text-center bg-blue-700 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-800 transition-colors mb-4"
+      >
+        Apply to Join Us
+      </a>
       <p class="text-sm text-gray-500 font-medium text-center">© {new Date().getFullYear()} {SITE.labName}</p>
     </div>
   </div>

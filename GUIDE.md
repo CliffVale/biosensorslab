@@ -253,11 +253,11 @@ Order in the list = order on the page. Each photo shows as a square-ish card wit
 
 ### 5.7 Change text on any page
 
-The 15 main pages are single files in `website-v2/src/pages/`:
+The 13 main pages are single files in `website-v2/src/pages/`:
 `index.astro` (home) · `research/index.astro` (research overview) · `publications.astro` ·
 `patents.astro` · `equipment.astro` · `team.astro` · `funding.astro` ·
-`courses.astro` · `gallery.astro` · `news.astro` · `important-links.astro` ·
-`contact.astro` · `join.astro` · `search.astro`.
+`courses.astro` · `gallery.astro` · `news.astro` ·
+`contact.astro` (contact + join + links) · `search.astro` · `404.astro`.
 
 Open the file in VS Code and edit the **text between the HTML tags** — e.g. to
 change a heading, change only the words between `>` and `<`:
