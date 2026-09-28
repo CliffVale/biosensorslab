@@ -121,3 +121,9 @@ Chronological log of work. Append new entries; never rewrite history.
 - Rejected: scroll-jacking/fullpage (breaks deep links, SEO, CMS flow), carousel, parallax, cursor followers (AI-slop).
 - Incident: interrupted session corrupted index.astro with NUL bytes; detected via astro parse error, repaired, re-verified (check 0/0).
 - Verified live: all 6 section IDs, dots/progress/to-top present, deploy green.
+
+## 2026-09-28 (5) — Full-site scroll journey + perf audit + rename
+- **Scroll journey:** homepage now contains Team screen (4 member cards, from live collection data only) — full order: Home -> Research -> Publications -> Team -> News -> Equipment -> Funding -> Join. CSS scroll-snap (proximity) gated by capability checks (viewport, reduced-motion, cores, RAM) so weak devices scroll normally. Dot nav expanded to 8 stops incl. Home; scrollspy marks Home at top.
+- **Perf audit (web.dev 2026):** fixed equipment page shipping ~4MB eager images (added loading=lazy to astro:assets images on equipment/gallery/team); all imgs have dimensions (no CLS); CSS fully inline (50KB, 0 render-blocking requests); font preloaded + swap; hero fetchpriority=high; WebP via astro:assets with srcset/sizes. Homepage ~630KB total refs incl. all images. No quality degraded.
+- **Rename:** "Biosensors & Devices Lab" -> "BiosensorsLab" everywhere (15 source files, config, .pages.yml, README, GUIDE). Verified 0 old occurrences; title now "Home | BiosensorsLab".
+- All verified live: scroll stops, team screen, rename, routes 200.
