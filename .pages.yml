@@ -1,0 +1,260 @@
+# Pages CMS configuration — https://pagescms.org
+# Maps the website's Astro content collections to visual editor forms.
+# Content paths are relative to this repository root.
+
+media:
+  - name: team-photos
+    label: Team photos
+    input: website-v2/src/assets/team
+    output: ../../assets/team
+    extensions: [jpg, jpeg, png, webp]
+  - name: equipment-photos
+    label: Equipment photos
+    input: website-v2/src/assets/equipment
+    output: ../../assets/equipment
+    extensions: [jpg, jpeg, png, webp]
+  - name: gallery-photos
+    label: Gallery photos
+    input: website-v2/src/assets/gallery
+    output: ../../assets/gallery
+    extensions: [jpg, jpeg, png, webp]
+
+content:
+  - name: team
+    label: Team
+    type: collection
+    path: website-v2/src/content/team
+    format: yaml-frontmatter
+    filename: '{primary}.md'
+    view:
+      primary: name
+      sort: weight
+      order: asc
+    fields:
+      - name: name
+        label: Full name
+        type: string
+        required: true
+      - name: role
+        label: Role
+        type: select
+        options:
+          values:
+            - Principal Investigator
+            - Professor
+            - Associate Professor
+            - Assistant Professor
+            - Postdoc
+            - Research Scientist
+            - Research Assistant
+            - PhD Student
+            - Master Student
+            - Undergraduate
+            - Alumni
+        required: true
+      - name: title
+        label: Title badges (optional, e.g. "Project Research Scientist-I")
+        type: list
+        items:
+          type: string
+      - name: avatar
+        label: Photo
+        type: image
+      - name: bio
+        label: Short bio (shown on the team card)
+        type: text
+      - name: email
+        label: Email
+        type: string
+      - name: website
+        label: Website
+        type: string
+      - name: linkedin
+        label: LinkedIn URL
+        type: string
+      - name: github
+        label: GitHub URL
+        type: string
+      - name: twitter
+        label: Twitter/X URL
+        type: string
+      - name: googleScholar
+        label: Google Scholar URL
+        type: string
+      - name: weight
+        label: Listing order (smaller = higher; PI is 1, students 20+)
+        type: number
+      - name: body
+        label: Full profile
+        type: rich-text
+
+  - name: news
+    label: News
+    type: collection
+    path: website-v2/src/content/news
+    format: yaml-frontmatter
+    filename: '{primary}.md'
+    view:
+      primary: title
+      sort: date
+      order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: date
+        label: Date
+        type: date
+        required: true
+      - name: summary
+        label: Summary (shown on cards)
+        type: text
+      - name: body
+        label: Full story
+        type: rich-text
+
+  - name: publications
+    label: Publications
+    type: collection
+    path: website-v2/src/content/publications
+    format: yaml-frontmatter
+    filename: '{primary}.md'
+    view:
+      primary: title
+      sort: year
+      order: desc
+    fields:
+      - name: title
+        label: Paper title
+        type: string
+        required: true
+      - name: authors
+        label: Authors
+        type: list
+        items:
+          type: string
+      - name: year
+        label: Year
+        type: number
+      - name: venue
+        label: Journal / venue
+        type: string
+      - name: type
+        label: Type
+        type: select
+        options:
+          values: [paper, conference, book, chapter, preprint]
+      - name: doi
+        label: DOI (e.g. 10.1016/j.biosx.2026.100807)
+        type: string
+      - name: featured
+        label: Featured on homepage
+        type: boolean
+      - name: body
+        label: Abstract / notes
+        type: rich-text
+
+  - name: patents
+    label: Patents
+    type: collection
+    path: website-v2/src/content/patents
+    format: yaml-frontmatter
+    filename: '{primary}.md'
+    view:
+      primary: title
+      sort: year
+      order: desc
+    fields:
+      - name: title
+        label: Patent title
+        type: string
+        required: true
+      - name: number
+        label: Application / patent number
+        type: string
+      - name: status
+        label: Status
+        type: select
+        options:
+          values: [Granted, Filed, Application Submitted, Provisional Filed]
+      - name: year
+        label: Year
+        type: number
+      - name: jurisdiction
+        label: Jurisdiction (e.g. India, USA)
+        type: string
+      - name: date
+        label: Filing date (as text, e.g. "17 August 2026")
+        type: string
+      - name: note
+        label: Extra detail
+        type: text
+      - name: order
+        label: Listing order
+        type: number
+
+  - name: equipment
+    label: Equipment
+    type: collection
+    path: website-v2/src/content/equipment
+    format: yaml-frontmatter
+    filename: '{primary}.md'
+    view:
+      primary: name
+      sort: order
+      order: asc
+    fields:
+      - name: name
+        label: Instrument name
+        type: string
+        required: true
+      - name: function
+        label: What it does (one line)
+        type: string
+      - name: brand
+        label: Brand
+        type: string
+      - name: category
+        label: Category
+        type: string
+      - name: cover
+        label: Photo
+        type: image
+      - name: order
+        label: Listing order
+        type: number
+
+  - name: research
+    label: Research areas
+    type: collection
+    path: website-v2/src/content/research
+    format: yaml-frontmatter
+    filename: '{primary}.md'
+    view:
+      primary: title
+      sort: order
+      order: asc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: description
+        label: Short description (shown on cards)
+        type: text
+        required: true
+      - name: cover
+        label: Cover image
+        type: image
+      - name: tags
+        label: Tags
+        type: list
+        items:
+          type: string
+      - name: order
+        label: Listing order
+        type: number
+      - name: body
+        label: Full description
+        type: rich-text
