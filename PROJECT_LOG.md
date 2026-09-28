@@ -105,3 +105,10 @@ Chronological log of work. Append new entries; never rewrite history.
 - Fixed research empty-state developer message -> visitor-appropriate text; GUIDE.md pi.astro ref fixed
 - Verified: astro check 0/0, build clean, /pi absent from sitemap, no agentation in output
 - Removed "Built with Scholar-Lite" template credit from footer; GUIDE.md updated (Sitepins as Method A, corrected research-area count, renamed stale file refs); README.md map + version history (v2.5) refreshed after repo cleanup.
+
+## 2026-09-28 (3) — HEL-pattern upgrades + peer-lab analysis
+- **Merged Contact+Join+Links into one /contact page** (contact cards, #join section with position cards + How to Apply, Useful Links). /join + /important-links removed; Astro redirects added (base-aware: /biosensorslab/contact).
+- **Page-title alignment fixed** — every subpage PageHead + body container now max-w-5xl (was mixed 4xl/5xl/6xl/7xl, causing the jump between tabs); research detail page upgraded to .page-title.
+- **HEL takeaways adopted, zero fabricated content:** Apply CTA in header (desktop + mobile drawer) -> /contact#join; research-area tags (only terms already in each file's own text) rendered as chips on cards + detail pages.
+- **Peer-lab deep analysis:** Healthcare Engineering Lab (Arnab Chanda, CBME IITD, Next.js, 7 pages, filterable People, image-led research w/ tags, live job board, press-style news) and Kelley Laboratory (Northwestern, research areas each ending in Featured Publications with linked citations). Full notes in .firecrawl/ (not committed).
+- Improvements identified but NOT yet implemented: Featured-Publications block on research detail pages, People-style role filter tabs, press-coverage news items. Needs PI-approved sources before adding anything.
