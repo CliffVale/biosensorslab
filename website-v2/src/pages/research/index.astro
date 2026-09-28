@@ -42,7 +42,7 @@ const researchAreas = (await getCollection('research')).sort((a, b) => a.data.or
             {area.data.tags?.length > 0 && (
               <div class="flex flex-wrap gap-1.5 mb-4">
                 {area.data.tags.map(tag => (
-                  <span class="px-2 py-0.5 rounded-md bg-gray-50 border border-gray-200 text-gray-600 text-xs">{tag}</span>
+                  <span class="px-2 py-0.5 rounded-md bg-teal-50 border border-teal-200 text-teal-800 text-xs">{tag}</span>
                 ))}
               </div>
             )}
