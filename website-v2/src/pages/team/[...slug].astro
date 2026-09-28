@@ -18,19 +18,6 @@ const { name, role, title, avatar, email, website, linkedin, github, twitter, go
 
 const initials = name.split(/\s+/).filter(Boolean).slice(0, 2).map(w => w[0].toUpperCase()).join('');
 
-const roleToKey = {
-  'Principal Investigator': 'team.pi',
-  'Professor': 'team.professor',
-  'Teacher': 'team.teacher',
-  'Postdoctoral Researcher': 'team.postdoc_researcher',
-  'Postdoc': 'team.postdoc',
-  'Research Scientist': 'team.scientist',
-  'PhD Student': 'team.phd',
-  'Master Student': 'team.master',
-  'Graduate Student': 'team.graduate',
-  'Undergraduate': 'team.undergrad',
-  'Former Member': 'team.former'
-};
 ---
 
 <Layout title={name}>
