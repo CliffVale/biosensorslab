@@ -42,7 +42,7 @@
     "@tailwindcss/vite": "^4.1.17",
     "@types/react": "19.2.3",
     "@types/react-dom": "^19.2.3",
-    "astro": "^5.16.2",
+    "astro": "^7.3.5",
     "bibtex-parse-js": "^0.0.24",
     "lucide-react": "^0.555.0",
     "react": "19.3.0",
